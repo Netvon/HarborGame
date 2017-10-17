@@ -2,10 +2,14 @@
 //
 
 #include "stdafx.h"
+#include "GameLoop.h"
 
 
 int main()
 {
-    return _CrtDumpMemoryLeaks();
+	GameLoop gameloop;
+	gameloop.Start();
+
+	return _CrtDumpMemoryLeaks();
 }
 
