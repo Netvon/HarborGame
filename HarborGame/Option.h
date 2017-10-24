@@ -1,7 +1,7 @@
 #pragma once
 #include "stdafx.h"
 
-#include <string.h>
+#include "String.h"
 
 class Option {
 public:
@@ -10,5 +10,5 @@ public:
 		: number(number), name(name) {};
 
 	unsigned int number;
-	const char* name;
+	String name;
 };

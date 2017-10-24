@@ -2,39 +2,35 @@
 #include "Option.h"
 #include "InputManager.h"
 #include <functional>
+#include "Vector.h"
 
 using namespace std;
 
 class Location
 {
 public:
-	Location(unsigned int optionAmount) 
+	Location() 
 	{
-		options = new Option[optionAmount];
+		options = Vector<Option>();
 	}
 
-	virtual ~Location() 
-	{
-		if(options != nullptr)
-			delete[] options;
-	};
+	virtual ~Location() {};
 
 	virtual void PrintWelcomeMessage() const = 0;
 	virtual void PrintOptions() const 
 	{
 		printf("=========\nOptions\n");
-		for (size_t i = 0; i < optionsCount; i++)
+		for (size_t i = 0; i < options.size(); i++)
 		{
-			Option o = options[i];
-			printf(" %i. %s\n", o.number, o.name);
+			Option o = options.get(i);
+			printf(" %i. %s\n", o.number, o.name.c_str());
 		}
 		printf("=========\n");
 	}	
 
 	void AddOption(unsigned int number, const char * option) 
 	{
-		options[optionsCount] = Option(number, option);
-		optionsCount++;
+		options.push_back(Option(number, option));
 	}
 
 	void Print() const {
@@ -43,13 +39,13 @@ public:
 	}
 
 	void HandleInput() {
-		int option = manager.GetInput(optionsCount);
+		int option = manager.GetInput(static_cast<unsigned int>(options.size()));
 
-		for (size_t i = 0; i < optionsCount; i++)
+		for (size_t i = 0; i < options.size(); i++)
 		{
-			Option* o = &options[i];
-			if (o->number == option) {
-				HandleOptionSelected(*o);
+			Option o = options.get(i);
+			if (o.number == option) {
+				HandleOptionSelected(o);
 				return;
 			}
 		}
@@ -61,8 +57,7 @@ protected:
 	}
 
 private:
-	unsigned int optionsCount;
-	Option * options = nullptr;
+	Vector<Option> options;
 	InputManager manager;
 
 	virtual void HandleOptionSelected(Option option) = 0;

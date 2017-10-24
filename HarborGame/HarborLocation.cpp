@@ -2,7 +2,7 @@
 #include "HarborLocation.h"
 #include "State.h"
 
-HarborLocation::HarborLocation() : Location(5)
+HarborLocation::HarborLocation()
 {
 	AddOption(1, "Buy or Sell Goods");
 	AddOption(2, "Buy or Sell Cannons");
@@ -19,12 +19,12 @@ void HarborLocation::PrintWelcomeMessage() const
 
 void HarborLocation::HandleOptionSelected(Option option)
 {
-	printf("Option %i '%s' selected\n", option.number, option.name);
+	printf("Option %i '%s' selected\n", option.number, option.name.c_str());
 
 	switch (option.number)
 	{
 	case 6:
-		State::Instance()->SetQuitState(true);
+		State::Instance().SetQuitState(true);
 		break;
 	default:
 		break;

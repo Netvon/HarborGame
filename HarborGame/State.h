@@ -2,14 +2,12 @@
 class State
 {
 public:
-	static State * Instance();
+	static State & Instance();
 
 	bool GetQuitState() const;
 	void SetQuitState(bool newState);
+
 private:
-	State(): quit(false) {};
-
-	static State * instance;
-
+	State(): quit(false) { };
 	bool quit;
 };

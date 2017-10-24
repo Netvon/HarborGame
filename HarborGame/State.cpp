@@ -2,13 +2,9 @@
 #include "State.h"
 
 
-State * State::instance = nullptr;
-
-State * State::Instance()
+State & State::Instance()
 {
-	if (instance == nullptr)
-		instance = new State();
-
+	static State instance;
 	return instance;
 }
 

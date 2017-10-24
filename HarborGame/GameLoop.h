@@ -2,6 +2,9 @@
 #include "Location.h"
 #include "InputManager.h"
 
+#include "Vector.h"
+#include "SmrtPtr.h"
+
 class GameLoop
 {
 public:
@@ -17,5 +20,7 @@ private:
 	void ClearSceen() const;
 
 	InputManager inputManager;
+
+	Vector<SmrtPtr<Location>> locations;
 };
 
