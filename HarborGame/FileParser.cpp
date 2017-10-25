@@ -20,7 +20,7 @@ FileParser::~FileParser()
 }
 
 
-void FileParser::ParseFile(size_t elementsPerLine, const char* path) 
+void FileParser::ParseFile(const char* path) 
 {
 	ifstream infile;
 	int array[20];
@@ -39,10 +39,14 @@ void FileParser::ParseFile(size_t elementsPerLine, const char* path)
 			if (str - cNum == 0)
 				continue;
 
-			/*if (i > elementsPerLine - 2) {*/
-				all.push_back(cNum);
-				cout << cNum << endl;
-			/*}*/
+			if (i == 0) {
+				i++;
+				continue;
+			}
+				
+
+			all.push_back(cNum);
+			cout << cNum << endl;
 		
 			i++;
 		}

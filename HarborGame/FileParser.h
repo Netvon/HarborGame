@@ -5,7 +5,7 @@ public:
 	FileParser();
 	~FileParser();
 
-	void ParseFile(size_t elementsPerLine, const char* path);
+	void ParseFile(const char* path);
 };
 
 

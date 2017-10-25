@@ -152,6 +152,8 @@
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Location.h" />
     <ClInclude Include="Option.h" />
+    <ClInclude Include="Ship.h" />
+    <ClInclude Include="ShipFactory.h" />
     <ClInclude Include="SmrtPtr.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="stdafx.h" />
@@ -166,6 +168,8 @@
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Location.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Ship.cpp" />
+    <ClCompile Include="ShipFactory.cpp" />
     <ClCompile Include="State.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>

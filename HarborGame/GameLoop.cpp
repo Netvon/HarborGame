@@ -13,7 +13,7 @@ using namespace std;
 GameLoop::GameLoop()
 {
 	FileParser fp;
-	fp.ParseFile(16 ,"Files/goederen prijzen.csv");
+	fp.ParseFile("Files/schepen.csv");
 
 	locations.push_back(new HarborLocation());
 }
