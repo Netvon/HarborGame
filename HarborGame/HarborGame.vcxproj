@@ -146,6 +146,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="FileParser.h" />
     <ClInclude Include="GameLoop.h" />
     <ClInclude Include="HarborLocation.h" />
     <ClInclude Include="InputManager.h" />
@@ -159,6 +160,7 @@
     <ClInclude Include="Vector.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="FileParser.cpp" />
     <ClCompile Include="GameLoop.cpp" />
     <ClCompile Include="HarborLocation.cpp" />
     <ClCompile Include="InputManager.cpp" />

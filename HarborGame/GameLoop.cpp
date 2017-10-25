@@ -3,6 +3,7 @@
 #include "HarborLocation.h"
 #include "State.h"
 #include "SmrtPtr.h"
+#include "FileParser.h"
 
 #include <cstdio>
 #include <iostream>
@@ -11,6 +12,9 @@ using namespace std;
 
 GameLoop::GameLoop()
 {
+	FileParser fp;
+	fp.ParseFile(16 ,"Files/goederen prijzen.csv");
+
 	locations.push_back(new HarborLocation());
 }
 

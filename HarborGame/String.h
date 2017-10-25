@@ -22,6 +22,16 @@ public:
 		}
 	}
 
+	String(char string[]) : String()
+	{
+		size_t length = strlen(string) + 1;
+
+		for (size_t i = 0u; i < length; i++)
+		{
+			vector.push_back(string[i]);
+		}
+	}
+
 	String(String& string) : String()
 	{
 		size_t length = string.size();
