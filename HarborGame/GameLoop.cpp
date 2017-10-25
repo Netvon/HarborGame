@@ -11,17 +11,20 @@ using namespace std;
 
 GameLoop::GameLoop()
 {
-	locations.push_back(SmrtPtr<HarborLocation>(new HarborLocation()));
+	locations.push_back(new HarborLocation());
 }
 
 GameLoop::~GameLoop()
 {
-	
+	for (size_t i = 0; i < locations.size(); i++)
+	{
+		delete locations.get(i);
+	}
 }
 
 void GameLoop::Start()
 {
-	HarborLocation l = locations.get(0).value();
+	HarborLocation* l = dynamic_cast<HarborLocation*>(locations.get(0));
 
 	int i = 0;
 
@@ -32,8 +35,8 @@ void GameLoop::Start()
 		
 		i++;
 
-		l.Print();
-		l.HandleInput();
+		l->Print();
+		l->HandleInput();
 
 		ClearSceen();
 	}

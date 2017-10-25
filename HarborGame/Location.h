@@ -14,7 +14,10 @@ public:
 		options = Vector<Option>();
 	}
 
-	virtual ~Location() {};
+	virtual ~Location() 
+	{
+		
+	};
 
 	virtual void PrintWelcomeMessage() const = 0;
 	virtual void PrintOptions() const 

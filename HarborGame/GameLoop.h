@@ -21,6 +21,6 @@ private:
 
 	InputManager inputManager;
 
-	Vector<SmrtPtr<Location>> locations;
+	Vector<Location*> locations;
 };
 
