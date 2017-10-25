@@ -22,5 +22,7 @@ private:
 	InputManager inputManager;
 
 	Vector<Location*> locations;
-};
 
+	template<class T>
+	bool DeleteIf(Location* pointer);
+};

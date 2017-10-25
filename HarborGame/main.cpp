@@ -8,8 +8,8 @@
 int main()
 {
 	GameLoop gameloop;
-	gameloop.Start();
 
 	return _CrtDumpMemoryLeaks();
+	// hierzo
 }
 
