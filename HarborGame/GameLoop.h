@@ -3,6 +3,7 @@
 #include "InputManager.h"
 
 #include "Vector.h"
+#include "Ship.h"
 #include "SmrtPtr.h"
 
 class GameLoop
@@ -22,5 +23,6 @@ private:
 	InputManager inputManager;
 
 	Vector<Location*> locations;
+	Vector<Ship> ships;
 };
 

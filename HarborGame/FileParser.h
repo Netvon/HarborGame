@@ -1,3 +1,6 @@
+#include "Vector.h"
+#include "String.h"
+
 #pragma once
 class FileParser
 {
@@ -5,7 +8,7 @@ public:
 	FileParser();
 	~FileParser();
 
-	void ParseFile(const char* path);
+	Vector<String> ParseFile(const char* path);
 };
 
 

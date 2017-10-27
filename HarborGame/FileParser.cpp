@@ -20,13 +20,13 @@ FileParser::~FileParser()
 }
 
 
-void FileParser::ParseFile(const char* path) 
+Vector<String> FileParser::ParseFile(const char* path)
 {
 	ifstream infile;
 	int array[20];
 	int i = 0;
 	char cNum[256];
-	Vector<String> all;
+	Vector<String> AllLines;
 	
 	infile.open(path, ifstream::in);
 	if (infile.is_open())
@@ -44,13 +44,12 @@ void FileParser::ParseFile(const char* path)
 				continue;
 			}
 				
-
-			all.push_back(cNum);
-			cout << cNum << endl;
+			AllLines.push_back(cNum);
 		
 			i++;
 		}
 		infile.close();
+		return AllLines;
 	}
 	else
 	{

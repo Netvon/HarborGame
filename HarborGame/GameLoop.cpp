@@ -3,7 +3,10 @@
 #include "HarborLocation.h"
 #include "State.h"
 #include "SmrtPtr.h"
-#include "FileParser.h"
+#include "GameLoader.h"
+
+#include "Vector.h"
+#include "String.h"
 
 #include <cstdio>
 #include <iostream>
@@ -12,8 +15,6 @@ using namespace std;
 
 GameLoop::GameLoop()
 {
-	FileParser fp;
-	fp.ParseFile("Files/schepen.csv");
 
 	locations.push_back(new HarborLocation());
 }
@@ -28,6 +29,11 @@ GameLoop::~GameLoop()
 
 void GameLoop::Start()
 {
+	GameLoader gameLoader;
+	ships = gameLoader.LoadShips();
+
+
+
 	HarborLocation* l = dynamic_cast<HarborLocation*>(locations.get(0));
 
 	int i = 0;

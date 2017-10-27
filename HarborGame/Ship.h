@@ -4,7 +4,9 @@
 class Ship
 {
 public:
-	Ship(String& name,
+	Ship();
+
+	Ship(String name,
 		int price,
 		int cargospace,
 		int cannons,
@@ -12,6 +14,7 @@ public:
 		bool hasTinyTrait,
 		bool hasInertTrait,
 		bool hasLightTrait) :
+		name(name),
 		price(price),
 		cargospace(cargospace),
 		cannons(cannons),
@@ -28,7 +31,15 @@ public:
 
 	void setCurrentHealth(int pCurrentHealth);
 
+	String getName() const;
+	int getPrice() const;
+	int getCargospace() const;
+	int getCannons() const;
 	int getCurrentHealth() const;
+	int getMaxHealth() const;
+	bool getTinyTrait() const;
+	bool getInertTrait() const;
+	bool getLightTrait() const;
 
 private:
 	String name;
