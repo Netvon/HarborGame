@@ -6,12 +6,19 @@
 
 int main()
 {
-	GameLoop* gameloop = new GameLoop();
-	gameloop->Start();
+	GameLoop* gameloop = nullptr;
 
-	delete gameloop;
+	try {
+		gameloop = new GameLoop();
+		gameloop->Start();
+
+		delete gameloop;
+	}
+	catch (...) {
+		if (gameloop != nullptr)
+			delete gameloop;
+	}
 
 	return _CrtDumpMemoryLeaks();
-	// hierzo
 }
 

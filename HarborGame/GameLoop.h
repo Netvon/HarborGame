@@ -12,7 +12,6 @@ public:
 	~GameLoop();
 
 	void Start();
-
 private:
 	
 	bool quit = false;

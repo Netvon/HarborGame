@@ -2,13 +2,15 @@
 #include <cstddef>
 #include <iostream>
 
+#define VECTOR_DEFAULT_SIZE 16;
+
 template <class T>
 class Vector {
 	T *_array;
 	std::size_t _capacity;
 	std::size_t _used;
 public:
-	Vector() : Vector(16) { };
+	Vector() : Vector(VECTOR_DEFAULT_SIZE) { };
 
 	Vector(std::size_t cap) : _array{ new T[cap] },
 		_capacity{ cap },
@@ -102,9 +104,17 @@ public:
 			return *this;
 
 		size_t newSize = _used - 1;
-		T* temp = new T[newSize];
-		_used = newSize;
-		_capacity = newSize;
+
+		if (newSize > 0) {
+			T* temp = new T[newSize];
+			_used = newSize;
+			_capacity = newSize;
+		}
+		else {
+			T* temp = new T[VECTOR_DEFAULT_SIZE];
+			_used = 0;
+			_capacity = VECTOR_DEFAULT_SIZE;
+		}
 
 		for (std::size_t i = 0; i < newSize; i++)
 		{
@@ -123,9 +133,17 @@ public:
 			return *this;
 
 		size_t newSize = _used - 1;
-		T* temp = new T[newSize];
-		_used = newSize;
-		_capacity = newSize;
+
+		if (newSize > 0) {
+			T* temp = new T[newSize];
+			_used = newSize;
+			_capacity = newSize;
+		}
+		else {
+			T* temp = new T[VECTOR_DEFAULT_SIZE];
+			_used = 0;
+			_capacity = VECTOR_DEFAULT_SIZE;
+		}
 
 		size_t y = 0;
 
@@ -150,7 +168,7 @@ public:
 	}
 
 	bool contains(const T& item) const {
-		;
+		
 		for (std::size_t i = 0; i < _used; i++)
 		{
 			if (_array[i] == item)
