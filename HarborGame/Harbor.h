@@ -4,8 +4,9 @@
 class Harbor
 {
 public:
-	Harbor(String name) :
-		name(name) 
+	Harbor(String name, Vector<Product> products) :
+		name(name),
+		products(products)
 	{
 
 	}
@@ -16,6 +17,7 @@ public:
 
 	Vector<Product> getProducts() const;
 	String getName() const;
+
 private:
 	Vector<Product> products;
 	String name;

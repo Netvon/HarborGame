@@ -1,18 +1,25 @@
 #include "stdafx.h"
 #include "HarborFactory.h"
 #include "Harbor.h"
+#include "Product.h"
 
 using namespace std;
 
-Harbor HarborFactory::CreateHarbor(String& blueprint)
+Harbor HarborFactory::CreateHarbor(String& pricesBlueprint, String& amountBlueprint, String& distanceBlueprint)
 {
-	Vector<String> splittedBlueprint{ String::split(blueprint.c_str(), ";") };
+	// Variables for the products in a city
+	Vector<String> splittedPricesBlueprint{ String::split(pricesBlueprint.c_str(), ";") };
+	Vector<String> splittedAmountBlueprint{ String::split(pricesBlueprint.c_str(), ";") };
 
-	cout << splittedBlueprint.get(0) << endl;
+	// Distances between the cities <- nog gedaan worden
+	Vector<String> splittedDistanceBlueprint{ String::split(pricesBlueprint.c_str(), ";") };
 
-	String name{ splittedBlueprint.get(0) };
+	String name{ splittedPricesBlueprint.get(0) };
+	Vector<Product> products;
 
-	Harbor harbor{ name };
+	// Hier moet ik nog functionaliteit voor het toevoegen van de min en max dingen
+
+	Harbor harbor{ name, products };
 
 	return harbor;
 }
