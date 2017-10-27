@@ -4,10 +4,12 @@
 #include "stdafx.h"
 #include "GameLoop.h"
 
-
 int main()
 {
-	GameLoop gameloop;
+	GameLoop* gameloop = new GameLoop();
+	gameloop->Start();
+
+	delete gameloop;
 
 	return _CrtDumpMemoryLeaks();
 	// hierzo

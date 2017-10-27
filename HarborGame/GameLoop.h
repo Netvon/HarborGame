@@ -20,9 +20,5 @@ private:
 	void ClearSceen() const;
 
 	InputManager inputManager;
-
 	Vector<Location*> locations;
-
-	template<class T>
-	bool DeleteIf(Location* pointer);
 };

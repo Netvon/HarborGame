@@ -14,8 +14,6 @@ GameLoop::GameLoop()
 {
 	locations.push_back(new HarborLocation());
 	locations.push_back(new SeaLocation());
-
-	Start();
 }
 
 GameLoop::~GameLoop()
@@ -23,11 +21,6 @@ GameLoop::~GameLoop()
 	for (size_t i = 0; i < locations.size(); i++)
 	{
 		delete locations.get(i);
-		/*if (DeleteIf<HarborLocation*>(locations.get(i)))
-			continue;
-
-		if (DeleteIf<SeaLocation*>(locations.get(i)))
-			continue;*/
 	}
 }
 
@@ -50,20 +43,4 @@ void GameLoop::Start()
 void GameLoop::ClearSceen() const
 {
 	//system("cls");
-}
-
-template<class T>
-bool GameLoop::DeleteIf(Location* pointer)
-{
-	if (pointer == nullptr)
-		return true;
-
-	auto val = dynamic_cast<T>(pointer);
-
-	if (val != nullptr) {
-		delete val;
-		return true;
-	}
-
-	return false;
 }
