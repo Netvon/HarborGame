@@ -55,6 +55,4 @@ Vector<String> FileParser::ParseFile(const char* path)
 	{
 		cout << "Error opening file";
 	}
-
-
 }

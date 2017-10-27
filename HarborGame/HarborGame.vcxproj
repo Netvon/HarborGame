@@ -149,10 +149,13 @@
     <ClInclude Include="FileParser.h" />
     <ClInclude Include="GameLoader.h" />
     <ClInclude Include="GameLoop.h" />
+    <ClInclude Include="Harbor.h" />
+    <ClInclude Include="HarborFactory.h" />
     <ClInclude Include="HarborLocation.h" />
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Location.h" />
     <ClInclude Include="Option.h" />
+    <ClInclude Include="Product.h" />
     <ClInclude Include="Ship.h" />
     <ClInclude Include="ShipFactory.h" />
     <ClInclude Include="SmrtPtr.h" />
@@ -166,10 +169,13 @@
     <ClCompile Include="FileParser.cpp" />
     <ClCompile Include="GameLoader.cpp" />
     <ClCompile Include="GameLoop.cpp" />
+    <ClCompile Include="Harbor.cpp" />
+    <ClCompile Include="HarborFactory.cpp" />
     <ClCompile Include="HarborLocation.cpp" />
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Location.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Product.cpp" />
     <ClCompile Include="Ship.cpp" />
     <ClCompile Include="ShipFactory.cpp" />
     <ClCompile Include="State.cpp" />

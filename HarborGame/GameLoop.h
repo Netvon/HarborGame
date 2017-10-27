@@ -4,6 +4,7 @@
 
 #include "Vector.h"
 #include "Ship.h"
+#include "Harbor.h"
 #include "SmrtPtr.h"
 
 class GameLoop
@@ -24,5 +25,6 @@ private:
 
 	Vector<Location*> locations;
 	Vector<Ship> ships;
+	Vector<Harbor> harbors;
 };
 
