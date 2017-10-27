@@ -9,6 +9,8 @@ public:
 	~FileParser();
 
 	Vector<String> ParseFile(const char* path);
+private:
+	
 };
 
 

@@ -3,17 +3,6 @@
 
 using namespace std;
 
-ShipFactory::ShipFactory()
-{
-
-}
-
-
-ShipFactory::~ShipFactory()
-{
-
-}
-
 Ship ShipFactory::CreateShip(String& blueprint) 
 {
 	Vector<String> splittedBlueprint{ String::split(blueprint.c_str(), ";") };

@@ -5,9 +5,8 @@
 class HarborFactory
 {
 public:
-	HarborFactory();
-	~HarborFactory();
-
-	Harbor CreateHarbor(String& blueprint);
+	static Harbor CreateHarbor(String& blueprint);
+private:
+	HarborFactory() {};
 };
 

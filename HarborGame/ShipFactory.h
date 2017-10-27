@@ -4,9 +4,8 @@
 class ShipFactory
 {
 public:
-	ShipFactory();
-	~ShipFactory();
-
-	Ship CreateShip(String& blueprint);
+	static Ship CreateShip(String& blueprint);
+private:
+	ShipFactory() {};
 };
 

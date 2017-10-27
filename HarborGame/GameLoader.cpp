@@ -18,7 +18,6 @@ GameLoader::~GameLoader()
 }
 
 Vector<Ship> GameLoader::LoadShips() {
-	ShipFactory shipFactory;
 	FileParser fileParser;
 
 	Vector<String> allShips{ fileParser.ParseFile("Files/schepen.csv") };
@@ -26,14 +25,13 @@ Vector<Ship> GameLoader::LoadShips() {
 	Vector<Ship> ships;
 
 	for (size_t i = 0; i < allShips.size() - 1; i++) {
-		ships.push_back(shipFactory.CreateShip(allShips.get(i)));
+		ships.push_back(ShipFactory::CreateShip(allShips.get(i)));
 	}
 
 	return ships;
 }
 
 Vector<Harbor> GameLoader::LoadLocations() {
-	HarborFactory harborFactory;
 	FileParser fileParser;
 
 	Vector<String> allGoodsPrices{ fileParser.ParseFile("Files/goederen prijzen.csv") };
@@ -41,7 +39,7 @@ Vector<Harbor> GameLoader::LoadLocations() {
 	Vector<Harbor> harbors;
 
 	for (size_t i = 0; i < allGoodsPrices.size() - 1; i++) {
-		harbors.push_back(harborFactory.CreateHarbor(allGoodsPrices.get(i)));
+		harbors.push_back(HarborFactory::CreateHarbor(allGoodsPrices.get(i)));
 	}
 
 	return harbors;

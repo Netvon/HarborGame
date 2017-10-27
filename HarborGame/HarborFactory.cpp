@@ -4,15 +4,6 @@
 
 using namespace std;
 
-HarborFactory::HarborFactory()
-{
-}
-
-
-HarborFactory::~HarborFactory()
-{
-}
-
 Harbor HarborFactory::CreateHarbor(String& blueprint)
 {
 	Vector<String> splittedBlueprint{ String::split(blueprint.c_str(), ";") };
