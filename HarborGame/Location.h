@@ -2,20 +2,22 @@
 #include "Option.h"
 #include "InputManager.h"
 #include "Vector.h"
+#include "State.h"
+
+class State;
 
 class Location
 {
 public:
-	Location() 
-	{
-		options = Vector<Option>();
-	}
+	Location(const String& name)
+		: name(name), options() { }
 
-	virtual ~Location() 
-	{
-		
-	};
+	Location()
+		: name(""), options() { }
 
+	virtual ~Location() { };
+
+	virtual void NavigatedTo(const String& param) = 0;
 	virtual void PrintWelcomeMessage() const = 0;
 	virtual void PrintOptions() const 
 	{
@@ -30,7 +32,7 @@ public:
 
 	void AddOption(unsigned int number, const char * option) 
 	{
-		options.push_back(Option(number, option));
+		options.push_back({ number, option });
 	}
 
 	void Print() const {
@@ -51,14 +53,29 @@ public:
 		}
 	}
 
+	void SetGameState(State * newGameState) {
+		gameState = newGameState;
+	}
+
+	const String& GetName() const {
+		return name;
+	}
+
 protected:
 	const InputManager* GetInputManager() const {
 		return &manager;
 	}
 
+	State& GetState() {
+		return *gameState;
+	}
+
 private:
 	Vector<Option> options;
 	InputManager manager;
+	String name;
+
+	State * gameState;
 
 	virtual void HandleOptionSelected(const Option& option) = 0;
 };

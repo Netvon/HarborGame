@@ -7,11 +7,12 @@ class HarborLocation :
 	public Location
 {
 public:
-	HarborLocation();
+	HarborLocation() : HarborLocation("harbor") { }
+	HarborLocation(const String& name);
 	~HarborLocation() { };
 
+	void NavigatedTo(const String& param) override;
 	void PrintWelcomeMessage() const override;
-	void SetCurrentHarbor(const Harbor& current);
 	
 private:
 	void HandleOptionSelected(const Option& option) override;

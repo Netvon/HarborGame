@@ -2,7 +2,10 @@
 #include "HarborLocation.h"
 #include "State.h"
 
-HarborLocation::HarborLocation()
+#include <iostream>
+#include "GameLoader.h"
+
+HarborLocation::HarborLocation(const String& name) : Location(name)
 {
 	AddOption(1, "Buy or Sell Goods");
 	AddOption(2, "Buy or Sell Cannons");
@@ -12,14 +15,14 @@ HarborLocation::HarborLocation()
 	AddOption(6, "Quit");
 }
 
-void HarborLocation::PrintWelcomeMessage() const
+void HarborLocation::NavigatedTo(const String & param)
 {
-	printf("Welcome to %s Harbor!\n", currentHarbor->getName().c_str);
+	currentHarbor = GetState().GetHarbor(param);
 }
 
-void HarborLocation::SetCurrentHarbor(const Harbor & current)
+void HarborLocation::PrintWelcomeMessage() const
 {
-	currentHarbor = &(const_cast<Harbor&>(current));
+	printf("Welcome to %s Harbor, traveler!\n", currentHarbor->getName().c_str());
 }
 
 void HarborLocation::HandleOptionSelected(const Option& option)
@@ -29,7 +32,7 @@ void HarborLocation::HandleOptionSelected(const Option& option)
 	switch (option.number)
 	{
 	case 6:
-		State::Instance().SetQuitState(true);
+		GetState().SetQuitState(true);
 		break;
 	default:
 		break;

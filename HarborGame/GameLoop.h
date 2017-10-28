@@ -7,10 +7,12 @@
 #include "Harbor.h"
 #include "SmrtPtr.h"
 
+#include "State.h"
+
 class GameLoop
 {
 public:
-	GameLoop();
+	GameLoop(State* gameState);
 	~GameLoop();
 
 	void Start();
@@ -24,5 +26,7 @@ private:
 	Vector<Location*> locations;
 	Vector<Ship> ships;
 	Vector<Harbor> harbors;
+
+	State * gameState;
 };
 

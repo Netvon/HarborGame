@@ -13,11 +13,8 @@
 #include <iostream>
 
 
-GameLoop::GameLoop()
+GameLoop::GameLoop(State * gameState) : gameState(gameState)
 {
-
-	locations.push_back(new HarborLocation());
-	locations.push_back(new SeaLocation());
 }
 
 GameLoop::~GameLoop()
@@ -30,20 +27,9 @@ GameLoop::~GameLoop()
 
 void GameLoop::Start()
 {
-	GameLoader gameLoader;
+	Location* l = gameState->GetCurrentLocation();
 
-	// Loading all the components
-	ships = gameLoader.LoadShips();
-	harbors = gameLoader.LoadLocations();
-
-	// locations = gameLoader.LoadLocations();
-
-	HarborLocation* l = dynamic_cast<HarborLocation*>(locations[0]);
-	Harbor& ref = harbors[0];
-
-	l->SetCurrentHarbor(ref);
-
-	while (!State::Instance().GetQuitState()) {
+	while (!gameState->GetQuitState()) {
 
 		printf("Welcome to Harbor Game.\n");
 		//printf("Step: %i\n", i);
@@ -52,6 +38,8 @@ void GameLoop::Start()
 		l->HandleInput();
 
 		ClearSceen();
+
+		l = gameState->GetCurrentLocation();
 	}
 }
 

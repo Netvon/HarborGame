@@ -15,10 +15,10 @@ GameLoader::~GameLoader()
 	
 }
 
-Vector<Ship> GameLoader::LoadShips() {
+Vector<Ship> GameLoader::LoadShips(const String& filePath) { // "Files/schepen.csv"
 	FileParser fileParser;
 
-	Vector<String> allShips{ fileParser.ParseFile("Files/schepen.csv") };
+	Vector<String> allShips{ fileParser.ParseFile(filePath) };
 
 	Vector<Ship> ships;
 
@@ -29,7 +29,8 @@ Vector<Ship> GameLoader::LoadShips() {
 	return ships;
 }
 
-Vector<Harbor> GameLoader::LoadLocations() {
+Vector<Harbor> GameLoader::LoadLocations(const String & goodsPricesFilePath, const String & goodsAmountsFilePath, const String & harborDistancesFilePath)
+{
 	FileParser fileParser;
 
 	Vector<String> allGoodsPrices{ fileParser.ParseFile("Files/goederen prijzen.csv", 0) };

@@ -3,20 +3,38 @@
 
 #include "stdafx.h"
 #include "GameLoop.h"
+#include "State.h"
+#include "HarborLocation.h"
 
 int main()
 {
+	State* gameState = nullptr;
 	GameLoop* gameloop = nullptr;
-
 	try {
-		gameloop = new GameLoop();
+		gameState = new State();
+		gameState->LoadShipAssets("Files/schepen.csv");
+		gameState->LoadHarborAssets(
+			"Files/goederen prijzen.csv",
+			"Files/goederen hoeveelheid.csv",
+			"Files/afstanden tussen steden.csv"
+		);
+
+		gameState->AddLocation<HarborLocation>("harbor");
+		gameState->NavigateToLocation("harbor", gameState->GetHarbor(0)->getName());
+		Location* current = gameState->GetCurrentLocation();
+	
+		gameloop = new GameLoop(gameState);
 		gameloop->Start();
 
 		delete gameloop;
+		delete gameState;
 	}
 	catch (...) {
 		if (gameloop != nullptr)
 			delete gameloop;
+
+		if (gameloop != nullptr)
+			delete gameState;
 
 		throw;
 	}
