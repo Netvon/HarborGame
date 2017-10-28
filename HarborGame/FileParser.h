@@ -8,7 +8,7 @@ public:
 	FileParser();
 	~FileParser();
 
-	Vector<String> ParseFile(const char* path, const char comment = '#', size_t ignoreLines = 1) const;
+	Vector<String> ParseFile(const char* path, size_t ignoreLines = 1, const char comment = '#') const;
 private:
 	const char * path;
 };
