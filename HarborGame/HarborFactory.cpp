@@ -49,20 +49,21 @@ Harbor HarborFactory::CreateHarbor(String& pricesBlueprint, String& amountBluepr
 	 
 	Harbor harbor{ name, products, distances };
 
+	// Mooie command om the kijjken of alles werkt
 
-	cout << "Name: " << harbor.getName() << endl;
+	//cout << "Name: " << harbor.getName() << endl;
 
-	cout << "Producten: " << endl;
-	for (size_t i = 0; i < harbor.getProducts().size(); i++)
-	{
-		cout << harbor.getProducts()[i].getName() << endl;
-	}
+	//cout << "Producten: " << endl;
+	//for (size_t i = 0; i < harbor.getProducts().size(); i++)
+	//{
+	//	cout << harbor.getProducts()[i].getName() << endl;
+	//}
 
-	cout << "Distances: " << endl;
-	for (size_t i = 0; i < harbor.getDistances().size(); i++)
-	{
-		cout << harbor.getDistances()[i].getTo() << ": " << harbor.getDistances()[i].getDistance() << endl;
-	}
+	//cout << "Distances: " << endl;
+	//for (size_t i = 0; i < harbor.getDistances().size(); i++)
+	//{
+	//	cout << harbor.getDistances()[i].getTo() << ": " << harbor.getDistances()[i].getDistance() << endl;
+	//}
 
 	return harbor;
 }
