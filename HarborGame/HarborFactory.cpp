@@ -8,10 +8,10 @@ Harbor HarborFactory::CreateHarbor(String& pricesBlueprint, String& amountBluepr
 {
 	// Variables for the products in a city
 	Vector<String> splittedPricesBlueprint{ String::split(pricesBlueprint.c_str(), ";") };
-	Vector<String> splittedAmountBlueprint{ String::split(pricesBlueprint.c_str(), ";") };
+	Vector<String> splittedAmountBlueprint{ String::split(amountBlueprint.c_str(), ";") };
 
 	// Distances between the cities <- nog gedaan worden
-	Vector<String> splittedDistanceBlueprint{ String::split(pricesBlueprint.c_str(), ";") };
+	Vector<String> splittedDistanceBlueprint{ String::split(distanceBlueprint.c_str(), ";") };
 
 	String name{ splittedPricesBlueprint.get(0) };
 	Vector<Product> products;
