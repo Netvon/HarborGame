@@ -4,6 +4,17 @@
 class Product
 {
 public:
+	
+	Product(int minPrice, int maxPrice, int minAmountAvailable, int maxAmountAvailable) :
+		minPrice(minPrice),
+		maxPrice(maxPrice),
+		minAmountAvailable(minAmountAvailable),
+		maxAmountAvailable(maxAmountAvailable) 
+		{
+
+		}
+	;
+
 	Product();
 	~Product();
 
