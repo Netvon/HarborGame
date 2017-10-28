@@ -10,9 +10,9 @@ class String {
 private:
 	Vector<char> vector;
 public:
-	String() :vector(1) {};
+	String() : vector() { };
 
-	String(const char* string) : String()
+	String(const char* string) : vector()
 	{
 		size_t length = strlen(string) + 1;
 
@@ -22,7 +22,7 @@ public:
 		}
 	}
 
-	String(char string[]) : String()
+	String(char string[]) : vector()
 	{
 		size_t length = strlen(string) + 1;
 
@@ -32,7 +32,7 @@ public:
 		}
 	}
 
-	String(String& string) : String()
+	String(String& string) : vector()
 	{
 		size_t length = string.size();
 
@@ -119,7 +119,10 @@ public:
 
 	String& operator+=(char character)
 	{
+		vector.pop_back();
 		vector.push_back(character);
+		vector.push_back('\0');
+
 		return *this;
 	}
 
@@ -161,7 +164,7 @@ public:
 	}
 
 	bool isEmpty() const {
-		return vector.size() == 0 || vector[0] == '\0';
+		return !vector.contains('\0') || vector.size() == 0 || vector[0] == '\0';
 	}
 
 	int toInt() const {

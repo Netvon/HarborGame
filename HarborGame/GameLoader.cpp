@@ -22,7 +22,7 @@ Vector<Ship> GameLoader::LoadShips() {
 
 	Vector<Ship> ships;
 
-	for (size_t i = 0; i < allShips.size() - 1; i++) {
+	for (size_t i = 0; i < allShips.size(); i++) {
 		ships.push_back(ShipFactory::CreateShip(allShips.get(i)));
 	}
 
@@ -38,7 +38,7 @@ Vector<Harbor> GameLoader::LoadLocations() {
 
 	Vector<Harbor> harbors;
 
-	for (size_t i = 0; i < allGoodsPrices.size() - 1; i++) {
+	for (size_t i = 0; i < allGoodsPrices.size(); i++) {
 		harbors.push_back(HarborFactory::CreateHarbor(allGoodsPrices.get(i), allGoodsAmount.get(i), allDistances.get(i)));
 	}
 

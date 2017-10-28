@@ -21,10 +21,10 @@ FileParser::~FileParser()
 }
 
 
-Vector<String> FileParser::ParseFile(const char* path, const char comment) const
+Vector<String> FileParser::ParseFile(const char* path, const char comment, size_t ignoreLines) const
 {
 	ifstream infile;
-	int lineNumber = 0;
+	size_t lineNumber = 0;
 
 	Vector<String> AllLines;
 	
@@ -41,7 +41,7 @@ Vector<String> FileParser::ParseFile(const char* path, const char comment) const
 			while (currentChar != '\n' && !infile.eof()) {
 				infile.get(currentChar);
 
-				if (currentLine.size() == 0 && currentChar == comment) {
+				if (currentLine.isEmpty() && currentChar == comment) {
 					isComment = true;
 				}
 
@@ -58,7 +58,7 @@ Vector<String> FileParser::ParseFile(const char* path, const char comment) const
 				continue;
 
 			// check for header lines
-			if (lineNumber == 0) {
+			if (ignoreLines > 0 && lineNumber <= ignoreLines - 1) {
 				lineNumber++;
 				continue;
 			}
@@ -74,6 +74,8 @@ Vector<String> FileParser::ParseFile(const char* path, const char comment) const
 	{
 		cout << "Error opening file";
 	}
+
+	AllLines.pop_index(AllLines.size() - 1);
 
 	return AllLines;
 }

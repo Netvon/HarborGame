@@ -6,7 +6,7 @@
 
 int InputManager::GetInput(unsigned int maxNumber = 1)
 {
-	int numberInput = 0;
+	unsigned int numberInput = 0;
 	printf("> ");
 	scanf_s("%i", &numberInput);
 
