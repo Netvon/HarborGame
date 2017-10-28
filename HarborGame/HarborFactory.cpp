@@ -3,6 +3,7 @@
 #include "Harbor.h"
 #include "Product.h"
 #include "Distance.h"
+#include "Cannon.h"
 
 #include <iostream>
 
@@ -20,6 +21,7 @@ Harbor HarborFactory::CreateHarbor(String& pricesBlueprint, String& amountBluepr
 
 	String name{ splittedPricesBlueprint[0] };
 	Vector<Product> products;
+	Vector<Cannon> cannons;
 	Vector<Distance> distances;
 
 	// Adds for each harbor the products and distances
@@ -46,8 +48,19 @@ Harbor HarborFactory::CreateHarbor(String& pricesBlueprint, String& amountBluepr
 			distances.push_back(d);
 		}
 	}
+
+	// Last adding cannons
+	Vector<Cannon> cannons;
+
+	Cannon s{50, 0, 5, "licht kannon"};
+	Cannon m{200, 0, 3, "middelgroot kannon" };
+	Cannon l{1000, 0, 2, "zwaar kannon" };
+
+	cannons.push_back(s);
+	cannons.push_back(m);
+	cannons.push_back(l);
 	 
-	Harbor harbor{ name, products, distances };
+	Harbor harbor{ name, products, cannons, distances };
 
 	// Mooie command om the kijjken of alles werkt
 
