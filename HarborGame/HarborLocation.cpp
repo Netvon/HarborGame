@@ -22,7 +22,7 @@ void HarborLocation::NavigatedTo(const String & param)
 
 void HarborLocation::PrintWelcomeMessage() const
 {
-	printf("Welcome to %s Harbor, traveler!\n", currentHarbor->getName().c_str());
+	printf("Welcome to %s Harbor, traveler!\n", currentHarbor->GetName().c_str());
 }
 
 void HarborLocation::HandleOptionSelected(const Option& option)

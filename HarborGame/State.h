@@ -50,6 +50,8 @@ private:
 	int currentLocation = -1;
 
 	GameLoader loader;
+
+	
 };
 
 template<class TLocation>

@@ -31,7 +31,7 @@ public:
 
 	void setCurrentHealth(int pCurrentHealth);
 
-	const String& getName() const;
+	const String& GetName() const;
 	int getPrice() const;
 	int getCargospace() const;
 	int getCannons() const;

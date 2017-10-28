@@ -156,6 +156,7 @@
     <ClInclude Include="InputManager.h" />
     <ClInclude Include="Location.h" />
     <ClInclude Include="Option.h" />
+    <ClInclude Include="Player.h" />
     <ClInclude Include="Product.h" />
     <ClInclude Include="RandomNumber.h" />
     <ClInclude Include="Ship.h" />
@@ -178,6 +179,7 @@
     <ClCompile Include="InputManager.cpp" />
     <ClCompile Include="Location.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Player.cpp" />
     <ClCompile Include="Product.cpp" />
     <ClCompile Include="RandomNumber.cpp" />
     <ClCompile Include="Ship.cpp" />

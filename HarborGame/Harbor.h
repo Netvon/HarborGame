@@ -15,7 +15,7 @@ public:
 	~Harbor();
 
 	Vector<Product> getProducts() const;
-	const String& getName() const;
+	const String& GetName() const;
 	void setName(const String& newName);
 
 private:

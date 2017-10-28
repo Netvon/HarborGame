@@ -11,7 +11,7 @@ Product::~Product()
 {
 }
 
-const String& Product::getName() const {
+const String& Product::GetName() const {
 	return name;
 }
 

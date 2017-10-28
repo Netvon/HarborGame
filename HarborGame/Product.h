@@ -19,7 +19,7 @@ public:
 	Product();
 	~Product();
 
-	const String& getName() const;
+	const String& GetName() const;
 	int getMinPrice() const;
 	int getMaxPrice() const;
 	int getMinAmountAvailable() const;

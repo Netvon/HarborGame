@@ -9,7 +9,7 @@ Vector<Product> Harbor::getProducts() const {
 	return products;
 }
 
-const String& Harbor::getName() const {
+const String& Harbor::GetName() const {
 	return name;
 }
 

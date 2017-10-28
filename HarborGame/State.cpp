@@ -78,7 +78,7 @@ Ship * State::GetShip(const String & name)
 	for (size_t i = 0; i < ships.size(); i++)
 	{
 		auto& ship = ships.get(i);
-		auto& shipname = ship.getName();
+		auto& shipname = ship.GetName();
 
 		if (shipname == name)
 			return &ship;
@@ -97,7 +97,7 @@ Harbor* State::GetHarbor(const String & name)
 	for (size_t i = 0; i < harbors.size(); i++)
 	{
 		auto& harbor = harbors.get(i);
-		auto& harborname = harbor.getName();
+		auto& harborname = harbor.GetName();
 
 		if (harborname == name)
 			return &harbor;
