@@ -12,6 +12,6 @@ public:
 	int extradata = 999;
 
 private:
-	void HandleOptionSelected(Option option) override;
+	void HandleOptionSelected(const Option& option) override;
 };
 

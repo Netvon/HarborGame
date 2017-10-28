@@ -60,5 +60,5 @@ private:
 	Vector<Option> options;
 	InputManager manager;
 
-	virtual void HandleOptionSelected(Option option) = 0;
+	virtual void HandleOptionSelected(const Option& option) = 0;
 };

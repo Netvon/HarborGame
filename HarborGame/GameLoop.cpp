@@ -38,9 +38,10 @@ void GameLoop::Start()
 
 	// locations = gameLoader.LoadLocations();
 
+	HarborLocation* l = dynamic_cast<HarborLocation*>(locations[0]);
+	Harbor& ref = harbors[0];
 
-
-	HarborLocation* l = dynamic_cast<HarborLocation*>(locations.get(0));
+	l->SetCurrentHarbor(ref);
 
 	while (!State::Instance().GetQuitState()) {
 

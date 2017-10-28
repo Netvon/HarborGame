@@ -15,6 +15,6 @@ void SeaLocation::PrintWelcomeMessage() const
 {
 }
 
-void SeaLocation::HandleOptionSelected(Option option)
+void SeaLocation::HandleOptionSelected(const Option& option)
 {
 }
