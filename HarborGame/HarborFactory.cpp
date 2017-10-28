@@ -20,7 +20,7 @@ Harbor HarborFactory::CreateHarbor(String& pricesBlueprint, String& amountBluepr
 	String name{ splittedPricesBlueprint[0] };
 	Vector<Product> products;
 
-	// Loop for splitting the product tables and adding those to the harbor
+	// Adds for each harbor the products
 	for (size_t i = 0; i < splittedPricesBlueprint.size(); i++) {
 		if (i == 0)
 			continue;
@@ -33,10 +33,7 @@ Harbor HarborFactory::CreateHarbor(String& pricesBlueprint, String& amountBluepr
 
 		Product p{name, minPrice, maxPrice, minAmount, maxAmount};		
 	}
-
-
-	// Hier moet ik nog functionaliteit voor het toevoegen van de min en max dingen
-
+	 
 	Harbor harbor{ name, products };
 
 	return harbor;
