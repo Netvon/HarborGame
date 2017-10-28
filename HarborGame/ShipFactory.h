@@ -4,7 +4,7 @@
 class ShipFactory
 {
 public:
-	static Ship CreateShip(String& blueprint);
+	static Ship CreateShip(const String& blueprint);
 private:
 	ShipFactory() {};
 };

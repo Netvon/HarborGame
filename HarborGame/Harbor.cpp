@@ -9,6 +9,11 @@ Vector<Product> Harbor::getProducts() const {
 	return products;
 }
 
-String Harbor::getName() const {
+const String& Harbor::getName() const {
 	return name;
+}
+
+void Harbor::setName(const String & newName)
+{
+	name = newName;
 }

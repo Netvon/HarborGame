@@ -9,14 +9,14 @@ public:
 		products(products)
 	{
 
-	}
-		;
+	};
 
-	Harbor() {};
+	Harbor() { };
 	~Harbor();
 
 	Vector<Product> getProducts() const;
-	String getName() const;
+	const String& getName() const;
+	void setName(const String& newName);
 
 private:
 	Vector<Product> products;

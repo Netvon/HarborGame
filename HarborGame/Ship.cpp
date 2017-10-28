@@ -15,7 +15,7 @@ void Ship::setCurrentHealth(int pCurrentHealth) {
 	currentHealth = pCurrentHealth;
 }
 
-String Ship::getName() const {
+const String& Ship::getName() const {
 	return name;
 }
 

@@ -21,7 +21,7 @@ FileParser::~FileParser()
 }
 
 
-Vector<String> FileParser::ParseFile(const char* path, const char comment)
+Vector<String> FileParser::ParseFile(const char* path, const char comment) const
 {
 	ifstream infile;
 	int lineNumber = 0;

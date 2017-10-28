@@ -7,7 +7,7 @@ public:
 	Product();
 	~Product();
 
-	String getName() const;
+	const String& getName() const;
 	int getMinPrice() const;
 	int getMaxPrice() const;
 	int getMinAmountAvailable() const;

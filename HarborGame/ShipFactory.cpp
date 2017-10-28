@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "ShipFactory.h"
 
-Ship ShipFactory::CreateShip(String& blueprint) 
+Ship ShipFactory::CreateShip(const String& blueprint) 
 {
 	if (blueprint.isEmpty())
 		throw "Cannot create Ship from empty blueprint";
