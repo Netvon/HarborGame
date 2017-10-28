@@ -5,12 +5,8 @@
 class Distance {
 
 public:
-	Distance(const String from, const String to, size_t distance)
-		: from(from), to(to), distance(distance) { }
-
-	const String& getFrom() const {
-		return from;
-	}
+	Distance(const String to, size_t distance)
+		: to(to), distance(distance) { }
 
 	const String& getTo() const {
 		return to;
@@ -21,7 +17,6 @@ public:
 	}
 
 private:
-	String from;
 	String to;
 	size_t distance;
 };

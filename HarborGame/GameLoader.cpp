@@ -32,14 +32,22 @@ Vector<Ship> GameLoader::LoadShips() {
 Vector<Harbor> GameLoader::LoadLocations() {
 	FileParser fileParser;
 
-	Vector<String> allGoodsPrices{ fileParser.ParseFile("Files/goederen prijzen.csv") };
-	Vector<String> allGoodsAmount{ fileParser.ParseFile("Files/goederen hoeveelheid.csv") };
+	Vector<String> allGoodsPrices{ fileParser.ParseFile("Files/goederen prijzen.csv", 0) };
+	Vector<String> allGoodsAmount{ fileParser.ParseFile("Files/goederen hoeveelheid.csv", 0) };
 
 	Vector<Harbor> harbors;
+	Vector<String> productNames;
 
 	for (size_t i = 0; i < allGoodsPrices.size(); i++) {
-		harbors.push_back(HarborFactory::CreateHarbor(allGoodsPrices.get(i), allGoodsAmount.get(i)));
+		if (i == 0) {
+			productNames = String::split(allGoodsPrices[i], ";");
+		}
+		else {
+			harbors.push_back(HarborFactory::CreateHarbor(allGoodsPrices[i], allGoodsAmount[i], productNames));
+		}
 	}
 
 	return harbors;
 }
+
+

@@ -5,7 +5,8 @@ class Product
 {
 public:
 	
-	Product(int minPrice, int maxPrice, int minAmountAvailable, int maxAmountAvailable) :
+	Product(String name, int minPrice, int maxPrice, int minAmountAvailable, int maxAmountAvailable) :
+		name(name),
 		minPrice(minPrice),
 		maxPrice(maxPrice),
 		minAmountAvailable(minAmountAvailable),

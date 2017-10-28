@@ -11,30 +11,29 @@ using std::cout;
 using std::endl;
 
 
-Harbor HarborFactory::CreateHarbor(String& pricesBlueprint, String& amountBlueprint)
+Harbor HarborFactory::CreateHarbor(String& pricesBlueprint, String& amountBlueprint, Vector<String> productNames)
 {
 	// Variables for the products in a city
 	Vector<String> splittedPricesBlueprint{ String::split(pricesBlueprint.c_str(), ";") };
 	Vector<String> splittedAmountBlueprint{ String::split(amountBlueprint.c_str(), ";") };
 
-	String name{ splittedPricesBlueprint.get(0) };
+	String name{ splittedPricesBlueprint[0] };
 	Vector<Product> products;
 
-	// Loop for splitting the product tables and adding those to the harbor
+	// Adds for each harbor the products
 	for (size_t i = 0; i < splittedPricesBlueprint.size(); i++) {
-		String name{};
-		int minPrice{ String::split(splittedPricesBlueprint.get(i), "-").get(0).toInt() };
-		int maxPrice{ String::split(splittedPricesBlueprint.get(i), "-").get(1).toInt() };
-		int minAmount{ String::split(splittedAmountBlueprint.get(i), "-").get(0).toInt() };
-		int maxAmount{ String::split(splittedAmountBlueprint.get(i), "-").get(1).toInt() };
+		if (i == 0)
+			continue;
 
-		Product p{minPrice, maxPrice, minAmount, maxAmount};
-		//cout << p.getName() << endl;
+		String name{ productNames[i - 1]};
+		int minPrice{ String::split(splittedPricesBlueprint[i], "-")[0].toInt() };
+		int maxPrice{ String::split(splittedPricesBlueprint[i], "-")[1].toInt() };
+		int minAmount{ String::split(splittedAmountBlueprint[i], "-")[0].toInt() };
+		int maxAmount{ String::split(splittedAmountBlueprint[i], "-")[1].toInt() };
+
+		Product p{name, minPrice, maxPrice, minAmount, maxAmount};		
 	}
-
-
-	// Hier moet ik nog functionaliteit voor het toevoegen van de min en max dingen
-
+	 
 	Harbor harbor{ name, products };
 
 	return harbor;
