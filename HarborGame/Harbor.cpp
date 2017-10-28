@@ -5,15 +5,10 @@ Harbor::~Harbor()
 {
 }
 
-Vector<Product> Harbor::getProducts() const {
+Vector<Product> Harbor::GetProducts() const {
 	return products;
 }
 
 const String& Harbor::GetName() const {
 	return name;
-}
-
-void Harbor::setName(const String & newName)
-{
-	name = newName;
 }

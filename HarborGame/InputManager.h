@@ -6,7 +6,8 @@ public:
 		: promptChar(prompt), maxInputSize(maxInputSize) 
 	{ };
 
-	int GetInput(unsigned int maxNumber);
+	int GetInput(unsigned int maxNumber) const;
+	void AskForContinue() const;
 
 private:
 	const char * promptChar;

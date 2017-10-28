@@ -6,6 +6,7 @@
 #include "Harbor.h"
 #include "Ship.h"
 #include "GameLoader.h"
+#include "Player.h"
 
 class Location;
 
@@ -37,6 +38,9 @@ public:
 	Ship* GetShip(const String& name);
 	Harbor* GetHarbor(size_t index);
 	Harbor* GetHarbor(const String& name);
+	Player& GetPlayer();
+	const Player& GetPlayer() const;
+	bool GetPlayerHasShip() const;
 
 private:
 	bool quit;
@@ -50,7 +54,7 @@ private:
 	int currentLocation = -1;
 
 	GameLoader loader;
-
+	Player player;
 	
 };
 

@@ -50,3 +50,22 @@ bool Ship::getInertTrait() const {
 bool Ship::getLightTrait() const {
 	return hasLightTrait;
 }
+
+bool Ship::operator==(Ship * other)
+{
+	if (this == nullptr && other == nullptr)
+		return true;
+
+	if (other == nullptr)
+		return false;
+
+	if (this == nullptr)
+		return false;
+
+	return name == other->name;
+}
+
+bool Ship::operator!=(Ship * other)
+{
+	return !(this == other);
+}

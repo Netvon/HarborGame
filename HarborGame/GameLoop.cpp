@@ -13,9 +13,9 @@
 #include <iostream>
 
 
-GameLoop::GameLoop(State * gameState) : gameState(gameState)
-{
-}
+GameLoop::GameLoop(State * gameState, const String& name) 
+	: gameState(gameState), name(name)
+{ }
 
 GameLoop::~GameLoop()
 {
@@ -31,7 +31,7 @@ void GameLoop::Start()
 
 	while (!gameState->GetQuitState()) {
 
-		printf("Welcome to Harbor Game.\n");
+		printf("Welcome to %s.\n", name.c_str());
 		//printf("Step: %i\n", i);
 
 		l->Print();
@@ -45,5 +45,5 @@ void GameLoop::Start()
 
 void GameLoop::ClearSceen() const
 {
-	//system("cls");
+	system("cls");
 }

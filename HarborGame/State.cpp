@@ -105,3 +105,18 @@ Harbor* State::GetHarbor(const String & name)
 
 	return nullptr;
 }
+
+Player & State::GetPlayer()
+{
+	return player;
+}
+
+const Player & State::GetPlayer() const
+{
+	return player;
+}
+
+bool State::GetPlayerHasShip() const
+{
+	return GetPlayer().GetShip() != nullptr;
+}

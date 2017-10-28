@@ -12,7 +12,7 @@
 class GameLoop
 {
 public:
-	GameLoop(State* gameState);
+	GameLoop(State* gameState, const String& name);
 	~GameLoop();
 
 	void Start();
@@ -28,5 +28,7 @@ private:
 	Vector<Harbor> harbors;
 
 	State * gameState;
+
+	String name;
 };
 

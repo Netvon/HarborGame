@@ -19,39 +19,12 @@ public:
 
 	virtual void NavigatedTo(const String& param) = 0;
 	virtual void PrintWelcomeMessage() const = 0;
-	virtual void PrintOptions() const 
-	{
-		printf("=========\nOptions\n");
-		for (size_t i = 0; i < options.size(); i++)
-		{
-			auto o = options.get(i);
-			printf(" %i. %s\n", o.number, o.name.c_str());
-		}
-		printf("=========\n");
-	}	
+	virtual void PrintOptions() const;
+	void PrintStats() const;
+	void AddOption(unsigned int number, const char * option);
+	void Print() const;
 
-	void AddOption(unsigned int number, const char * option) 
-	{
-		options.push_back({ number, option });
-	}
-
-	void Print() const {
-		PrintWelcomeMessage();
-		PrintOptions();
-	}
-
-	void HandleInput() {
-		int option = manager.GetInput(static_cast<unsigned int>(options.size()));
-
-		for (size_t i = 0; i < options.size(); i++)
-		{
-			auto o = options.get(i);
-			if (o.number == option) {
-				HandleOptionSelected(o);
-				return;
-			}
-		}
-	}
+	void HandleInput();
 
 	void SetGameState(State * newGameState) {
 		gameState = newGameState;
@@ -67,6 +40,10 @@ protected:
 	}
 
 	State& GetState() {
+		return *gameState;
+	}
+
+	const State& GetState() const {
 		return *gameState;
 	}
 

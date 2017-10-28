@@ -41,6 +41,9 @@ public:
 	bool getInertTrait() const;
 	bool getLightTrait() const;
 
+	bool operator==(Ship* other);
+	bool operator!=(Ship* other);
+
 private:
 	String name;
 	int price;

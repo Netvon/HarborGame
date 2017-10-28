@@ -23,7 +23,7 @@ int main()
 		gameState->NavigateToLocation("harbor", gameState->GetHarbor(0)->GetName());
 		//Location* current = gameState->GetCurrentLocation();
 	
-		gameloop = new GameLoop(gameState);
+		gameloop = new GameLoop(gameState, "Harbor Game");
 		gameloop->Start();
 
 		delete gameloop;

@@ -2,18 +2,21 @@
 #include "Player.h"
 
 
-Player::Player()
+Player::Player() : gold(20000)
 {
 }
 
 const String & Player::GetShipName() const
 {
-	return ship.GetName();
+	if(ship != nullptr)
+		return ship->GetName();
+
+	return "";
 }
 
-const Ship & Player::GetShip() const
+Ship & Player::GetShip() const
 {
-	return ship;
+	return *ship;
 }
 
 const size_t & Player::GetGold() const
