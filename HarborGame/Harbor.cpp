@@ -9,6 +9,10 @@ Vector<Product> Harbor::getProducts() const {
 	return products;
 }
 
+Vector<Distance> Harbor::getDistances() const {
+	return distances;
+}
+
 const String& Harbor::getName() const {
 	return name;
 }

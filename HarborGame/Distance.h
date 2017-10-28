@@ -8,6 +8,8 @@ public:
 	Distance(const String to, size_t distance)
 		: to(to), distance(distance) { }
 
+	Distance() {};
+
 	const String& getTo() const {
 		return to;
 	}
