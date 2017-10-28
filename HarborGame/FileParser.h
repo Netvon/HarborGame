@@ -8,9 +8,9 @@ public:
 	FileParser();
 	~FileParser();
 
-	Vector<String> ParseFile(const char* path);
+	Vector<String> ParseFile(const char* path, const char comment = '#');
 private:
-	
+	const char * path;
 };
 
 

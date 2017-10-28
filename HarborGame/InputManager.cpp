@@ -4,8 +4,6 @@
 #include <cstdio>
 #include <iostream>
 
-using namespace std;
-
 int InputManager::GetInput(unsigned int maxNumber = 1)
 {
 	int numberInput = 0;

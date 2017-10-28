@@ -77,7 +77,7 @@ public:
 		return strcmp(c_str(), string) == 0;
 	}
 
-	bool operator!=(String& string)
+	bool operator!=(const String& string)
 	{
 		return strcmp(c_str(), string.c_str()) != 0;
 	}
@@ -95,7 +95,7 @@ public:
 		return temp;
 	}
 
-	String operator+(String& string)
+	String operator+(const String& string)
 	{
 		String temp = String(*this);
 		temp += string;
@@ -103,7 +103,7 @@ public:
 		return temp;
 	}
 
-	String& operator+=(String& string)
+	String& operator+=(const String& string)
 	{
 		size_t length = string.size();
 
@@ -117,6 +117,12 @@ public:
 		return *this;
 	}
 
+	String& operator+=(char character)
+	{
+		vector.push_back(character);
+		return *this;
+	}
+
 	String& operator+=(int number)
 	{
 		String string = String::parse(number);
@@ -127,11 +133,6 @@ public:
 	{
 		String string = String::parse(number);
 		return *this + string;
-	}
-
-	const char operator[](std::size_t index) const
-	{
-		return vector.get(index);
 	}
 
 	size_t size() const {
@@ -152,6 +153,14 @@ public:
 
 	bool contains(const String& string) const {
 		return strstr(c_str(), string.c_str()) != nullptr;
+	}
+
+	bool isEmpty() const {
+		return vector.size() == 0;
+	}
+
+	int toInt() const {
+		return atoi(c_str());
 	}
 
 	static Vector<String> split(const char * string, const char * delimiter) {

@@ -146,6 +146,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Distance.h" />
     <ClInclude Include="FileParser.h" />
     <ClInclude Include="GameLoader.h" />
     <ClInclude Include="GameLoop.h" />

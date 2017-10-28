@@ -1,10 +1,7 @@
 #pragma once
 #include "Option.h"
 #include "InputManager.h"
-#include <functional>
 #include "Vector.h"
-
-using namespace std;
 
 class Location
 {
@@ -25,7 +22,7 @@ public:
 		printf("=========\nOptions\n");
 		for (size_t i = 0; i < options.size(); i++)
 		{
-			Option o = options.get(i);
+			auto o = options.get(i);
 			printf(" %i. %s\n", o.number, o.name.c_str());
 		}
 		printf("=========\n");
@@ -46,7 +43,7 @@ public:
 
 		for (size_t i = 0; i < options.size(); i++)
 		{
-			Option o = options.get(i);
+			auto o = options.get(i);
 			if (o.number == option) {
 				HandleOptionSelected(o);
 				return;

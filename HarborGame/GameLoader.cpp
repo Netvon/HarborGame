@@ -4,8 +4,6 @@
 #include "ShipFactory.h"
 #include "HarborFactory.h"
 
-using namespace std;
-
 GameLoader::GameLoader()
 {
 	

@@ -6,7 +6,8 @@
 #include <iostream>
 #include <fstream>
 
-using namespace std;
+using std::ifstream;
+using std::cout;
 
 FileParser::FileParser()
 {
@@ -20,39 +21,55 @@ FileParser::~FileParser()
 }
 
 
-Vector<String> FileParser::ParseFile(const char* path)
+Vector<String> FileParser::ParseFile(const char* path, const char comment)
 {
 	ifstream infile;
-	int array[20];
-	int i = 0;
-	char cNum[256];
+	int lineNumber = 0;
+
 	Vector<String> AllLines;
 	
 	infile.open(path, ifstream::in);
 	if (infile.is_open())
 	{
-		while (infile.good())
+		while (infile.good() && !infile.eof())
 		{
-			infile.getline(cNum, 256);
+			String currentLine;
+			char currentChar = 0;
 
-			auto str = strchr(cNum, '#');
-			if (str - cNum == 0)
+			while (currentChar != '\n' && !infile.eof()) {
+				infile.get(currentChar);
+
+				if (currentLine.size() == 0 && currentChar == comment)
+					break;
+
+				if (currentChar == '\n') {
+					currentLine += '\0';
+					break;
+				}
+
+				currentLine += currentChar;
+			}
+
+			if (currentLine.size() == 0 && currentChar == comment)
 				continue;
 
-			if (i == 0) {
-				i++;
+			// check for header lines
+			if (lineNumber == 0) {
+				lineNumber++;
 				continue;
 			}
 				
-			AllLines.push_back(cNum);
+			AllLines.push_back(currentLine);
 		
-			i++;
+			lineNumber++;
 		}
+
 		infile.close();
-		return AllLines;
 	}
 	else
 	{
 		cout << "Error opening file";
 	}
+
+	return AllLines;
 }

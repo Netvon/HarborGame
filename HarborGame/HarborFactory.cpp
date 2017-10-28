@@ -2,8 +2,7 @@
 #include "HarborFactory.h"
 #include "Harbor.h"
 #include "Product.h"
-
-using namespace std;
+#include "Distance.h"
 
 Harbor HarborFactory::CreateHarbor(String& pricesBlueprint, String& amountBlueprint, String& distanceBlueprint)
 {

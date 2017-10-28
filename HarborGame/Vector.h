@@ -1,6 +1,4 @@
 #pragma once
-#include <cstddef>
-#include <iostream>
 
 template <class T>
 class Vector {
@@ -92,7 +90,17 @@ public:
 		return _used;
 	}
 
-	T get(std::size_t index) const
+	T& get(std::size_t index)
+	{
+		return _array[index];
+	}
+
+	T& get(std::size_t index) const
+	{
+		return _array[index];
+	}
+
+	T operator[](std::size_t index) const
 	{
 		return _array[index];
 	}
