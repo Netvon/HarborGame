@@ -33,7 +33,7 @@ void GameLoop::Start()
 	GameLoader gameLoader;
 
 	// Loading all the components
-	ships = gameLoader.LoadShips();
+	//ships = gameLoader.LoadShips();
 	harbors = gameLoader.LoadLocations();
 
 	// locations = gameLoader.LoadLocations();

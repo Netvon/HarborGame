@@ -17,6 +17,8 @@ int main()
 	catch (...) {
 		if (gameloop != nullptr)
 			delete gameloop;
+
+		throw;
 	}
 
 	return _CrtDumpMemoryLeaks();

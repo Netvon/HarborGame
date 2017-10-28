@@ -33,24 +33,28 @@ Vector<String> FileParser::ParseFile(const char* path, const char comment) const
 	{
 		while (infile.good() && !infile.eof())
 		{
+			bool isComment = false;
+
 			String currentLine;
 			char currentChar = 0;
 
 			while (currentChar != '\n' && !infile.eof()) {
 				infile.get(currentChar);
 
-				if (currentLine.size() == 0 && currentChar == comment)
-					break;
+				if (currentLine.size() == 0 && currentChar == comment) {
+					isComment = true;
+				}
 
 				if (currentChar == '\n') {
 					currentLine += '\0';
 					break;
 				}
 
-				currentLine += currentChar;
+				if(!isComment)
+					currentLine += currentChar;
 			}
 
-			if (currentLine.size() == 0 && currentChar == comment)
+			if (currentLine.isEmpty())
 				continue;
 
 			// check for header lines

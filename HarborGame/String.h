@@ -161,7 +161,7 @@ public:
 	}
 
 	bool isEmpty() const {
-		return vector.size() == 0;
+		return vector.size() == 0 || vector[0] == '\0';
 	}
 
 	int toInt() const {
