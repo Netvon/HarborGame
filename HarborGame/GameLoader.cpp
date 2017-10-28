@@ -49,3 +49,5 @@ Vector<Harbor> GameLoader::LoadLocations() {
 
 	return harbors;
 }
+
+
