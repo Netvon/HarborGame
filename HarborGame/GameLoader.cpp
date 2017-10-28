@@ -34,12 +34,11 @@ Vector<Harbor> GameLoader::LoadLocations() {
 
 	Vector<String> allGoodsPrices{ fileParser.ParseFile("Files/goederen prijzen.csv") };
 	Vector<String> allGoodsAmount{ fileParser.ParseFile("Files/goederen hoeveelheid.csv") };
-	Vector<String> allDistances{ fileParser.ParseFile("Files/afstanden tussen steden.csv") };
 
 	Vector<Harbor> harbors;
 
 	for (size_t i = 0; i < allGoodsPrices.size(); i++) {
-		harbors.push_back(HarborFactory::CreateHarbor(allGoodsPrices.get(i), allGoodsAmount.get(i), allDistances.get(i)));
+		harbors.push_back(HarborFactory::CreateHarbor(allGoodsPrices.get(i), allGoodsAmount.get(i)));
 	}
 
 	return harbors;
