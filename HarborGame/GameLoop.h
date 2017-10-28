@@ -14,7 +14,6 @@ public:
 	~GameLoop();
 
 	void Start();
-
 private:
 	
 	bool quit = false;
@@ -22,7 +21,6 @@ private:
 	void ClearSceen() const;
 
 	InputManager inputManager;
-
 	Vector<Location*> locations;
 	Vector<Ship> ships;
 	Vector<Harbor> harbors;

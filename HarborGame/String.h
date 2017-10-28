@@ -135,6 +135,11 @@ public:
 		return *this + string;
 	}
 
+	const char operator[](size_t index) const
+	{
+		return vector.get(index);
+	}
+
 	size_t size() const {
 		return vector.size();
 	}
@@ -175,7 +180,6 @@ public:
 		Vector<String> temp;
 
 		char * safePointer;
-
 		char * current = strtok_s(stringArr, delimiter, &safePointer);
 
 		while (current != nullptr) {
@@ -186,7 +190,6 @@ public:
 		delete stringArr;
 		return temp;
 	}
-
 
 	static String parse(int number) {
 		char buffer[sizeof(int) * 8 + 1];

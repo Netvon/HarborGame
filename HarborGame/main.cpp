@@ -4,11 +4,20 @@
 #include "stdafx.h"
 #include "GameLoop.h"
 
-
 int main()
 {
-	GameLoop gameloop;
-	gameloop.Start();
+	GameLoop* gameloop = nullptr;
+
+	try {
+		gameloop = new GameLoop();
+		gameloop->Start();
+
+		delete gameloop;
+	}
+	catch (...) {
+		if (gameloop != nullptr)
+			delete gameloop;
+	}
 
 	return _CrtDumpMemoryLeaks();
 }

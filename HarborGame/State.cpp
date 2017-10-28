@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "State.h"
 
-
 State & State::Instance()
 {
 	static State instance;

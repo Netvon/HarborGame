@@ -8,8 +8,11 @@ Ship ShipFactory::CreateShip(const String& blueprint)
 
 	Vector<String> splittedBlueprint{ String::split(blueprint.c_str(), ";") };
 
-	if (splittedBlueprint.size() != 6)
+	if (splittedBlueprint.size() < 5)
 		throw "Blueprint string does not contain enough parts to create a Ship";
+
+	if (splittedBlueprint.size() == 5)
+		splittedBlueprint.push_back("");
 
 	String& name = splittedBlueprint[0];
 	int price{ splittedBlueprint[1].toInt() };

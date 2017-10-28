@@ -4,6 +4,7 @@
 #include "State.h"
 #include "SmrtPtr.h"
 #include "GameLoader.h"
+#include "SeaLocation.h"
 
 #include "Vector.h"
 #include "String.h"
@@ -16,6 +17,7 @@ GameLoop::GameLoop()
 {
 
 	locations.push_back(new HarborLocation());
+	locations.push_back(new SeaLocation());
 }
 
 GameLoop::~GameLoop()
@@ -40,14 +42,10 @@ void GameLoop::Start()
 
 	HarborLocation* l = dynamic_cast<HarborLocation*>(locations.get(0));
 
-	int i = 0;
-
 	while (!State::Instance().GetQuitState()) {
 
 		printf("Welcome to Harbor Game.\n");
 		//printf("Step: %i\n", i);
-		
-		i++;
 
 		l->Print();
 		l->HandleInput();
