@@ -5,7 +5,7 @@
 class HarborFactory
 {
 public:
-	static Harbor CreateHarbor(String& pricesBlueprint, String& amountBlueprint);
+	static Harbor CreateHarbor(String& pricesBlueprint, String& amountBlueprint, Vector<String> productNames);
 private:
 	HarborFactory() {};
 };
