@@ -5,7 +5,7 @@ Harbor::~Harbor()
 {
 }
 
-Vector<Product> Harbor::GetProducts() const {
+const Vector<Product>& Harbor::GetProducts() const {
 	return products;
 }
 

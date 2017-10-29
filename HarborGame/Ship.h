@@ -23,15 +23,14 @@ public:
 		hasTinyTrait(hasTinyTrait),
 		hasInertTrait(hasInertTrait),
 		hasLightTrait(hasLightTrait)
-		{
-
-		};
+		{ };
 
 	~Ship();
 
 	void setCurrentHealth(int pCurrentHealth);
 
 	const String& GetName() const;
+
 	int getPrice() const;
 	int getCargospace() const;
 	int getCannons() const;
@@ -55,6 +54,3 @@ private:
 	bool hasInertTrait;
 	bool hasLightTrait;
 };
-
-
-

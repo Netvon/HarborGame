@@ -13,7 +13,6 @@ class GameLoop
 {
 public:
 	GameLoop(State* gameState, const String& name);
-	~GameLoop();
 
 	void Start();
 private:
@@ -22,13 +21,7 @@ private:
 
 	void ClearSceen() const;
 
-	InputManager inputManager;
-	Vector<Location*> locations;
-	Vector<Ship> ships;
-	Vector<Harbor> harbors;
-
 	State * gameState;
-
 	String name;
 };
 

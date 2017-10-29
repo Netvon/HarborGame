@@ -35,8 +35,7 @@ void HarborLocation::HandleOptionSelected(const Option& option)
 	switch (option.number)
 	{
 	case 1:
-		if (!GetState().GetPlayerHasShip())
-			printf("| Well, I would love to sell you this stuff. However, I do wonder where you will store it...\n");
+		HandleGoodsShop();
 		break;
 	case 2:
 		if (!GetState().GetPlayerHasShip())
@@ -59,4 +58,15 @@ void HarborLocation::HandleOptionSelected(const Option& option)
 	default:
 		break;
 	}
+}
+
+void HarborLocation::HandleGoodsShop()
+{
+	if (!GetState().GetPlayerHasShip()) {
+		printf("| Well, I would love to sell you this stuff. However, I do wonder where you will store it...\n");
+		//return;
+	}
+
+	auto harborName = currentHarbor->GetName();
+	GetState().NavigateToLocation("shop", harborName + ";Goods");
 }

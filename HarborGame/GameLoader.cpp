@@ -33,9 +33,9 @@ Vector<Harbor> GameLoader::LoadLocations(const String & goodsPricesFilePath, con
 {
 	FileParser fileParser;
 
-	Vector<String> allGoodsPrices{ fileParser.ParseFile("Files/goederen prijzen.csv", 0) };
-	Vector<String> allGoodsAmount{ fileParser.ParseFile("Files/goederen hoeveelheid.csv", 0) };
-	Vector<String> allDistances{ fileParser.ParseFile("Files/afstanden tussen steden.csv", 0) };
+	Vector<String> allGoodsPrices{ fileParser.ParseFile(goodsPricesFilePath, 0) };
+	Vector<String> allGoodsAmount{ fileParser.ParseFile(goodsAmountsFilePath, 0) };
+	Vector<String> allDistances{ fileParser.ParseFile(harborDistancesFilePath, 0) };
 
 	Vector<Harbor> harbors;
 	Vector<String> productNames;

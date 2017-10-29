@@ -16,6 +16,7 @@ public:
 	
 private:
 	void HandleOptionSelected(const Option& option) override;
+	void HandleGoodsShop();
 	Harbor* currentHarbor = nullptr;
 };
 

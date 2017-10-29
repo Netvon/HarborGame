@@ -67,15 +67,20 @@ public:
 		return *this;
 	}
 
-	bool operator==(const String& string)
+	bool equals(const String& string) const
 	{
 		return strcmp(c_str(), string.c_str()) == 0;
 	}
 
-	bool operator==(const char* string)
+	bool operator==(const String& string) const
+	{
+		return strcmp(c_str(), string.c_str()) == 0;
+	}
+
+	/*bool operator==(const char* string)
 	{
 		return strcmp(c_str(), string) == 0;
-	}
+	}*/
 
 	bool operator!=(const String& string)
 	{

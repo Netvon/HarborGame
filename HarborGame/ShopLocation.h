@@ -14,5 +14,6 @@ public:
 private:
 	void HandleOptionSelected(const Option& option) override;
 	Harbor* currentHarbor = nullptr;
+	String mode;
 };
 

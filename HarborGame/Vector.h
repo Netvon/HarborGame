@@ -97,7 +97,7 @@ public:
 
 	T& get(std::size_t index)
 	{
-		if (index > _used)
+		if (index > _used - 1)
 			throw std::out_of_range("Index out of bounds");
 
 		return _array[index];
@@ -105,7 +105,7 @@ public:
 
 	T& get(std::size_t index) const
 	{
-		if (index > _used)
+		if (index > _used - 1)
 			throw std::out_of_range("Index out of bounds");
 
 		return _array[index];

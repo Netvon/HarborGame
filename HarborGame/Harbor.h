@@ -16,8 +16,9 @@ public:
 	Harbor() { };
 	~Harbor();
 
-	Vector<Product> GetProducts() const;
+	const Vector<Product>& GetProducts() const;
 	void AddProduct(Product product);
+
 	Vector<Cannon> getCannons() const;
 	Vector<Distance> getDistances() const;
 	const String& GetName() const;

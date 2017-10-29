@@ -17,13 +17,6 @@ GameLoop::GameLoop(State * gameState, const String& name)
 	: gameState(gameState), name(name)
 { }
 
-GameLoop::~GameLoop()
-{
-	for (size_t i = 0; i < locations.size(); i++)
-	{
-		delete locations.get(i);
-	}
-}
 
 void GameLoop::Start()
 {

@@ -62,7 +62,7 @@ bool Ship::operator==(Ship * other)
 	if (this == nullptr)
 		return false;
 
-	return name == other->name;
+	return name.equals(other->name);
 }
 
 bool Ship::operator!=(Ship * other)
