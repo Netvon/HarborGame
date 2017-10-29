@@ -19,6 +19,8 @@ const Product & Harbor::GetProduct(const String & name) const
 			return product;
 		}
 	}
+
+	return {};
 }
 
 Product & Harbor::GetProduct(size_t index)
@@ -41,7 +43,7 @@ void Harbor::BuyProduct(Player & forPlayer, Product & product, size_t amount)
 	if (product.GetAvailable() <= 0)
 		throw GameException("This product is out of stock");
 
-	forPlayer.AddProductToShip(product, amount);
+	forPlayer.AddProductToShip(product, to_int(amount));
 	DecreaseProductStock(product.GetName(), amount);
 }
 
@@ -107,8 +109,8 @@ void Harbor::BuyCannon(Player & forPlayer, Cannon & cannon, size_t amount)
 	if (cannon.GetAvailable() <= 0)
 		throw GameException("This cannon is out of stock");
 
-	forPlayer.AddCannonToShip(cannon, amount);
-	cannon.DecreaseAmount(amount);
+	forPlayer.AddCannonToShip(cannon, to_int(amount));
+	cannon.DecreaseAmount(to_int(amount));
 }
 
 void Harbor::SellCannon(Cannon & cannon)
