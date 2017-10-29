@@ -263,6 +263,17 @@ void ShopLocation::HandleGoodsOption(const Option & option)
 			}
 		}
 	}
+	else {
+		size_t sellIndex = productIndex - currentHarbor->GetProductsSize();
+
+		auto& product = GetState().GetPlayer().GetShip().GetProduct(sellIndex);
+		auto& fromHarbor = currentHarbor->GetProduct(product.GetName());
+
+		printf("| How many of those would you like to sell?\n");
+		auto amount = manager.GetInput(product.GetAvailable());
+
+		currentHarbor->SellProduct(GetState().GetPlayer(), product, amount, fromHarbor.GetPrice());
+	}
 
 	CreateOptions();
 }

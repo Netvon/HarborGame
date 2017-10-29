@@ -101,12 +101,12 @@ void Player::AddProductToShip(Product & product, int amount)
 	SubtractGold(product.GetPrice() * amount);
 }
 
-void Player::SellProductToHarbor(Product & product, Harbor & harbor, size_t amount)
-{
-	harbor.SellProduct(product, amount);
-	AddGold(
-		static_cast<size_t>(product.GetPrice() * amount)
-	);
-
-	ship->RemoveProduct(product, amount);
-}
+//void Player::SellProductToHarbor(Product & product, Harbor & harbor, size_t amount)
+//{
+//	harbor.SellProduct(product, amount);
+//	AddGold(
+//		static_cast<size_t>(product.GetPrice() * amount)
+//	);
+//
+//	ship->RemoveProduct(product, amount);
+//}

@@ -45,9 +45,16 @@ void Harbor::BuyProduct(Player & forPlayer, Product & product, size_t amount)
 	DecreaseProductStock(product.GetName(), amount);
 }
 
-void Harbor::SellProduct(Product & product, size_t amount)
+void Harbor::SellProduct(Player & forPlayer, Product & product, size_t amount, size_t price)
 {
+	forPlayer.AddGold(amount * price);
+	auto& ship = forPlayer.GetShip();
+
 	IncreaseProductStock(product.GetName(), amount);
+
+	ship.RemoveProduct(product, amount);
+
+	
 }
 
 void Harbor::IncreaseProductStock(const String & name, size_t byAmount)
@@ -56,7 +63,7 @@ void Harbor::IncreaseProductStock(const String & name, size_t byAmount)
 	{
 		auto& product = products.get(i);
 
-		if (product.GetName() == name) {
+		if (product.GetName().equals(name)) {
 			product.IncreaseAmount(to_int(byAmount));
 		}
 	}

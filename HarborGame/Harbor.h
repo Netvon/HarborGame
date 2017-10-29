@@ -26,7 +26,7 @@ public:
 	bool GetProductIsInStock(size_t index) const;
 
 	void BuyProduct(Player& forPlayer, Product& product, size_t amount);
-	void SellProduct(Product& product, size_t amount);
+	void SellProduct(Player & forPlayer, Product & product, size_t amount, size_t price);
 
 	const Cannon& GetCannon(size_t index) const;
 	Cannon& GetCannon(size_t index);
