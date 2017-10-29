@@ -19,7 +19,7 @@ public:
 	const Vector<Product>& GetProducts() const;
 	void AddProduct(Product product);
 
-	Vector<Cannon> getCannons() const;
+	Vector<Cannon> GetCannons() const;
 	Vector<Distance> getDistances() const;
 	const String& GetName() const;
 

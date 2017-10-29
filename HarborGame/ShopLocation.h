@@ -8,12 +8,15 @@ public:
 	ShopLocation(const String& name);
 	~ShopLocation() { };
 
-	void NavigatedTo(const String& param) override;
+	void NavigatedTo(const String& param) override;	
 	void PrintWelcomeMessage() const override;
 
 private:
+	void AddGoodsOptions();
+	void AddShipOptions();
 	void HandleOptionSelected(const Option& option) override;
 	Harbor* currentHarbor = nullptr;
 	String mode;
+	String extraMessage;
 };
 

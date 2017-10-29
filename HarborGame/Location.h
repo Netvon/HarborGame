@@ -47,6 +47,10 @@ protected:
 		return *gameState;
 	}
 
+	void ClearOptions() {
+		options.clear();
+	}
+
 private:
 	Vector<Option> options;
 	InputManager manager;

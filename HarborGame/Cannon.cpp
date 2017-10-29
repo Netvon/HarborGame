@@ -6,7 +6,7 @@ Cannon::Cannon()
 {
 }
 
-int Cannon::getPrice() const {
+int Cannon::GetPrice() const {
 	return price;
 }
 

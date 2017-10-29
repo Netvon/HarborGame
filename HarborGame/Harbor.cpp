@@ -9,7 +9,7 @@ const Vector<Product>& Harbor::GetProducts() const {
 	return products;
 }
 
-Vector<Cannon> Harbor::getCannons() const {
+Vector<Cannon> Harbor::GetCannons() const {
 	return cannons;
 }
 

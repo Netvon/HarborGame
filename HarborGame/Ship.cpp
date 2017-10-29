@@ -6,6 +6,23 @@ Ship::Ship()
 
 }
 
+Ship::Ship(Ship * other)
+{
+	if (other != nullptr) {
+		name = other->name;
+		price = other->price;
+		cargospace = other->cargospace;
+		cannons = other->cannons;
+		maxHealth = other->maxHealth;
+
+		hasInertTrait = other->hasInertTrait;
+		hasLightTrait = other->hasLightTrait;
+		hasTinyTrait = other->hasTinyTrait;
+
+		currentHealth = other->maxHealth;
+	}
+}
+
 Ship::~Ship()
 {
 
@@ -19,35 +36,35 @@ const String& Ship::GetName() const {
 	return name;
 }
 
-int Ship::getPrice() const {
+int Ship::GetPrice() const {
 	return price;
 }
 
-int Ship::getCargospace() const {
+int Ship::GetMaxCargospace() const {
 	return cargospace;
 }
 
-int Ship::getCannons() const {
+int Ship::GetCannons() const {
 	return cannons;
 }
 
-int Ship::getCurrentHealth() const {
+int Ship::GetCurrentHealth() const {
 	return currentHealth;
 }
 
-int Ship::getMaxHealth() const {
+int Ship::GetMaxHealth() const {
 	return maxHealth;
 }
 
-bool Ship::getTinyTrait() const {
+bool Ship::GetTinyTrait() const {
 	return hasTinyTrait;
 }
 
-bool Ship::getInertTrait() const {
+bool Ship::GetInertTrait() const {
 	return hasInertTrait;
 }
 
-bool Ship::getLightTrait() const {
+bool Ship::GetLightTrait() const {
 	return hasLightTrait;
 }
 

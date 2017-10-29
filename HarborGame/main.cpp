@@ -20,6 +20,8 @@ int main()
 			"Files/afstanden tussen steden.csv"
 		);
 
+		gameState->GetPlayer().AddGold(50000);
+
 		gameState->AddLocation<HarborLocation>("harbor");
 		gameState->AddLocation<ShopLocation>("shop");
 		gameState->NavigateToLocation("harbor", gameState->GetHarbor(0)->GetName());

@@ -25,20 +25,22 @@ public:
 		hasLightTrait(hasLightTrait)
 		{ };
 
+	Ship(Ship * other);
+
 	~Ship();
 
 	void setCurrentHealth(int pCurrentHealth);
 
 	const String& GetName() const;
 
-	int getPrice() const;
-	int getCargospace() const;
-	int getCannons() const;
-	int getCurrentHealth() const;
-	int getMaxHealth() const;
-	bool getTinyTrait() const;
-	bool getInertTrait() const;
-	bool getLightTrait() const;
+	int GetPrice() const;
+	int GetMaxCargospace() const;
+	int GetCannons() const;
+	int GetCurrentHealth() const;
+	int GetMaxHealth() const;
+	bool GetTinyTrait() const;
+	bool GetInertTrait() const;
+	bool GetLightTrait() const;
 
 	bool operator==(Ship* other);
 	bool operator!=(Ship* other);

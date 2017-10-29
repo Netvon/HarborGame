@@ -51,6 +51,8 @@ public:
 		{
 			vector.push_back(string[i]);
 		}
+
+		return *this;
 	}
 
 	String& operator+=(const char* string)

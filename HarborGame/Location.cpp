@@ -15,10 +15,13 @@ void Location::PrintOptions() const
 void Location::PrintStats() const
 {
 	auto& player = GetState().GetPlayer();
-	printf("[ Gold: %lu ]", player.GetGold());
+	printf("[ Gold: %llu ]", player.GetGold());
 
 	if (GetState().GetPlayerHasShip()) {
-		printf(" [ Ship: %s ]", player.GetShipName());
+		printf(" [ Ship: %s, ", player.GetShipName().c_str());
+		printf("%i/%i hp ]", player.GetShip().GetCurrentHealth(), player.GetShip().GetMaxHealth());
+
+		printf(" [ Goods: %i/%i ]", 0, player.GetShip().GetMaxCargospace());
 	}
 	else {
 		printf(" [ Ship: ---, --- hp ]");

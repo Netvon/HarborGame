@@ -197,6 +197,14 @@ public:
 		return false;
 	}
 
+	void clear() {
+		delete[] _array;
+
+		_array = new T[VECTOR_DEFAULT_SIZE];
+		_used = 0;
+		_capacity = VECTOR_DEFAULT_SIZE;
+	}
+
 private:
 	void alloc_new() {
 

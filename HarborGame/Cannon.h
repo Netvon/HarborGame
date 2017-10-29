@@ -17,7 +17,7 @@ public:
 
 	Cannon();
 
-	int getPrice() const;
+	int GetPrice() const;
 	int getMinAmountAvailable() const;
 	int getMaxAmountAvailable() const;
 	String getType() const;

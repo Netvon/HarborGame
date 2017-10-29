@@ -9,7 +9,7 @@ HarborLocation::HarborLocation(const String& name) : Location(name)
 {
 	AddOption(1, "Buy or Sell Goods");
 	AddOption(2, "Buy or Sell Cannons");
-	AddOption(3, "Buy or Sell a Ship");
+	AddOption(3, "Buy a Ship");
 	AddOption(4, "Leave");
 	AddOption(5, "Repair Ship");
 	AddOption(6, "Quit");
