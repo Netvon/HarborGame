@@ -35,16 +35,19 @@ Vector<Harbor> GameLoader::LoadLocations(const String & goodsPricesFilePath, con
 
 	Vector<String> allGoodsPrices{ fileParser.ParseFile("Files/goederen prijzen.csv", 0) };
 	Vector<String> allGoodsAmount{ fileParser.ParseFile("Files/goederen hoeveelheid.csv", 0) };
+	Vector<String> allDistances{ fileParser.ParseFile("Files/afstanden tussen steden.csv", 0) };
 
 	Vector<Harbor> harbors;
 	Vector<String> productNames;
+	Vector<String> harborNames;
 
 	for (size_t i = 0; i < allGoodsPrices.size(); i++) {
 		if (i == 0) {
 			productNames = String::split(allGoodsPrices[i], ";");
+			harborNames = String::split(allDistances[i], ";");
 		}
 		else {
-			harbors.push_back(HarborFactory::CreateHarbor(allGoodsPrices[i], allGoodsAmount[i], productNames));
+			harbors.push_back(HarborFactory::CreateHarbor(allGoodsPrices[i], allGoodsAmount[i], allDistances[i], productNames, harborNames));
 		}
 	}
 

@@ -87,6 +87,9 @@
     <ClInclude Include="ShopLocation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Cannon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -141,6 +144,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="ShopLocation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Cannon.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
