@@ -22,6 +22,9 @@ public:
 	Cannon& GetCannon(size_t index);
 	size_t GetCannonSize() const;
 
+	void SellCannon(Cannon& cannon);
+	void IncreaseCannonStock(String& type, size_t byAmount);
+
 	void Randomize();
 	void RandomizeCannonAvailability();
 

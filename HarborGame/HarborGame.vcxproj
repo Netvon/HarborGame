@@ -149,6 +149,7 @@
     <ClInclude Include="Cannon.h" />
     <ClInclude Include="Distance.h" />
     <ClInclude Include="FileParser.h" />
+    <ClInclude Include="GameException.h" />
     <ClInclude Include="GameLoader.h" />
     <ClInclude Include="GameLoop.h" />
     <ClInclude Include="Harbor.h" />
@@ -174,6 +175,7 @@
   <ItemGroup>
     <ClCompile Include="Cannon.cpp" />
     <ClCompile Include="FileParser.cpp" />
+    <ClCompile Include="GameException.cpp" />
     <ClCompile Include="GameLoader.cpp" />
     <ClCompile Include="GameLoop.cpp" />
     <ClCompile Include="Harbor.cpp" />

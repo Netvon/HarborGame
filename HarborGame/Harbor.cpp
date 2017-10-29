@@ -24,6 +24,23 @@ size_t Harbor::GetCannonSize() const
 	return cannons.size();
 }
 
+void Harbor::SellCannon(Cannon & cannon)
+{
+	IncreaseCannonStock(cannon.GetType(), 1);
+}
+
+void Harbor::IncreaseCannonStock(String & type, size_t byAmount)
+{
+	for (size_t i = 0; i < cannons.size(); i++)
+	{
+		auto& cannon = cannons.get(i);
+
+		if (cannon.GetType() == type) {
+			cannon.IncreaseAmmount(byAmount);
+		}
+	}
+}
+
 void Harbor::Randomize()
 {
 	RandomizeCannonAvailability();

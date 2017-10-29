@@ -1,11 +1,18 @@
 #include "stdafx.h"
 #include "ShopLocation.h"
+#include "GameException.h"
 
 
 ShopLocation::ShopLocation(const String & name) : Location(name)
 { }
 
 void ShopLocation::NavigatedTo(const String & param)
+{
+	navParam = param;
+	CreateOptions();
+}
+
+void ShopLocation::CreateOptions()
 {
 	ClearOptions();
 
@@ -14,7 +21,7 @@ void ShopLocation::NavigatedTo(const String & param)
 
 	extraMessage = "";
 
-	auto params = String::split(param, ";");
+	auto params = String::split(navParam, ";");
 	currentHarbor = GetState().GetHarbor(params.get(0));
 
 	mode = params.get(1);
@@ -88,6 +95,23 @@ void ShopLocation::AddCannonOptions()
 
 		AddOption(i + size_t(3), name);
 	}
+
+	auto ship = GetState().GetPlayer().GetShip();
+
+	for (size_t i = 0; i < ship.GetUniqueCannonAmount(); i++)
+	{
+		auto& cannon = ship.GetCannon(i);
+
+		String name = "Sell '";
+		name += cannon.GetType();
+		name += "' [ Gold: ";
+		name += static_cast<int>(cannon.GetPrice() * 0.5);
+		name += " ] [ On board: ";
+		name += cannon.GetAvailable();
+		name += " ]";
+
+		AddOption(i + size_t(3) + currentHarbor->GetCannonSize(), name);
+	}
 }
 
 void ShopLocation::PrintWelcomeMessage() const
@@ -114,28 +138,52 @@ void ShopLocation::HandleOptionSelected(const Option & option)
 	}
 
 	if (mode.equals("Ships")) {
-		size_t shipIndex = option.number - 3u;
-
-		auto ship = GetState().GetShip(shipIndex);
-		bool hasEnoughMoney = ship->GetPrice() <= GetState().GetPlayer().GetGold();
-
-		if (!hasEnoughMoney) {
-			printf("| I'm afraid you don't have enough money to buy this ship.\n");
-		}
-		else {
-
-			GetState().GetPlayer().ReplaceShip(ship, 0.5);
-
-			printf("| Enjoy your new '%s' captain, it will be delivered to you soon!\n", ship->GetName().c_str());
-			GetState().NavigateToLocation("harbor", currentHarbor->GetName());
-		}
+		HandleShipOption(option);
 	}
 	else if (mode.equals("Cannons")) {
-		size_t cannonIndex = option.number - 3u;
+		HandleCannonOption(option);
+	}
+}
 
-		auto& cannon = currentHarbor->GetCannon(cannonIndex);
-		cannon.DecreaseAmmount(1);
+void ShopLocation::HandleCannonOption(const Option & option)
+{
+	size_t cannonIndex = option.number - 3u;
 
-		//GetState().GetPlayer().AddCannonToShip(cannon);
+	if (cannonIndex < currentHarbor->GetCannonSize()) {
+
+		try {
+			auto& cannon = currentHarbor->GetCannon(cannonIndex);
+			GetState().GetPlayer().AddCannonToShip(cannon);
+		}
+		catch (GameException& e) {
+			printf("| %s.\n", e.what());
+		}
+	}
+	else {
+		size_t sellIndex = cannonIndex - currentHarbor->GetCannonSize();
+		auto& cannon = GetState().GetPlayer().GetShip().GetCannon(sellIndex);
+
+		GetState().GetPlayer().SellCannonToHarbor(cannon, *currentHarbor);
+	}
+
+	CreateOptions();
+}
+
+void ShopLocation::HandleShipOption(const Option & option)
+{
+	size_t shipIndex = option.number - 3u;
+
+	auto ship = GetState().GetShip(shipIndex);
+	bool hasEnoughMoney = ship->GetPrice() <= GetState().GetPlayer().GetGold();
+
+	if (!hasEnoughMoney) {
+		printf("| I'm afraid you don't have enough money to buy this ship.\n");
+	}
+	else {
+
+		GetState().GetPlayer().ReplaceShip(ship);
+
+		printf("| Enjoy your new '%s' captain, it will be delivered to you soon!\n", ship->GetName().c_str());
+		GetState().NavigateToLocation("harbor", currentHarbor->GetName());
 	}
 }

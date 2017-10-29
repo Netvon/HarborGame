@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Player.h"
-
+#include "GameException.h"
 
 Player::Player() : gold(0)
 {
@@ -72,8 +72,25 @@ void Player::AddCannonToShip(Cannon & cannon)
 	if (ship == nullptr)
 		return;
 
+	if (cannon.GetAvailable() <= 0)
+		throw GameException("This cannon is out of stock");
+
+	if (gold < cannon.GetPrice())
+		throw GameException("Not enough money");
+
+	if(ship->GetCannonsAmount() + 1  > ship->GetMaxCannons())
+		throw GameException("Max cannons reached");
+
 	SubtractGold(cannon.GetPrice());
 	ship->AddCannon(cannon);
 
 	cannon.DecreaseAmmount(1);
+}
+
+void Player::SellCannonToHarbor(Cannon & cannon, Harbor & harbor, double retainMultiplier)
+{
+	harbor.SellCannon(cannon);
+	AddGold(cannon.GetPrice() * retainMultiplier);
+
+	ship->RemoveCannon(cannon);
 }

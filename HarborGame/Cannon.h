@@ -28,6 +28,7 @@ public:
 	void RandomizeAvailable();
 
 	void DecreaseAmmount(int amount);
+	void IncreaseAmmount(int amount);
 
 	String GetType() const;
 private:

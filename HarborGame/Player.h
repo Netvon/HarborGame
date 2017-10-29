@@ -1,6 +1,7 @@
 #pragma once
 #include "stdafx.h"
 #include "Ship.h"
+#include "Harbor.h"
 
 class Player
 {
@@ -12,7 +13,7 @@ public:
 	}
 
 	void RepairShip(size_t gold, size_t steps);
-	void ReplaceShip(Ship* newShip, double retainMultiplier);
+	void ReplaceShip(Ship* newShip, double retainMultiplier = 0.5);
 	void AddGold(size_t addGoldAmount);
 	void SubtractGold(size_t subtractAmount);
 
@@ -23,6 +24,7 @@ public:
 	bool GetIsBroke() const;
 
 	void AddCannonToShip(Cannon& cannon);
+	void SellCannonToHarbor(Cannon& cannon, Harbor& harbor, double retainMultiplier = 0.5);
 
 private:
 	Ship* ship = nullptr;

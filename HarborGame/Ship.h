@@ -42,6 +42,7 @@ public:
 	bool GetLightTrait() const;
 
 	bool GetIsAtFullHealth() const;
+	size_t GetUniqueCannonAmount() const;
 
 	bool operator==(Ship* other);
 	bool operator!=(Ship* other);
@@ -50,6 +51,9 @@ public:
 	void AddHealth(size_t amount = 1);
 
 	void AddCannon(const Cannon& newCannon);
+	void RemoveCannon(Cannon& cannon);
+
+	Cannon& GetCannon(size_t index);
 
 private:
 	String name;

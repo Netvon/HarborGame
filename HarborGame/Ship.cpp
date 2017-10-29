@@ -48,7 +48,14 @@ size_t Ship::GetMaxCannons() const {
 
 size_t Ship::GetCannonsAmount() const
 {
-	return cannons;
+	size_t result = 0;
+	for (size_t i = 0; i < cannonList.size(); i++)
+	{
+		auto& cannon = cannonList.get(i);
+		result += cannon.GetAvailable();
+	}
+
+	return result;
 }
 
 size_t Ship::GetCurrentHealth() const {
@@ -74,6 +81,11 @@ bool Ship::GetLightTrait() const {
 bool Ship::GetIsAtFullHealth() const
 {
 	return maxHealth == currentHealth;
+}
+
+size_t Ship::GetUniqueCannonAmount() const
+{
+	return cannonList.size();
 }
 
 bool Ship::operator==(Ship * other)
@@ -114,5 +126,38 @@ void Ship::AddHealth(size_t amount)
 
 void Ship::AddCannon(const Cannon & newCannon)
 {
+	for (size_t i = 0; i < cannonList.size(); i++)
+	{
+		auto& cannon = cannonList.get(i);
+
+		if (cannon.GetType() == newCannon.GetType()) {
+			cannon.IncreaseAmmount(1);
+			return;
+		}
+	}
+
 	cannonList.push_back({ newCannon });
+}
+
+void Ship::RemoveCannon(Cannon & cannonToRemove)
+{
+	for (size_t i = 0; i < cannonList.size(); i++)
+	{
+		auto& cannon = cannonList.get(i);
+
+		if (cannon.GetType() == cannonToRemove.GetType()) {
+			cannon.DecreaseAmmount(1);
+
+			if (cannon.GetAvailable() <= 0) {
+				cannonList.pop_index(i);
+			}
+
+			return;
+		}
+	}
+}
+
+Cannon & Ship::GetCannon(size_t index)
+{
+	return cannonList.get(index);
 }

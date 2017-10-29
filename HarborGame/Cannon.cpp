@@ -8,7 +8,7 @@ Cannon::Cannon(const Cannon & other)
 	type = other.type;
 	minAmountAvailable = other.minAmountAvailable;
 	maxAmountAvailable = other.maxAmountAvailable;
-	available = other.available;
+	available = 1;
 }
 
 Cannon::Cannon()
@@ -40,6 +40,11 @@ void Cannon::RandomizeAvailable()
 void Cannon::DecreaseAmmount(int amount)
 {
 	available -= amount;
+}
+
+void Cannon::IncreaseAmmount(int amount)
+{
+	available += amount;
 }
 
 String Cannon::GetType() const {
