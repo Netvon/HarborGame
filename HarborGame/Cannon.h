@@ -25,6 +25,8 @@ public:
 
 	int GetAvailable() const;
 
+	bool IsHeavy() const;
+
 	void RandomizeAvailable();
 
 	void DecreaseAmmount(int amount);

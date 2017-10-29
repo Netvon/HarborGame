@@ -32,6 +32,11 @@ int Cannon::GetAvailable() const
 	return available;
 }
 
+bool Cannon::IsHeavy() const
+{
+	return type.contains("zwaar");
+}
+
 void Cannon::RandomizeAvailable()
 {
 	available = RandomNumber::Instance().Get(minAmountAvailable, maxAmountAvailable);

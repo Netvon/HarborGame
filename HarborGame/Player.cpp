@@ -81,6 +81,9 @@ void Player::AddCannonToShip(Cannon & cannon)
 	if(ship->GetCannonsAmount() + 1  > ship->GetMaxCannons())
 		throw GameException("Max cannons reached");
 
+	if(ship->HasTinyTrait() && cannon.IsHeavy())
+		throw GameException("This cannon doesn't fit on the ship");
+
 	SubtractGold(cannon.GetPrice());
 	ship->AddCannon(cannon);
 

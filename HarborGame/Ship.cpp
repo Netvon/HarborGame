@@ -66,15 +66,15 @@ size_t Ship::GetMaxHealth() const {
 	return maxHealth;
 }
 
-bool Ship::GetTinyTrait() const {
+bool Ship::HasTinyTrait() const {
 	return hasTinyTrait;
 }
 
-bool Ship::GetInertTrait() const {
+bool Ship::HasInertTrait() const {
 	return hasInertTrait;
 }
 
-bool Ship::GetLightTrait() const {
+bool Ship::HasLightTrait() const {
 	return hasLightTrait;
 }
 

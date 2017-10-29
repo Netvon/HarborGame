@@ -71,7 +71,22 @@ void ShopLocation::AddShipOptions()
 		name += static_cast<int>(ship->GetMaxCargospace());
 		name += " goods ] [ ";
 		name += static_cast<int>(ship->GetMaxCannons());
-		name += " cannons ]";
+		name += " cannons ] [ Light: ";
+		if (ship->HasLightTrait())
+			name += "y";
+		else
+			name += "n";
+		name += ", Tiny: ";
+		if (ship->HasTinyTrait())
+			name += "y";
+		else
+			name += "n";
+		name += ", Inert: ";
+		if (ship->HasInertTrait())
+			name += "y";
+		else
+			name += "n";
+		name += " ]";
 
 		AddOption(i + size_t(3), name);
 	}

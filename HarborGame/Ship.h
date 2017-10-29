@@ -37,9 +37,9 @@ public:
 	size_t GetCannonsAmount() const;
 	size_t GetCurrentHealth() const;
 	size_t GetMaxHealth() const;
-	bool GetTinyTrait() const;
-	bool GetInertTrait() const;
-	bool GetLightTrait() const;
+	bool HasTinyTrait() const;
+	bool HasInertTrait() const;
+	bool HasLightTrait() const;
 
 	bool GetIsAtFullHealth() const;
 	size_t GetUniqueCannonAmount() const;
