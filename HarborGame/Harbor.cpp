@@ -9,8 +9,33 @@ const Vector<Product>& Harbor::GetProducts() const {
 	return products;
 }
 
-Vector<Cannon> Harbor::GetMaxCannons() const {
-	return cannons;
+const Cannon & Harbor::GetCannon(size_t index) const
+{
+	return cannons.get(index);
+}
+
+Cannon & Harbor::GetCannon(size_t index)
+{
+	return cannons.get(index);
+}
+
+size_t Harbor::GetCannonSize() const
+{
+	return cannons.size();
+}
+
+void Harbor::Randomize()
+{
+	RandomizeCannonAvailability();
+}
+
+void Harbor::RandomizeCannonAvailability()
+{
+	for (size_t i = 0; i < cannons.size(); i++)
+	{
+		auto& cannon = cannons.get(i);
+		cannon.RandomizeAvailable();
+	}
 }
 
 Vector<Distance> Harbor::getDistances() const {

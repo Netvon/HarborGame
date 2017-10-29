@@ -23,10 +23,10 @@ int Product::getMaxPrice() const {
 	return maxPrice;
 }
 
-int Product::getMinAmountAvailable() const {
+int Product::GetMinAmountAvailable() const {
 	return minAmountAvailable;
 }
 
-int Product::getMaxAmountAvailable() const {
+int Product::GetMaxAmountAvailable() const {
 	return maxAmountAvailable;
 }

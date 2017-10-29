@@ -22,6 +22,8 @@ public:
 
 	bool GetIsBroke() const;
 
+	void AddCannonToShip(Cannon& cannon);
+
 private:
 	Ship* ship = nullptr;
 	size_t gold;

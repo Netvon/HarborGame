@@ -43,6 +43,8 @@ public:
 	const Player& GetPlayer() const;
 	bool GetPlayerHasShip() const;
 
+	const String& GetLastLocation() const;
+
 private:
 	bool quit;
 
@@ -53,6 +55,7 @@ private:
 	Vector<Harbor> harbors;
 
 	int currentLocation = -1;
+	String lastLocation;
 
 	GameLoader loader;
 	Player player;

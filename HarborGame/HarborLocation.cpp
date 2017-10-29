@@ -18,6 +18,10 @@ HarborLocation::HarborLocation(const String& name) : Location(name)
 void HarborLocation::NavigatedTo(const String & param)
 {
 	currentHarbor = GetState().GetHarbor(param);
+
+	if (!GetState().GetLastLocation().equals("shop")) {
+		currentHarbor->Randomize();
+	}
 }
 
 void HarborLocation::PrintWelcomeMessage() const
@@ -38,8 +42,7 @@ void HarborLocation::HandleOptionSelected(const Option& option)
 		HandleGoodsShop();
 		break;
 	case 2:
-		if (!GetState().GetPlayerHasShip())
-			printf("| Unfortunately you will need a ship to buy these, or where you planning to put a sail on one of these?\n");
+		HandleCannonShop();
 		break;
 	case 3:
 		HandleBuyShip();
@@ -62,6 +65,16 @@ void HarborLocation::HandleOptionSelected(const Option& option)
 		break;
 	default:
 		break;
+	}
+}
+
+void HarborLocation::HandleCannonShop()
+{
+	if (!GetState().GetPlayerHasShip())
+		printf("| Unfortunately you will need a ship to buy these, or where you planning to put a sail on one of these?\n");
+	else {
+		auto harborName = currentHarbor->GetName();
+		GetState().NavigateToLocation("shop", harborName + ";Cannons");
 	}
 }
 

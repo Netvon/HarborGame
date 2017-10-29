@@ -22,8 +22,8 @@ public:
 	const String& GetName() const;
 	int getMinPrice() const;
 	int getMaxPrice() const;
-	int getMinAmountAvailable() const;
-	int getMaxAmountAvailable() const;
+	int GetMinAmountAvailable() const;
+	int GetMaxAmountAvailable() const;
 
 private:
 	String name;

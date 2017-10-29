@@ -14,6 +14,7 @@ public:
 private:
 	void AddGoodsOptions();
 	void AddShipOptions();
+	void AddCannonOptions();
 	void HandleOptionSelected(const Option& option) override;
 	Harbor* currentHarbor = nullptr;
 	String mode;

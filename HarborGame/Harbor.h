@@ -6,7 +6,7 @@
 class Harbor
 {
 public:
-	Harbor(String name, Vector<Product> products, Vector<Cannon> cannons, Vector<Distance> distances) :
+	Harbor(String name, const Vector<Product>& products, const Vector<Cannon>& cannons, const Vector<Distance>& distances) :
 		name(name),
 		products(products),
 		cannons(cannons),
@@ -17,9 +17,14 @@ public:
 	~Harbor();
 
 	const Vector<Product>& GetProducts() const;
-	void AddProduct(Product product);
 
-	Vector<Cannon> GetMaxCannons() const;
+	const Cannon& GetCannon(size_t index) const;
+	Cannon& GetCannon(size_t index);
+	size_t GetCannonSize() const;
+
+	void Randomize();
+	void RandomizeCannonAvailability();
+
 	Vector<Distance> getDistances() const;
 	const String& GetName() const;
 

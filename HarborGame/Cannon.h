@@ -6,7 +6,7 @@ class Cannon
 {
 public:
 
-	Cannon(int price, int minAmount, int maxAmount, String type) :
+	Cannon(int price, int minAmount, int maxAmount, const String& type) :
 		price(price),
 		minAmountAvailable(minAmount),
 		maxAmountAvailable(maxAmount),
@@ -15,16 +15,27 @@ public:
 
 		};
 
+	Cannon(const Cannon& other);
+
 	Cannon();
 
 	int GetPrice() const;
-	int getMinAmountAvailable() const;
-	int getMaxAmountAvailable() const;
-	String getType() const;
+	int GetMinAmountAvailable() const;
+	int GetMaxAmountAvailable() const;
+
+	int GetAvailable() const;
+
+	void RandomizeAvailable();
+
+	void DecreaseAmmount(int amount);
+
+	String GetType() const;
 private:
 	int price;
 	int minAmountAvailable;
 	int maxAmountAvailable;
+
+	int available;
 	String type;
 };
 

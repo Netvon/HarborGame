@@ -111,3 +111,8 @@ void Ship::AddHealth(size_t amount)
 		currentHealth += amount;
 	}
 }
+
+void Ship::AddCannon(const Cannon & newCannon)
+{
+	cannonList.push_back({ newCannon });
+}

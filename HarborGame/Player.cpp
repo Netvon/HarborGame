@@ -66,3 +66,14 @@ bool Player::GetIsBroke() const
 {
 	return gold == 0;
 }
+
+void Player::AddCannonToShip(Cannon & cannon)
+{
+	if (ship == nullptr)
+		return;
+
+	SubtractGold(cannon.GetPrice());
+	ship->AddCannon(cannon);
+
+	cannon.DecreaseAmmount(1);
+}

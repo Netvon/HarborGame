@@ -25,6 +25,9 @@ void ShopLocation::NavigatedTo(const String & param)
 	else if (mode.equals("Goods")) {
 		AddGoodsOptions();
 	}
+	else if (mode.equals("Cannons")) {
+		AddCannonOptions();
+	}
 }
 
 void ShopLocation::AddGoodsOptions()
@@ -69,6 +72,24 @@ void ShopLocation::AddShipOptions()
 	}
 }
 
+void ShopLocation::AddCannonOptions()
+{
+	for (size_t i = 0; i < currentHarbor->GetCannonSize(); i++)
+	{
+		auto& cannon = currentHarbor->GetCannon(i);
+
+		String name = "Buy '";
+		name += cannon.GetType();
+		name += "' [ Gold: ";
+		name += cannon.GetPrice();
+		name += " ] [ Available: ";
+		name += cannon.GetAvailable();
+		name += " ]";
+
+		AddOption(i + size_t(3), name);
+	}
+}
+
 void ShopLocation::PrintWelcomeMessage() const
 {
 	printf("| Welcome to the %s %s Shop\n", currentHarbor->GetName().c_str(), mode.c_str());
@@ -108,5 +129,13 @@ void ShopLocation::HandleOptionSelected(const Option & option)
 			printf("| Enjoy your new '%s' captain, it will be delivered to you soon!\n", ship->GetName().c_str());
 			GetState().NavigateToLocation("harbor", currentHarbor->GetName());
 		}
+	}
+	else if (mode.equals("Cannons")) {
+		size_t cannonIndex = option.number - 3u;
+
+		auto& cannon = currentHarbor->GetCannon(cannonIndex);
+		cannon.DecreaseAmmount(1);
+
+		//GetState().GetPlayer().AddCannonToShip(cannon);
 	}
 }

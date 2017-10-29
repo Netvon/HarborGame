@@ -43,14 +43,18 @@ Location * State::GetCurrentLocation() const
 
 void State::NavigateToLocation(const String & locationName, const String& param)
 {
+
 	for (size_t i = 0; i < locations.size(); i++)
 	{
 		auto location = locations.get(i);
 		auto locname = location->GetName();
 
 		if (locname == locationName) {
-			currentLocation = static_cast<int>(i);
 
+			if(currentLocation != -1)
+				lastLocation = locations.get(currentLocation)->GetName();
+
+			currentLocation = static_cast<int>(i);
 			GetCurrentLocation()->NavigatedTo(param);
 
 			return;
@@ -124,4 +128,9 @@ const Player & State::GetPlayer() const
 bool State::GetPlayerHasShip() const
 {
 	return GetPlayer().GetShip() != nullptr;
+}
+
+const String & State::GetLastLocation() const
+{
+	return lastLocation;
 }
