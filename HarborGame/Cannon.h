@@ -15,7 +15,7 @@ public:
 
 		};
 
-	Cannon(const Cannon& other);
+	Cannon(const Cannon& other, size_t amount);
 
 	Cannon();
 
@@ -29,8 +29,8 @@ public:
 
 	void RandomizeAvailable();
 
-	void DecreaseAmmount(int amount);
-	void IncreaseAmmount(int amount);
+	void DecreaseAmount(int amount);
+	void IncreaseAmount(int amount);
 
 	String GetType() const;
 private:

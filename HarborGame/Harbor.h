@@ -1,8 +1,12 @@
+#pragma once
+
 #include "Product.h"
 #include "Cannon.h"
 #include "Distance.h"
+#include "Player.h"
 
-#pragma once
+class Player;
+
 class Harbor
 {
 public:
@@ -14,16 +18,22 @@ public:
 	{ };
 
 	Harbor() { };
-	~Harbor();
 
-	const Vector<Product>& GetProducts() const;
+	const Product& GetProduct(size_t index) const;
+	Product& GetProduct(size_t index);
+	
+	bool GetProductIsInStock(size_t index) const;
+
+	void BuyProduct(Player& forPlayer, Product& product, size_t amount);
+	void SellProduct(Product& product, size_t amount);
 
 	const Cannon& GetCannon(size_t index) const;
 	Cannon& GetCannon(size_t index);
-	size_t GetCannonSize() const;
+	
+	bool GetCannonIsInStock(size_t index) const;
 
+	void BuyCannon(Player& forPlayer, Cannon& cannon, size_t amount);
 	void SellCannon(Cannon& cannon);
-	void IncreaseCannonStock(String& type, size_t byAmount);
 
 	void Randomize();
 	void RandomizeProductAvailability();
@@ -32,7 +42,17 @@ public:
 	Vector<Distance> getDistances() const;
 	const String& GetName() const;
 
+	size_t GetProductsSize() const;
+	size_t GetCannonSize() const;
+
 private:
+
+	void IncreaseProductStock(const String& name, size_t byAmount);
+	void DecreaseProductStock(const String& name, size_t byAmount);
+
+	void IncreaseCannonStock(const String& type, size_t byAmount);
+	void DecreaseCannonStock(const String& type, size_t byAmount);
+
 	Vector<Product> products;
 	Vector<Cannon> cannons;
 	Vector<Distance> distances;

@@ -40,7 +40,8 @@ int main()
 		if (gameloop != nullptr)
 			delete gameState;
 
-		throw;
+		printf("An unknown error was encountered, please restart the game.\n");
+		system("pause");
 	}
 
 	return _CrtDumpMemoryLeaks();

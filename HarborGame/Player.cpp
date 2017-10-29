@@ -67,33 +67,46 @@ bool Player::GetIsBroke() const
 	return gold == 0;
 }
 
-void Player::AddCannonToShip(Cannon & cannon)
+void Player::AddCannonToShip(Cannon & cannon, int amount)
 {
 	if (ship == nullptr)
 		return;
 
-	if (cannon.GetAvailable() <= 0)
-		throw GameException("This cannon is out of stock");
-
-	if (gold < cannon.GetPrice())
+	if (gold < cannon.GetPrice() * amount)
 		throw GameException("Not enough money");
-
-	if(ship->GetCannonsAmount() + 1  > ship->GetMaxCannons())
-		throw GameException("Max cannons reached");
-
-	if(ship->HasTinyTrait() && cannon.IsHeavy())
-		throw GameException("This cannon doesn't fit on the ship");
-
-	SubtractGold(cannon.GetPrice());
-	ship->AddCannon(cannon);
-
-	cannon.DecreaseAmmount(1);
+	
+	ship->AddCannon(cannon, amount);
+	SubtractGold(cannon.GetPrice() * amount);
 }
 
 void Player::SellCannonToHarbor(Cannon & cannon, Harbor & harbor, double retainMultiplier)
 {
 	harbor.SellCannon(cannon);
-	AddGold(cannon.GetPrice() * retainMultiplier);
+	AddGold(
+		static_cast<size_t>(cannon.GetPrice() * retainMultiplier)
+	);
 
 	ship->RemoveCannon(cannon);
+}
+
+void Player::AddProductToShip(Product & product, int amount)
+{
+	if (ship == nullptr)
+		return;
+
+	if (gold < product.GetPrice() * amount)
+		throw GameException("Not enough money");
+
+	ship->AddProduct(product, amount);
+	SubtractGold(product.GetPrice() * amount);
+}
+
+void Player::SellProductToHarbor(Product & product, Harbor & harbor, size_t amount)
+{
+	harbor.SellProduct(product, amount);
+	AddGold(
+		static_cast<size_t>(product.GetPrice() * amount)
+	);
+
+	ship->RemoveProduct(product, amount);
 }

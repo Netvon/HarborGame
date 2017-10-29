@@ -1,6 +1,7 @@
 #pragma once
 #include "String.h"
 #include "Cannon.h"
+#include "Product.h"
 
 class Ship
 {
@@ -50,17 +51,21 @@ public:
 	void SubtractHealth(size_t amount = 1);
 	void AddHealth(size_t amount = 1);
 
-	void AddCannon(const Cannon& newCannon);
+	void AddCannon(const Cannon& newCannon, size_t amount);
+	void AddProduct(const Product& newProduct, size_t amount);
+
 	void RemoveCannon(Cannon& cannon);
+	void RemoveProduct(Product& product, size_t amount);
 
 	Cannon& GetCannon(size_t index);
+	Product& GetProduct(size_t index);
 
 private:
 	String name;
 	size_t price;
-	size_t cargospace;
+	//size_t cargospace;
 	size_t maxCargospace;
-	size_t cannons;
+	//size_t cannons;
 	size_t maxCannons;
 	size_t currentHealth;
 	size_t maxHealth;
@@ -69,4 +74,5 @@ private:
 	bool hasLightTrait;
 
 	Vector<Cannon> cannonList;
+	Vector<Product> productList;
 };

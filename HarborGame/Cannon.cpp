@@ -2,18 +2,16 @@
 #include "Cannon.h"
 #include "RandomNumber.h"
 
-Cannon::Cannon(const Cannon & other)
+Cannon::Cannon(const Cannon & other, size_t amount)
 {
 	price = other.price;
 	type = other.type;
 	minAmountAvailable = other.minAmountAvailable;
 	maxAmountAvailable = other.maxAmountAvailable;
-	available = 1;
+	available = static_cast<int>(amount);
 }
 
-Cannon::Cannon()
-{
-}
+Cannon::Cannon() { }
 
 int Cannon::GetPrice() const {
 	return price;
@@ -42,12 +40,14 @@ void Cannon::RandomizeAvailable()
 	available = RandomNumber::Instance().Get(minAmountAvailable, maxAmountAvailable);
 }
 
-void Cannon::DecreaseAmmount(int amount)
+void Cannon::DecreaseAmount(int amount)
 {
 	available -= amount;
+
+	if (available < 0) available = 0;
 }
 
-void Cannon::IncreaseAmmount(int amount)
+void Cannon::IncreaseAmount(int amount)
 {
 	available += amount;
 }

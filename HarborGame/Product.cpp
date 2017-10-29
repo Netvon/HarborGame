@@ -2,24 +2,27 @@
 #include "Product.h"
 #include "RandomNumber.h"
 
-Product::Product()
+Product::Product(const Product & other, size_t newAmount)
 {
+	name = other.name;
+	minAmountAvailable = other.minAmountAvailable;
+	maxAmountAvailable = other.maxAmountAvailable;
+	minPrice = other.minPrice;
+	maxPrice = other.maxPrice;
+	available = static_cast<int>(newAmount);
 }
 
-
-Product::~Product()
-{
-}
+Product::Product() { }
 
 const String& Product::GetName() const {
 	return name;
 }
 
-int Product::getMinPrice() const {
+int Product::GetMinPrice() const {
 	return minPrice;
 }
 
-int Product::getMaxPrice() const {
+int Product::GetMaxPrice() const {
 	return maxPrice;
 }
 
@@ -43,6 +46,18 @@ int Product::GetPrice() const
 
 void Product::Randomize()
 {
-	available = RandomNumber::Instance().Get(minAmountAvailable, maxAmountAvailable);
-	price = RandomNumber::Instance().Get(minPrice, maxPrice);
+	available = RandomNumber::Instance().Get<int>(minAmountAvailable, maxAmountAvailable);
+	price = RandomNumber::Instance().Get<int>(minPrice, maxPrice);
+}
+
+void Product::DecreaseAmount(int amount)
+{
+	available -= amount;
+
+	if (available < 0) available = 0;
+}
+
+void Product::IncreaseAmount(int amount)
+{
+	available += amount;
 }

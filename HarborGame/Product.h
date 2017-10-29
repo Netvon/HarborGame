@@ -17,18 +17,24 @@ public:
 		}
 	;
 
-	Product();
-	~Product();
+	Product(const Product & other, size_t newAmount);
 
-	const String& GetName() const;
-	int getMinPrice() const;
-	int getMaxPrice() const;
+	Product();
+	
+	int GetMinPrice() const;
+	int GetMaxPrice() const;
 	int GetMinAmountAvailable() const;
 	int GetMaxAmountAvailable() const;
 
 	int GetAvailable() const;
 	int GetPrice() const;
+
 	void Randomize();
+
+	void DecreaseAmount(int amount);
+	void IncreaseAmount(int amount);
+
+	const String& GetName() const;
 
 private:
 	String name;

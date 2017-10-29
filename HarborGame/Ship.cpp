@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include "Ship.h"
+#include "GameException.h"
+#include "Product.h"
 
 Ship::Ship()
 {
@@ -11,9 +13,7 @@ Ship::Ship(Ship * other)
 	if (other != nullptr) {
 		name = other->name;
 		price = other->price;
-		cargospace = 0u;
 		maxCargospace = other->maxCargospace;
-		cannons = 0u;
 		maxCannons = other->maxCannons;
 		maxHealth = other->maxHealth;
 
@@ -39,7 +39,14 @@ size_t Ship::GetMaxCargospace() const {
 
 size_t Ship::GetUsedCargospace() const
 {
-	return cargospace;
+	size_t result = 0;
+	for (size_t i = 0; i < productList.size(); i++)
+	{
+		auto& product = productList.get(i);
+		result += product.GetAvailable();
+	}
+
+	return result;
 }
 
 size_t Ship::GetMaxCannons() const {
@@ -124,19 +131,43 @@ void Ship::AddHealth(size_t amount)
 	}
 }
 
-void Ship::AddCannon(const Cannon & newCannon)
+void Ship::AddCannon(const Cannon & newCannon, size_t amount)
 {
+	if (GetCannonsAmount() + amount  > GetMaxCannons())
+		throw GameException("Max cannons reached");
+
+	if (HasTinyTrait() && newCannon.IsHeavy())
+		throw GameException("This cannon doesn't fit on the ship");
+
 	for (size_t i = 0; i < cannonList.size(); i++)
 	{
 		auto& cannon = cannonList.get(i);
 
 		if (cannon.GetType() == newCannon.GetType()) {
-			cannon.IncreaseAmmount(1);
+			cannon.IncreaseAmount(to_int(amount));
 			return;
 		}
 	}
 
-	cannonList.push_back({ newCannon });
+	cannonList.push_back({ newCannon, amount });
+}
+
+void Ship::AddProduct(const Product & newProduct, size_t amount)
+{
+	if (GetUsedCargospace() + amount  > GetMaxCargospace())
+		throw GameException("The cargo space is full");
+
+	for (size_t i = 0; i < productList.size(); i++)
+	{
+		auto& product = productList.get(i);
+
+		if (product.GetName() == newProduct.GetName()) {
+			product.IncreaseAmount(to_int(amount));
+			return;
+		}
+	}
+
+	productList.push_back({ newProduct, amount });
 }
 
 void Ship::RemoveCannon(Cannon & cannonToRemove)
@@ -146,7 +177,7 @@ void Ship::RemoveCannon(Cannon & cannonToRemove)
 		auto& cannon = cannonList.get(i);
 
 		if (cannon.GetType() == cannonToRemove.GetType()) {
-			cannon.DecreaseAmmount(1);
+			cannon.DecreaseAmount(1);
 
 			if (cannon.GetAvailable() <= 0) {
 				cannonList.pop_index(i);
@@ -157,7 +188,30 @@ void Ship::RemoveCannon(Cannon & cannonToRemove)
 	}
 }
 
+void Ship::RemoveProduct(Product & productToRemove, size_t amount)
+{
+	for (size_t i = 0; i < cannonList.size(); i++)
+	{
+		auto& product = productList.get(i);
+
+		if (product.GetName() == productToRemove.GetName()) {
+			product.DecreaseAmount(to_int(amount));
+
+			if (product.GetAvailable() <= 0) {
+				productList.pop_index(i);
+			}
+
+			return;
+		}
+	}
+}
+
 Cannon & Ship::GetCannon(size_t index)
 {
 	return cannonList.get(index);
+}
+
+Product & Ship::GetProduct(size_t index)
+{
+	return productList.get(index);
 }

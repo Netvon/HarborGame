@@ -39,11 +39,11 @@ void ShopLocation::CreateOptions()
 
 void ShopLocation::AddGoodsOptions()
 {
-	auto products = currentHarbor->GetProducts();
+	auto size = currentHarbor->GetProductsSize();
 
-	for (size_t i = 0; i < products.size(); i++)
+	for (size_t i = 0; i < size; i++)
 	{
-		auto product = products.get(i);
+		auto& product = currentHarbor->GetProduct(i);
 		String name = "Buy '";
 		name += product.GetName();
 		name += "' [ Gold: ";
@@ -160,20 +160,35 @@ void ShopLocation::HandleOptionSelected(const Option & option)
 	else if (mode.equals("Cannons")) {
 		HandleCannonOption(option);
 	}
+	else if (mode.equals("Goods")) {
+		HandleGoodsOption(option);
+	}
 }
 
 void ShopLocation::HandleCannonOption(const Option & option)
 {
+	InputManager manager;
+
 	size_t cannonIndex = option.number - 3u;
 
 	if (cannonIndex < currentHarbor->GetCannonSize()) {
 
-		try {
-			auto& cannon = currentHarbor->GetCannon(cannonIndex);
-			GetState().GetPlayer().AddCannonToShip(cannon);
+		if (!currentHarbor->GetCannonIsInStock(cannonIndex)) {
+			printf("| I'm sorry, but we're out of those. Check back later, maybe we'll have some more\n");
 		}
-		catch (GameException& e) {
-			printf("| %s.\n", e.what());
+		else {
+
+			try {
+				auto& cannon = currentHarbor->GetCannon(cannonIndex);
+
+				printf("| How many of those would you like?\n");
+				auto amount = manager.GetInput(cannon.GetAvailable());
+
+				currentHarbor->BuyCannon(GetState().GetPlayer(), cannon, amount);
+			}
+			catch (GameException& e) {
+				printf("| %s.\n", e.what());
+			}
 		}
 	}
 	else {
@@ -203,4 +218,32 @@ void ShopLocation::HandleShipOption(const Option & option)
 		printf("| Enjoy your new '%s' captain, it will be delivered to you soon!\n", ship->GetName().c_str());
 		GetState().NavigateToLocation("harbor", currentHarbor->GetName());
 	}
+}
+
+void ShopLocation::HandleGoodsOption(const Option & option)
+{
+	InputManager manager;
+
+	size_t productIndex = option.number - 3u;
+
+	if (productIndex < currentHarbor->GetProductsSize()) {
+		if (!currentHarbor->GetProductIsInStock(productIndex)) {
+			printf("| I'm sorry, but we're out of those. Check back later, maybe we'll have some more.\n");
+		}
+		else {
+			try {
+				auto& product = currentHarbor->GetProduct(productIndex);
+
+				printf("| How many of those would you like?\n");
+				auto amount = manager.GetInput(product.GetAvailable());
+
+				currentHarbor->BuyProduct(GetState().GetPlayer(), product, amount);
+			}
+			catch (GameException& e) {
+				printf("| %s.\n", e.what());
+			}
+		}
+	}
+
+	CreateOptions();
 }

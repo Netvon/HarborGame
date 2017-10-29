@@ -19,6 +19,7 @@ private:
 	void HandleOptionSelected(const Option& option) override;
 	void HandleCannonOption(const Option & option);
 	void HandleShipOption(const Option & option);
+	void HandleGoodsOption(const Option & option);
 	Harbor* currentHarbor = nullptr;
 	String mode;
 	String extraMessage;

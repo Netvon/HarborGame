@@ -9,7 +9,8 @@ public:
 	static RandomNumber & Instance();
 	static RandomNumber & Instance(int seed);
 
-	size_t Get(std::size_t min, std::size_t max);
+	template<class T = std::size_t>
+	T Get(T min, T max);
 private:
 	RandomNumber();
 	RandomNumber(int seed);
@@ -17,3 +18,9 @@ private:
 	std::default_random_engine generator;
 };
 
+template<class T>
+inline T RandomNumber::Get(T min, T max)
+{
+	std::uniform_int_distribution<T> distribution(min, max);
+	return distribution(generator);
+}
