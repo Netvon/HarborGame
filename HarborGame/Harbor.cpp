@@ -9,6 +9,18 @@ const Product & Harbor::GetProduct(size_t index) const
 	return products.get(index);
 }
 
+const Product & Harbor::GetProduct(const String & name) const
+{
+	for (size_t i = 0; i < products.size(); i++)
+	{
+		auto& product = products.get(i);
+
+		if (product.GetName() == name) {
+			return product;
+		}
+	}
+}
+
 Product & Harbor::GetProduct(size_t index)
 {
 	return products.get(index);
@@ -76,6 +88,7 @@ size_t Harbor::GetCannonSize() const
 {
 	return cannons.size();
 }
+
 
 bool Harbor::GetCannonIsInStock(size_t index) const
 {

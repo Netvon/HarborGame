@@ -44,6 +44,7 @@ public:
 
 	bool GetIsAtFullHealth() const;
 	size_t GetUniqueCannonAmount() const;
+	size_t GetUniqueProductAmount() const;
 
 	bool operator==(Ship* other);
 	bool operator!=(Ship* other);

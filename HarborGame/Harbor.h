@@ -20,6 +20,7 @@ public:
 	Harbor() { };
 
 	const Product& GetProduct(size_t index) const;
+	const Product& GetProduct(const String& name) const;
 	Product& GetProduct(size_t index);
 	
 	bool GetProductIsInStock(size_t index) const;

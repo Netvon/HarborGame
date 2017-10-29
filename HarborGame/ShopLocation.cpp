@@ -44,6 +44,7 @@ void ShopLocation::AddGoodsOptions()
 	for (size_t i = 0; i < size; i++)
 	{
 		auto& product = currentHarbor->GetProduct(i);
+
 		String name = "Buy '";
 		name += product.GetName();
 		name += "' [ Gold: ";
@@ -53,6 +54,24 @@ void ShopLocation::AddGoodsOptions()
 		name += " ]";
 
 		AddOption(i + size_t(3), name);
+	}
+
+	auto ship = GetState().GetPlayer().GetShip();
+
+	for (size_t i = 0; i < ship.GetUniqueProductAmount(); i++)
+	{
+		auto& product = ship.GetProduct(i);
+		auto& fromHarbor = currentHarbor->GetProduct(product.GetName());
+
+		String name = "Sell '";
+		name += product.GetName();
+		name += "' [ Gold: ";
+		name += fromHarbor.GetPrice();
+		name += " ] [ On board: ";
+		name += product.GetAvailable();
+		name += " ]";
+
+		AddOption(i + size_t(3) + currentHarbor->GetProductsSize(), name);
 	}
 }
 

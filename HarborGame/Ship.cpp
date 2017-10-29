@@ -95,6 +95,11 @@ size_t Ship::GetUniqueCannonAmount() const
 	return cannonList.size();
 }
 
+size_t Ship::GetUniqueProductAmount() const
+{
+	return productList.size();
+}
+
 bool Ship::operator==(Ship * other)
 {
 	if (this == nullptr && other == nullptr)
