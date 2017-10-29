@@ -178,6 +178,10 @@ public:
 		return atoi(c_str());
 	}
 
+	size_t toSizeT() const {
+		return static_cast<size_t>(atoi(c_str()));
+	}
+
 	static Vector<String> split(const char * string, const char * delimiter) {
 		size_t stringLen = strlen(string) + 1;
 
@@ -206,6 +210,6 @@ public:
 
 		_itoa_s(number, buffer, sizeof(int) * 8 + 1, 10);
 
-		return String(buffer);
+		return buffer;
 	}
 };

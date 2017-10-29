@@ -51,8 +51,10 @@ void HarborLocation::HandleOptionSelected(const Option& option)
 	case 5:
 		if (!GetState().GetPlayerHasShip())
 			printf("| Are you kidding me? You don't even have a ship laddie.\n");
+		else if (GetState().GetPlayer().GetShip().GetIsAtFullHealth())
+			printf("| She's already in tip-top shape sir, not sure what I can repair here.\n");
 		else
-			GetState().GetPlayer().RepairShip();
+			GetState().GetPlayer().RepairShip(1, 10);
 
 		break;
 	case 6:

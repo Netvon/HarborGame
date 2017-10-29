@@ -9,7 +9,7 @@ const Vector<Product>& Harbor::GetProducts() const {
 	return products;
 }
 
-Vector<Cannon> Harbor::GetCannons() const {
+Vector<Cannon> Harbor::GetMaxCannons() const {
 	return cannons;
 }
 

@@ -11,8 +11,8 @@ public:
 		delete ship;
 	}
 
-	void RepairShip() const;
-	void ReplaceShip(Ship* newShip);
+	void RepairShip(size_t gold, size_t steps);
+	void ReplaceShip(Ship* newShip, double retainMultiplier);
 	void AddGold(size_t addGoldAmount);
 	void SubtractGold(size_t subtractAmount);
 

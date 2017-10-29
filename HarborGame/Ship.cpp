@@ -11,8 +11,10 @@ Ship::Ship(Ship * other)
 	if (other != nullptr) {
 		name = other->name;
 		price = other->price;
-		cargospace = other->cargospace;
-		cannons = other->cannons;
+		cargospace = 0u;
+		maxCargospace = other->maxCargospace;
+		cannons = 0u;
+		maxCannons = other->maxCannons;
 		maxHealth = other->maxHealth;
 
 		hasInertTrait = other->hasInertTrait;
@@ -23,36 +25,37 @@ Ship::Ship(Ship * other)
 	}
 }
 
-Ship::~Ship()
-{
-
-}
-
-void Ship::setCurrentHealth(int pCurrentHealth) {
-	currentHealth = pCurrentHealth;
-}
-
 const String& Ship::GetName() const {
 	return name;
 }
 
-int Ship::GetPrice() const {
+size_t Ship::GetPrice() const {
 	return price;
 }
 
-int Ship::GetMaxCargospace() const {
+size_t Ship::GetMaxCargospace() const {
+	return maxCargospace;
+}
+
+size_t Ship::GetUsedCargospace() const
+{
 	return cargospace;
 }
 
-int Ship::GetCannons() const {
+size_t Ship::GetMaxCannons() const {
+	return maxCannons;
+}
+
+size_t Ship::GetCannonsAmount() const
+{
 	return cannons;
 }
 
-int Ship::GetCurrentHealth() const {
+size_t Ship::GetCurrentHealth() const {
 	return currentHealth;
 }
 
-int Ship::GetMaxHealth() const {
+size_t Ship::GetMaxHealth() const {
 	return maxHealth;
 }
 
@@ -66,6 +69,11 @@ bool Ship::GetInertTrait() const {
 
 bool Ship::GetLightTrait() const {
 	return hasLightTrait;
+}
+
+bool Ship::GetIsAtFullHealth() const
+{
+	return maxHealth == currentHealth;
 }
 
 bool Ship::operator==(Ship * other)
@@ -85,4 +93,21 @@ bool Ship::operator==(Ship * other)
 bool Ship::operator!=(Ship * other)
 {
 	return !(this == other);
+}
+
+void Ship::SubtractHealth(size_t amount)
+{
+	if (currentHealth != 0) {
+		currentHealth -= amount;
+	}
+
+	if (currentHealth < 0)
+		currentHealth = 0;
+}
+
+void Ship::AddHealth(size_t amount)
+{
+	if (currentHealth + amount <= maxHealth) {
+		currentHealth += amount;
+	}
 }

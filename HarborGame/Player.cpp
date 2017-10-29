@@ -6,14 +6,24 @@ Player::Player() : gold(0)
 {
 }
 
-void Player::RepairShip() const
+void Player::RepairShip(size_t gold, size_t steps)
 {
+	if (ship == nullptr)
+		return;
+
+	if (ship->GetIsAtFullHealth())
+		return;
+
+	while (!ship->GetIsAtFullHealth()) {
+		ship->AddHealth(steps);
+		SubtractGold(gold);
+	}
 }
 
-void Player::ReplaceShip(Ship * newShip)
+void Player::ReplaceShip(Ship * newShip, double retainMultiplier)
 {
 	if (ship != nullptr) {
-		auto percentageOfPrice = ship->GetPrice() * 0.5;
+		auto percentageOfPrice = ship->GetPrice() * retainMultiplier;
 		AddGold(static_cast<size_t>(percentageOfPrice));
 	}
 

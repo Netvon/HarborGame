@@ -21,7 +21,7 @@ public:
 	virtual void PrintWelcomeMessage() const = 0;
 	virtual void PrintOptions() const;
 	void PrintStats() const;
-	void AddOption(unsigned int number, const char * option);
+	void AddOption(size_t number, const char * option);
 	void Print() const;
 
 	void HandleInput();

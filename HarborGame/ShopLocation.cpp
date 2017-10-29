@@ -40,7 +40,7 @@ void ShopLocation::AddGoodsOptions()
 		name += 10;
 		name += " ]";
 
-		AddOption(i + 3llu, name);
+		AddOption(i + size_t(3), name);
 	}
 }
 
@@ -52,10 +52,16 @@ void ShopLocation::AddShipOptions()
 		String name = "Buy '";
 		name += ship->GetName();
 		name += "' [ Gold: ";
-		name += ship->GetPrice();
-		name += " ]";
+		name += static_cast<int>(ship->GetPrice());
+		name += " ] [ ";
+		name += static_cast<int>(ship->GetMaxHealth());
+		name += " hp ] [ ";
+		name += static_cast<int>(ship->GetMaxCargospace());
+		name += " goods ] [ ";
+		name += static_cast<int>(ship->GetMaxCannons());
+		name += " cannons ]";
 
-		AddOption(i + 3llu, name);
+		AddOption(i + size_t(3), name);
 	}
 
 	if (!GetState().GetPlayerHasShip()) {
@@ -97,7 +103,7 @@ void ShopLocation::HandleOptionSelected(const Option & option)
 		}
 		else {
 
-			GetState().GetPlayer().ReplaceShip(ship);
+			GetState().GetPlayer().ReplaceShip(ship, 0.5);
 
 			printf("| Enjoy your new '%s' captain, it will be delivered to you soon!\n", ship->GetName().c_str());
 			GetState().NavigateToLocation("harbor", currentHarbor->GetName());

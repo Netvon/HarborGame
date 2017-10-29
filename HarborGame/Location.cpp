@@ -7,7 +7,7 @@ void Location::PrintOptions() const
 	for (size_t i = 0; i < options.size(); i++)
 	{
 		auto o = options.get(i);
-		printf(" %i. %s\n", o.number, o.name.c_str());
+		printf(" %llu. %s\n", o.number, o.name.c_str());
 	}
 	printf("=========\n");
 }
@@ -19,9 +19,11 @@ void Location::PrintStats() const
 
 	if (GetState().GetPlayerHasShip()) {
 		printf(" [ Ship: %s, ", player.GetShipName().c_str());
-		printf("%i/%i hp ]", player.GetShip().GetCurrentHealth(), player.GetShip().GetMaxHealth());
+		printf("%llu/%llu hp ]", player.GetShip().GetCurrentHealth(), player.GetShip().GetMaxHealth());
 
-		printf(" [ Goods: %i/%i ]", 0, player.GetShip().GetMaxCargospace());
+		printf(" [ Goods: %llu/%llu ]", player.GetShip().GetUsedCargospace(), player.GetShip().GetMaxCargospace());
+
+		printf(" [ Cannons: %llu/%llu ]", player.GetShip().GetCannonsAmount(), player.GetShip().GetMaxCannons());
 	}
 	else {
 		printf(" [ Ship: ---, --- hp ]");
@@ -31,7 +33,7 @@ void Location::PrintStats() const
 	printf("\n\n");
 }
 
-void Location::AddOption(unsigned int number, const char * option)
+void Location::AddOption(size_t number, const char * option)
 {
 	options.push_back({ number, option });
 }

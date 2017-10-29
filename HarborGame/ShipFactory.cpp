@@ -15,10 +15,11 @@ Ship ShipFactory::CreateShip(const String& blueprint)
 		splittedBlueprint.push_back("");
 
 	String& name = splittedBlueprint[0];
-	int price{ splittedBlueprint[1].toInt() };
-	int cargospace{ atoi(splittedBlueprint.get(2).c_str()) };
-	int cannons{ atoi(splittedBlueprint.get(3).c_str()) };
-	int maxHealth{ atoi(splittedBlueprint.get(4).c_str()) };
+	size_t price{ splittedBlueprint[1].toSizeT() };
+	size_t cargospace{ splittedBlueprint[2].toSizeT() };
+	size_t cannons{ splittedBlueprint[3].toSizeT() };
+	size_t maxHealth{ splittedBlueprint[4].toSizeT() };
+
 	bool hasTinyTrait{ splittedBlueprint.get(5).contains("klein") };
 	bool hasInertTrait{ splittedBlueprint.get(5).contains("log") };
 	bool hasLightTrait{ splittedBlueprint.get(5).contains("licht") };
