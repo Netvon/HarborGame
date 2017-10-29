@@ -14,6 +14,35 @@ void ShopLocation::NavigatedTo(const String & param)
 	currentHarbor = GetState().GetHarbor(params.get(0));
 
 	mode = params.get(1);
+
+	if (mode.equals("Ships")) {
+		for (size_t i = 0; i < GetState().GetShipAmount(); i++)
+		{
+			auto ship = GetState().GetShip(i);
+			String name = "Buy '";
+			name += ship->GetName();
+			name += "' [ Gold: ";
+			name += ship->getPrice();
+			name += " ]";
+
+			AddOption(i + 3u,  name);
+		}
+	}
+	else if (mode.equals("Goods")) {
+		auto products = currentHarbor->GetProducts();
+
+		for (size_t i = 0; i < products.size(); i++)
+		{
+			auto product = products.get(i);
+			String name = "Buy '";
+			name += product.GetName();
+			name += "' [ Gold: ";
+			name += 10;
+			name += " ]";
+
+			AddOption(i + 3u, name);
+		}
+	}
 }
 
 void ShopLocation::PrintWelcomeMessage() const
@@ -27,10 +56,10 @@ void ShopLocation::HandleOptionSelected(const Option & option)
 	{
 	case 1:
 		GetState().NavigateToLocation("harbor", currentHarbor->GetName());
-		break;
+		return;
 	case 2:
 		GetState().SetQuitState(true);
-		break;
+		return;
 	default:
 		break;
 	}

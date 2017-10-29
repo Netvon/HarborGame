@@ -41,6 +41,9 @@ void HarborLocation::HandleOptionSelected(const Option& option)
 		if (!GetState().GetPlayerHasShip())
 			printf("| Unfortunately you will need a ship to buy these, or where you planning to put a sail on one of these?\n");
 		break;
+	case 3:
+		HandleBuyShip();
+		break;
 	case 4:
 		if (!GetState().GetPlayerHasShip())
 			printf("| Without a ship, one cannot sail. You should know that.\n");
@@ -64,9 +67,15 @@ void HarborLocation::HandleGoodsShop()
 {
 	if (!GetState().GetPlayerHasShip()) {
 		printf("| Well, I would love to sell you this stuff. However, I do wonder where you will store it...\n");
-		//return;
+		return;
 	}
 
 	auto harborName = currentHarbor->GetName();
 	GetState().NavigateToLocation("shop", harborName + ";Goods");
+}
+
+void HarborLocation::HandleBuyShip()
+{
+	auto harborName = currentHarbor->GetName();
+	GetState().NavigateToLocation("shop", harborName + ";Ships");
 }
