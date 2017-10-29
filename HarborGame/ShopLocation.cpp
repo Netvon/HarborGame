@@ -47,7 +47,9 @@ void ShopLocation::AddGoodsOptions()
 		String name = "Buy '";
 		name += product.GetName();
 		name += "' [ Gold: ";
-		name += 10;
+		name += product.GetPrice();
+		name += " ] [ Available: ";
+		name += product.GetAvailable();
 		name += " ]";
 
 		AddOption(i + size_t(3), name);

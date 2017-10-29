@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "Product.h"
-
+#include "RandomNumber.h"
 
 Product::Product()
 {
@@ -29,4 +29,20 @@ int Product::GetMinAmountAvailable() const {
 
 int Product::GetMaxAmountAvailable() const {
 	return maxAmountAvailable;
+}
+
+int Product::GetAvailable() const
+{
+	return available;
+}
+
+int Product::GetPrice() const
+{
+	return price;
+}
+
+void Product::Randomize()
+{
+	available = RandomNumber::Instance().Get(minAmountAvailable, maxAmountAvailable);
+	price = RandomNumber::Instance().Get(minPrice, maxPrice);
 }

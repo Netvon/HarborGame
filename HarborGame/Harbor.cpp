@@ -44,6 +44,16 @@ void Harbor::IncreaseCannonStock(String & type, size_t byAmount)
 void Harbor::Randomize()
 {
 	RandomizeCannonAvailability();
+	RandomizeProductAvailability();
+}
+
+void Harbor::RandomizeProductAvailability()
+{
+	for (size_t i = 0; i < products.size(); i++)
+	{
+		auto& product = products.get(i);
+		product.Randomize();
+	}
 }
 
 void Harbor::RandomizeCannonAvailability()

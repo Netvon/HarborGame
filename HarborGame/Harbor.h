@@ -26,6 +26,7 @@ public:
 	void IncreaseCannonStock(String& type, size_t byAmount);
 
 	void Randomize();
+	void RandomizeProductAvailability();
 	void RandomizeCannonAvailability();
 
 	Vector<Distance> getDistances() const;

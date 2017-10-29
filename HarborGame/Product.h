@@ -10,7 +10,8 @@ public:
 		minPrice(minPrice),
 		maxPrice(maxPrice),
 		minAmountAvailable(minAmountAvailable),
-		maxAmountAvailable(maxAmountAvailable) 
+		maxAmountAvailable(maxAmountAvailable),
+		available (0)
 		{
 
 		}
@@ -25,11 +26,17 @@ public:
 	int GetMinAmountAvailable() const;
 	int GetMaxAmountAvailable() const;
 
+	int GetAvailable() const;
+	int GetPrice() const;
+	void Randomize();
+
 private:
 	String name;
 	int minPrice;
 	int maxPrice;
 	int minAmountAvailable;
 	int maxAmountAvailable;
+	int available;
+	int price;
 };
 
