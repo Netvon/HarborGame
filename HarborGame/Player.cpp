@@ -6,6 +6,14 @@ Player::Player() : gold(20000)
 {
 }
 
+void Player::RepairShip() const
+{
+}
+
+void Player::ReplaceShip(Ship & newShip) const
+{
+}
+
 const String & Player::GetShipName() const
 {
 	if(ship != nullptr)

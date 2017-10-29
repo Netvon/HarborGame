@@ -21,7 +21,6 @@ Harbor HarborFactory::CreateHarbor(String& pricesBlueprint, String& amountBluepr
 
 	String name{ splittedPricesBlueprint[0] };
 	Vector<Product> products;
-	Vector<Cannon> cannons;
 	Vector<Distance> distances;
 
 	// Adds for each harbor the products and distances
