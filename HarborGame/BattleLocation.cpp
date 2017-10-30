@@ -12,15 +12,18 @@ void BattleLocation::NavigatedTo(const String & param)
 	auto ships = GetState().GetShips();
 	pirateship = RandomPirateshipGenerator::Instance().GeneratePirateship(ships);
 
-	AddOption(1, "Quit");
-	AddOption(2, "Schoot");
-	AddOption(3, "Retreat");
-	AddOption(4, "Surrender");
+	AddOption(1, "Fire cannons at the Ship");
+	AddOption(2, "Try to Retreat");
+	AddOption(3, "Surrender to the Pirates");
+	AddOption(4, "Quit");
 }
 
 void BattleLocation::PrintWelcomeMessage() const
 {
-	printf("| You've have encounterd an pirateship captain, prepare for battle!");
+	printf("| You've have encounterd an Pirate Ship Captain, prepare for battle!\n");
+	printf("| Here's the whats-what on the Pirate Ship, cap'n.\n");
+
+	printf("| - [ Name: %s ] [ %llu/%llu hp ] [ %llu cannons ]\n\n", pirateship.GetName().c_str(), pirateship.GetCurrentHealth(), pirateship.GetMaxHealth(), pirateship.GetCannonsAmount());
 }
 
 void BattleLocation::HandleOptionSelected(const Option & option)
@@ -28,17 +31,17 @@ void BattleLocation::HandleOptionSelected(const Option & option)
 	switch (option.number)
 	{
 	case 1:
-		GetState().SetQuitState(true);
-		return;
-	case 2:
 		Shoot();
-		return;
-	case 3:
+		break;
+	case 2:
 		Retreat();
-		return;
-	case 4:
+		break;
+	case 3:
 		Surrender();
-		return;
+		break;
+	case 4:
+		GetState().SetQuitState(true);
+		break;
 	default:
 		break;
 	}
@@ -52,74 +55,70 @@ void BattleLocation::Retreat()
 {
 	auto playership = GetState().GetPlayer().GetShip();
 
+	int randomnumber = RandomNumber::Instance().Get<int>(1, 100);
+	int chance = 0;
+
 	// If you're ships light and enemy is light
 	if (playership.HasLightTrait() && pirateship.HasLightTrait()) {
-		size_t randomnumber = RandomNumber::Instance().Get<size_t>(1, 100);
-		if(randomnumber <= 50)
-			GetState().NavigateToLocation("sea", "");
+		chance = 50;
 	}
 
 	// If you're ships light and enemy is medium
 	if (playership.HasLightTrait() && !pirateship.HasLightTrait() && !pirateship.HasInertTrait()) {
-		size_t randomnumber = RandomNumber::Instance().Get<size_t>(1, 100);
-		if (randomnumber <= 60)
-			GetState().NavigateToLocation("sea", "");
+		chance = 60;
 	}
 
 	// If you're ships light and enemy is heavy
 	if (playership.HasLightTrait() && pirateship.HasInertTrait()) {
-		size_t randomnumber = RandomNumber::Instance().Get<size_t>(1, 100);
-		if (randomnumber <= 75)
-			GetState().NavigateToLocation("sea", "");
+		chance = 75;
 	}
 
 	// If you're ships medium and enemy is light
 	if (!playership.HasLightTrait() && !playership.HasInertTrait() && pirateship.HasLightTrait()) {
-		size_t randomnumber = RandomNumber::Instance().Get<size_t>(1, 100);
-		if (randomnumber <= 30)
-			GetState().NavigateToLocation("sea", "");
+		chance = 30;
 	}
 
 	// If you're ships medium and enemy is medium
 	if (!playership.HasLightTrait() && !playership.HasInertTrait() && !pirateship.HasLightTrait() && !pirateship.HasInertTrait()) {
-		size_t randomnumber = RandomNumber::Instance().Get<size_t>(1, 100);
-		if (randomnumber <= 40)
-			GetState().NavigateToLocation("sea", "");
+		chance = 40;
 	}
 
 	// If you're ships medium and enemy is heavy
 	if (!playership.HasLightTrait() && !playership.HasInertTrait() && pirateship.HasInertTrait()) {
-		size_t randomnumber = RandomNumber::Instance().Get<size_t>(1, 100);
-		if (randomnumber <= 55)
-			GetState().NavigateToLocation("sea", "");
+		chance = 55;
 	}
 
 	// If you're ships light and enemy is light
 	if (playership.HasInertTrait() && pirateship.HasLightTrait()) {
-		size_t randomnumber = RandomNumber::Instance().Get<size_t>(1, 100);
-		if (randomnumber <= 5)
-			GetState().NavigateToLocation("sea", "");
+		chance = 5;
 	}
 
 	// If you're ships light and enemy is medium
 	if (playership.HasInertTrait() && !pirateship.HasLightTrait() && !pirateship.HasInertTrait()) {
-		size_t randomnumber = RandomNumber::Instance().Get<size_t>(1, 100);
-		if (randomnumber <= 15)
-			GetState().NavigateToLocation("sea", "");
+		chance = 15;
 	}
 
 	// If you're ships light and enemy is heavy
 	if (playership.HasInertTrait() && pirateship.HasInertTrait()) {
-		size_t randomnumber = RandomNumber::Instance().Get<size_t>(1, 100);
-		if (randomnumber <= 30)
-			GetState().NavigateToLocation("sea", "");
+		chance = 30;
+	}
+
+	if (randomnumber <= chance) {
+
+		// TODO: insert some flavour text here
+
+		GetState().NavigateToLocation("sea", "");
 	}
 }
 
 void BattleLocation::Surrender()
 {
+	// TODO: insert some flavour text here
+
 	auto ship = GetState().GetPlayer().GetShip();
 	ship.Clear();
+
+	GetState().NavigateToLocation("sea", "");
 }
 
 
