@@ -20,12 +20,12 @@ Ship RandomPirateshipGenerator::GeneratePirateship(const Vector<Ship>& ships)
 	size_t amountOfSmallCannons = RandomNumber::Instance().Get<size_t>(amountOfCannons / 2, amountOfCannons);
 	pirateship.AddCannon("licht kannon", amountOfSmallCannons);
 
-	size_t amountOfCannons = amountOfCannons - amountOfSmallCannons;
+	amountOfCannons = amountOfCannons - amountOfSmallCannons;
 	// generating amount of medium cannons
 	size_t amountOfMediumCannons = RandomNumber::Instance().Get<size_t>(amountOfCannons / 2, amountOfCannons);
 	pirateship.AddCannon("middelgroot kannon", amountOfSmallCannons);
 
-	size_t amountOfCannons = amountOfCannons - amountOfMediumCannons;
+	amountOfCannons = amountOfCannons - amountOfMediumCannons;
 	// generating amount of medium cannons; if possible
 	if (!pirateship.HasTinyTrait())
 	{

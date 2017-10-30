@@ -146,6 +146,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BattleLocation.h" />
     <ClInclude Include="Cannon.h" />
     <ClInclude Include="Distance.h" />
     <ClInclude Include="FileParser.h" />
@@ -177,6 +178,7 @@
     <ClInclude Include="Weather.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BattleLocation.cpp" />
     <ClCompile Include="Cannon.cpp" />
     <ClCompile Include="FileParser.cpp" />
     <ClCompile Include="GameException.cpp" />
