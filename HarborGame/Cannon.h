@@ -34,6 +34,8 @@ public:
 	void IncreaseAmount(int amount);
 
 	String GetType() const;
+
+	int GenerateRandomDamage() const;
 private:
 	int price;
 	int minAmountAvailable;

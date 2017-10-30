@@ -22,7 +22,7 @@ void BattleLocation::PrintWelcomeMessage() const
 	printf("| You've have encounterd a Pirate Ship Captain, prepare for battle!\n\n");
 	printf("| Here's the whats-what on the Pirate Ship, cap'n.\n");
 
-	printf("| - [ Name: %s ] [ %llu/%llu hp ] [ %llu cannons ]\n	", pirateship.GetName().c_str(), pirateship.GetCurrentHealth(), pirateship.GetMaxHealth(), pirateship.GetCannonsAmount());
+	printf("| - [ Name: %s ] [ %llu/%llu hp ] [ %llu cannons ]\n", pirateship.GetName().c_str(), pirateship.GetCurrentHealth(), pirateship.GetMaxHealth(), pirateship.GetCannonsAmount());
 }
 
 void BattleLocation::HandleOptionSelected(const Option & option)
@@ -48,6 +48,40 @@ void BattleLocation::HandleOptionSelected(const Option & option)
 
 void BattleLocation::Shoot()
 {
+	auto& ship = GetState().GetPlayer().GetShip();
+
+	int damageToPirate = GetDamage(ship);
+	pirateship.SubtractHealth(to_sizet(damageToPirate));
+
+	printf("| We fired at the Pirate Ship! We did a total of [ %i damage ].\n", damageToPirate);
+
+	if (pirateship.GetCurrentHealth() > 0) {
+
+		printf("| Oh no, they're aiming there cannons at us. Prepare for impact!");
+
+		int damageToCaptain = GetDamage(pirateship);
+		ship.SubtractHealth(to_sizet(damageToCaptain));
+
+		printf("| Damage Report! -- they did [ %i damage ] sir.\n", damageToCaptain);
+	}
+	else {
+		printf("| Well done captain, we destroyed the pirate vessel.\n");
+	}
+}
+
+int BattleLocation::GetDamage(Ship & ship)
+{
+	int damage = 0;
+	for (size_t i = 0; i < ship.GetUniqueCannonAmount(); i++)
+	{
+		auto& cannon = ship.GetCannon(i);
+		for (size_t y = 0; y < cannon.GetAvailable(); y++)
+		{
+			damage += cannon.GenerateRandomDamage();
+		}
+	}
+
+	return damage;
 }
 
 void BattleLocation::Retreat()

@@ -61,3 +61,21 @@ void Cannon::IncreaseAmount(int amount)
 String Cannon::GetType() const {
 	return type;
 }
+
+int Cannon::GenerateRandomDamage() const
+{
+	int min = 0;
+	int max = 0;
+
+	if (type.contains("zwaar"))
+		max = 6;
+	else if (type.contains("licht"))
+		max = 2;
+	else if (type.contains("middel"))
+		max = 4;
+
+	if (max == 0)
+		return 0;
+
+	return RandomNumber::Instance().Get<int>(min, max);;
+}
