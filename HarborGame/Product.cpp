@@ -10,6 +10,7 @@ Product::Product(const Product & other, size_t newAmount)
 	minPrice = other.minPrice;
 	maxPrice = other.maxPrice;
 	available = static_cast<int>(newAmount);
+	price = other.price;
 }
 
 Product::Product() { }

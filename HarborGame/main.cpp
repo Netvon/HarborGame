@@ -24,7 +24,7 @@ int main()
 
 		gameState->AddLocation<HarborLocation>("harbor");
 		gameState->AddLocation<ShopLocation>("shop");
-		gameState->NavigateToLocation("harbor", gameState->GetHarbor(0)->GetName());
+		gameState->NavigateToLocation("harbor", gameState->GetHarbor(5)->GetName());
 		//Location* current = gameState->GetCurrentLocation();
 	
 		gameloop = new GameLoop(gameState, "Harbor Game");

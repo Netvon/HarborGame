@@ -62,6 +62,7 @@ void ShopLocation::AddGoodsOptions()
 	{
 		auto& product = ship.GetProduct(i);
 		auto& fromHarbor = currentHarbor->GetProduct(product.GetName());
+		auto priceDifference = (fromHarbor.GetPrice() * product.GetAvailable()) - (product.GetPrice() * product.GetAvailable());
 
 		String name = "Sell '";
 		name += product.GetName();
@@ -69,7 +70,19 @@ void ShopLocation::AddGoodsOptions()
 		name += fromHarbor.GetPrice();
 		name += " ] [ On board: ";
 		name += product.GetAvailable();
-		name += " ]";
+		name += " ] [ Gold Delta: ";
+
+		if (priceDifference > 0) {
+			name += "+";
+		}
+		else if(priceDifference > 0) {
+			name += "-";
+		}
+
+		name += priceDifference;
+		name += " ] [ Bought at: ";
+		name += product.GetPrice();
+		name += " gold ]";
 
 		AddOption(i + size_t(3) + currentHarbor->GetProductsSize(), name);
 	}

@@ -13,6 +13,7 @@ HarborLocation::HarborLocation(const String& name) : Location(name)
 	AddOption(4, "Leave");
 	AddOption(5, "Repair Ship");
 	AddOption(6, "Quit");
+	AddOption(7, "Test");
 }
 
 void HarborLocation::NavigatedTo(const String & param)
@@ -52,20 +53,27 @@ void HarborLocation::HandleOptionSelected(const Option& option)
 			printf("| Without a ship, one cannot sail. You should know that.\n");
 		break;
 	case 5:
-		if (!GetState().GetPlayerHasShip())
-			printf("| Are you kidding me? You don't even have a ship laddie.\n");
-		else if (GetState().GetPlayer().GetShip().GetIsAtFullHealth())
-			printf("| She's already in tip-top shape sir, not sure what I can repair here.\n");
-		else
-			GetState().GetPlayer().RepairShip(1, 10);
-
+		HandleRepairShip();
 		break;
 	case 6:
 		GetState().SetQuitState(true);
 		break;
+	case 7:
+		GetState().NavigateToLocation("harbor", GetState().GetHarbor(1)->GetName());
+		break;
 	default:
 		break;
 	}
+}
+
+void HarborLocation::HandleRepairShip()
+{
+	if (!GetState().GetPlayerHasShip())
+		printf("| Are you kidding me? You don't even have a ship laddie.\n");
+	else if (GetState().GetPlayer().GetShip().GetIsAtFullHealth())
+		printf("| She's already in tip-top shape sir, not sure what I can repair here.\n");
+	else
+		GetState().GetPlayer().RepairShip(1, 10);
 }
 
 void HarborLocation::HandleCannonShop()

@@ -166,6 +166,9 @@ public:
 
 		std::size_t y = 0;
 
+		if (index == 0)
+			y++;
+
 		for (std::size_t i = 0; i < newSize; i++)
 		{
 			temp[i] = _array[y];

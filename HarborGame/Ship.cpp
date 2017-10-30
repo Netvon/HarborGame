@@ -195,18 +195,18 @@ void Ship::RemoveCannon(Cannon & cannonToRemove)
 
 void Ship::RemoveProduct(Product & productToRemove, size_t amount)
 {
+	Vector<size_t> remove;
 	for (size_t i = 0; i < productList.size(); i++)
 	{
 		auto& product = productList.get(i);
 
-		if (product.GetName().equals(productToRemove.GetName())) {
+		if (product.GetName() == productToRemove.GetName()) {
 			product.DecreaseAmount(to_int(amount));
 
 			if (product.GetAvailable() <= 0) {
 				productList.pop_index(i);
+				break;
 			}
-
-			return;
 		}
 	}
 }

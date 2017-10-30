@@ -3,7 +3,6 @@
 #include "GameException.h"
 #include "Player.h"
 
-
 const Product & Harbor::GetProduct(size_t index) const
 {
 	return products.get(index);
@@ -54,9 +53,7 @@ void Harbor::SellProduct(Player & forPlayer, Product & product, size_t amount, s
 
 	IncreaseProductStock(product.GetName(), amount);
 
-	ship.RemoveProduct(product, amount);
-
-	
+	ship.RemoveProduct(product, amount);	
 }
 
 void Harbor::IncreaseProductStock(const String & name, size_t byAmount)
