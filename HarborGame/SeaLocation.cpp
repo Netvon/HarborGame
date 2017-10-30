@@ -5,7 +5,7 @@
 
 SeaLocation::SeaLocation(const String & name) : Location(name)
 {
-	AddOption(1, "Set Sail");
+	AddOption(1, "Continue sailing");
 	AddOption(2, "View Ship inventory");
 	AddOption(3, "Quit");
 }
@@ -27,8 +27,7 @@ void SeaLocation::NavigatedTo(const String & param) // "destination_harbor_name;
 
 void SeaLocation::PrintWelcomeMessage() const
 {
-	printf("| Welcome to the open seas, captain.\n| We're on our way to %s and we'll arrive in %i turns.\n", destination.c_str(), currentDistance);
-	printf("| The navigator reports the following about the weather: %s.\n", GetWeatherFlavour(currentWeather).c_str());
+	printf("| Welcome to the open seas, captain.\n| We're on our way to %s and we'll arrive in %i hours.\n", destination.c_str(), currentDistance);	
 }
 
 void SeaLocation::HandleOptionSelected(const Option& option)
@@ -48,6 +47,14 @@ void SeaLocation::HandleOptionSelected(const Option& option)
 
 void SeaLocation::DoTurn()
 {
+	int battleChance = RandomNumber::Instance().Get<int>(1, 100);
+
+	if (battleChance < 20) {
+		printf("{{ insert battle }}\n");
+		// GetState().NavigateToLocation("battle");
+		// return;
+	}
+
 	int oldDistance = currentDistance;
 	size_t oldHealth = GetState().GetPlayer().GetShip().GetCurrentHealth();
 
@@ -56,7 +63,27 @@ void SeaLocation::DoTurn()
 	int distanceDiff = oldDistance - currentDistance;
 	size_t healthDiff = oldHealth - GetState().GetPlayer().GetShip().GetCurrentHealth();
 
-	printf("| Status report. We moved %i steps and we have taken %llu damage!\n", distanceDiff, healthDiff);
+	printf("| The navigator reports the following about the weather: [ %s ].\n\n", GetWeatherFlavour(currentWeather).c_str());
+
+	printf("| Status report;\n");
+
+	if(distanceDiff == 1)
+		printf("|\tWe moved fast enough to take [ %i hour off ] our travel time.\n", distanceDiff);
+	else if (distanceDiff > 1)
+		printf("|\tWe moved fast enough to take [ %i hours off ] our travel time.\n", distanceDiff);
+	else if (distanceDiff == -1)
+		printf("|\tDue to the weather it will take [ %i hour longer ] to arrive.\n", distanceDiff * -1);
+	else if (distanceDiff < 0)
+		printf("|\tDue to the weather it will take [ %i hours longer ] to arrive.\n", distanceDiff * -1);
+	else
+		printf("|\tDue to the weather we didn't move at all.\n");
+
+	printf("|\n");
+
+	if (healthDiff > 0)
+		printf("|\tIt looks like we have taken [ %llu damage ] to the hull.\n\n", healthDiff);
+	else if(healthDiff == 0 && distanceDiff > 0)
+		printf("|\tShe sailed through the weather like a knife through hot butter, cap'n!\n\n");
 
 	if (currentDistance <= 0) {
 		GetState().NavigateToLocation("harbor", destination);
