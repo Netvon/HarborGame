@@ -40,11 +40,14 @@ public:
 	void RandomizeProductAvailability();
 	void RandomizeCannonAvailability();
 
-	Vector<Distance> getDistances() const;
+	const Distance& GetDistance(size_t index) const;
+	Distance& GetDistance(size_t index);
+
 	const String& GetName() const;
 
 	size_t GetProductsSize() const;
 	size_t GetCannonSize() const;
+	size_t GetDistancesSize() const;
 
 private:
 

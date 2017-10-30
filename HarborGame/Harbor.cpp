@@ -95,6 +95,11 @@ size_t Harbor::GetCannonSize() const
 	return cannons.size();
 }
 
+size_t Harbor::GetDistancesSize() const
+{
+	return distances.size();
+}
+
 
 bool Harbor::GetCannonIsInStock(size_t index) const
 {
@@ -163,8 +168,14 @@ void Harbor::RandomizeCannonAvailability()
 	}
 }
 
-Vector<Distance> Harbor::getDistances() const {
-	return distances;
+const Distance & Harbor::GetDistance(size_t index) const
+{
+	return distances.get(index);
+}
+
+Distance & Harbor::GetDistance(size_t index)
+{
+	return distances.get(index);
 }
 
 const String& Harbor::GetName() const {

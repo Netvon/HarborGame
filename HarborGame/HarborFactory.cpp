@@ -38,6 +38,14 @@ Harbor HarborFactory::CreateHarbor(String& pricesBlueprint, String& amountBluepr
 		Product p{ pName, minPrice, maxPrice, minAmount, maxAmount};
 		products.push_back(p);
 
+		
+	}
+
+	for (size_t i = 0; i < splittedDistancesBlueprint.size(); i++)
+	{
+		if (i == 0)
+			continue;
+
 		// Second the distances; without the distance to your harbor
 		if (harborNames[i - 1] != name) {
 			String hName{ harborNames[i - 1] };
@@ -61,18 +69,9 @@ Harbor HarborFactory::CreateHarbor(String& pricesBlueprint, String& amountBluepr
 	 
 	Harbor harbor{ name, products, cannons, distances };
 
-	// Mooie command om the kijjken of alles werkt
-
-	//cout << "Name: " << harbor.getName() << endl;
-
-	//cout << "Producten: " << endl;
-	//for (size_t i = 0; i < harbor.getProducts().size(); i++)
-	//{
-	//	cout << harbor.getProducts()[i].getName() << endl;
-	//}
 
 	//cout << "Distances: " << endl;
-	//for (size_t i = 0; i < harbor.getDistances().size(); i++)
+	//for (size_t i = 0; i < harbor.GetDistancesSize().size(); i++)
 	//{
 	//	cout << harbor.getDistances()[i].getTo() << ": " << harbor.getDistances()[i].getDistance() << endl;
 	//}

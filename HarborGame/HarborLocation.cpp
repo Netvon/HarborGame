@@ -19,8 +19,9 @@ HarborLocation::HarborLocation(const String& name) : Location(name)
 void HarborLocation::NavigatedTo(const String & param)
 {
 	currentHarbor = GetState().GetHarbor(param);
-
-	if (!GetState().GetLastLocation().equals("shop")) {
+	
+	auto& lastLocation = GetState().GetLastLocation();
+	if (!lastLocation.equals("shop") && !lastLocation.equals("leave")) {
 		currentHarbor->Randomize();
 	}
 }
@@ -51,6 +52,8 @@ void HarborLocation::HandleOptionSelected(const Option& option)
 	case 4:
 		if (!GetState().GetPlayerHasShip())
 			printf("| Without a ship, one cannot sail. You should know that.\n");
+		else 
+			GetState().NavigateToLocation("leave", currentHarbor->GetName());
 		break;
 	case 5:
 		HandleRepairShip();
