@@ -156,6 +156,7 @@
     <ClInclude Include="HarborFactory.h" />
     <ClInclude Include="HarborLocation.h" />
     <ClInclude Include="InputManager.h" />
+    <ClInclude Include="LeaveLocation.h" />
     <ClInclude Include="Location.h" />
     <ClInclude Include="Option.h" />
     <ClInclude Include="Player.h" />
@@ -182,6 +183,7 @@
     <ClCompile Include="HarborFactory.cpp" />
     <ClCompile Include="HarborLocation.cpp" />
     <ClCompile Include="InputManager.cpp" />
+    <ClCompile Include="LeaveLocation.cpp" />
     <ClCompile Include="Location.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Player.cpp" />

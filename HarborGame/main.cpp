@@ -6,6 +6,7 @@
 #include "State.h"
 #include "HarborLocation.h"
 #include "ShopLocation.h"
+#include "LeaveLocation.h"
 
 int main()
 {
@@ -24,6 +25,7 @@ int main()
 
 		gameState->AddLocation<HarborLocation>("harbor");
 		gameState->AddLocation<ShopLocation>("shop");
+		gameState->AddLocation<LeaveLocation>("leave");
 		gameState->NavigateToLocation("harbor", gameState->GetHarbor(5)->GetName());
 		//Location* current = gameState->GetCurrentLocation();
 	

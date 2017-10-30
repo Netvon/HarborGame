@@ -93,6 +93,9 @@
     <ClInclude Include="GameException.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="LeaveLocation.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -153,6 +156,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="GameException.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LeaveLocation.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
