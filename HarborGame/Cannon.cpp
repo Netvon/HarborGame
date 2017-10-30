@@ -11,6 +11,12 @@ Cannon::Cannon(const Cannon & other, size_t amount)
 	available = static_cast<int>(amount);
 }
 
+Cannon::Cannon(const String & pType, size_t amount)
+{
+	type = pType;
+	available = static_cast<int>(amount);
+}
+
 Cannon::Cannon() { }
 
 int Cannon::GetPrice() const {

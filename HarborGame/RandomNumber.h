@@ -7,13 +7,11 @@ class RandomNumber
 {
 public:
 	static RandomNumber & Instance();
-	static RandomNumber & Instance(int seed);
 
 	template<class T = std::size_t>
 	T Get(T min, T max);
 private:
 	RandomNumber();
-	RandomNumber(int seed);
 
 	std::default_random_engine generator;
 };

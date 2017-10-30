@@ -162,6 +162,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Product.h" />
     <ClInclude Include="RandomNumber.h" />
+    <ClInclude Include="RandomPirateshipGenerator.h" />
     <ClInclude Include="Ship.h" />
     <ClInclude Include="ShipFactory.h" />
     <ClInclude Include="SeaLocation.h" />
@@ -189,6 +190,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Product.cpp" />
     <ClCompile Include="RandomNumber.cpp" />
+    <ClCompile Include="RandomPirateshipGenerator.cpp" />
     <ClCompile Include="Ship.cpp" />
     <ClCompile Include="ShipFactory.cpp" />
     <ClCompile Include="SeaLocation.cpp" />

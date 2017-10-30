@@ -53,6 +53,7 @@ public:
 	void AddHealth(size_t amount = 1);
 
 	void AddCannon(const Cannon& newCannon, size_t amount);
+	void AddCannon(const String& type, size_t amount);
 	void AddProduct(const Product& newProduct, size_t amount);
 
 	void RemoveCannon(Cannon& cannon);

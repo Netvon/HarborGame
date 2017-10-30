@@ -16,6 +16,7 @@ public:
 		};
 
 	Cannon(const Cannon& other, size_t amount);
+	Cannon(const String& pType, size_t amount);
 
 	Cannon();
 
