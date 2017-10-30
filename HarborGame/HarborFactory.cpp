@@ -73,7 +73,7 @@ Harbor HarborFactory::CreateHarbor(String& pricesBlueprint, String& amountBluepr
 	//cout << "Distances: " << endl;
 	//for (size_t i = 0; i < harbor.GetDistancesSize().size(); i++)
 	//{
-	//	cout << harbor.getDistances()[i].getTo() << ": " << harbor.getDistances()[i].getDistance() << endl;
+	//	cout << harbor.getDistances()[i].getTo() << ": " << harbor.getDistances()[i].GetDistance() << endl;
 	//}
 
 	return harbor;

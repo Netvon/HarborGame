@@ -14,7 +14,7 @@ public:
 		return to;
 	}
 
-	const size_t& getDistance() const {
+	const size_t& GetDistance() const {
 		return distance;
 	}
 
