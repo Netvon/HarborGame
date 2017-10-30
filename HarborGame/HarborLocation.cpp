@@ -13,7 +13,13 @@ HarborLocation::HarborLocation(const String& name) : Location(name)
 	AddOption(4, "Leave");
 	AddOption(5, "Repair Ship");
 	AddOption(6, "Quit");
-	AddOption(7, "Test");
+#ifdef DEBUG
+	AddOption(7, "Re-roll prices");
+	AddOption(8, "Win");
+	AddOption(9, "Loose");
+#endif // DEBUG
+
+	
 }
 
 void HarborLocation::NavigatedTo(const String & param)
@@ -61,9 +67,19 @@ void HarborLocation::HandleOptionSelected(const Option& option)
 	case 6:
 		GetState().SetQuitState(true);
 		break;
+#ifdef DEBUG
 	case 7:
-		GetState().NavigateToLocation("harbor", GetState().GetHarbor(1)->GetName());
+		GetState().NavigateToLocation("harbor", currentHarbor->GetName());
 		break;
+	case 8:
+		GetState().GetPlayer().AddGold(1000000);
+		break;
+	case 9:
+		if (GetState().GetPlayer().GetShip() != nullptr) {
+			GetState().GetPlayer().GetShip().SubtractHealth(GetState().GetPlayer().GetShip().GetMaxHealth());
+		}
+		break;
+#endif // DEBUG
 	default:
 		break;
 	}
