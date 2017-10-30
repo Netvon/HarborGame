@@ -4,17 +4,17 @@
 #include "RandomNumber.h"
 
 BattleLocation::BattleLocation(const String & name) : Location(name)
-{ }
+{
+	AddOption(1, "Fire cannons at the Ship");
+	AddOption(2, "Try to Retreat");
+	AddOption(3, "Surrender to the Pirates");
+	AddOption(4, "Quit");
+}
 
 void BattleLocation::NavigatedTo(const String & param)
 {
 	auto ships = GetState().GetShips();
 	pirateship = RandomPirateshipGenerator::Instance().GeneratePirateship(ships);
-
-	AddOption(1, "Fire cannons at the Ship");
-	AddOption(2, "Try to Retreat");
-	AddOption(3, "Surrender to the Pirates");
-	AddOption(4, "Quit");
 }
 
 void BattleLocation::PrintWelcomeMessage() const
@@ -57,16 +57,21 @@ void BattleLocation::Shoot()
 
 	if (pirateship.GetCurrentHealth() > 0) {
 
-		printf("| Oh no, they're aiming there cannons at us. Prepare for impact!");
-
-		int damageToCaptain = GetDamage(pirateship);
-		ship.SubtractHealth(to_sizet(damageToCaptain));
-
-		printf("| Damage Report! -- they did [ %i damage ] sir.\n", damageToCaptain);
+		FirePirateCannons(ship);
 	}
 	else {
 		printf("| Well done captain, we destroyed the pirate vessel.\n");
 	}
+}
+
+void BattleLocation::FirePirateCannons(Ship & ship)
+{
+	printf("| Oh no, they're aiming there cannons at us. Prepare for impact!\n");
+
+	int damageToCaptain = GetDamage(pirateship);
+	ship.SubtractHealth(to_sizet(damageToCaptain));
+
+	printf("| Damage Report! -- they did [ %i damage ] sir.\n", damageToCaptain);
 }
 
 int BattleLocation::GetDamage(Ship & ship)
@@ -140,7 +145,13 @@ void BattleLocation::Retreat()
 
 		// TODO: insert some flavour text here
 
+		printf("| We succesfully fled from the Pirates! Let's continue our journey.\n");
+
 		GetState().NavigateToLocation("sea");
+	}
+	else {
+		printf("| We tried to sail away from the pirates, but they followed us!\n");
+		FirePirateCannons(playership);
 	}
 }
 

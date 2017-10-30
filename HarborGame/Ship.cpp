@@ -122,7 +122,11 @@ bool Ship::operator!=(Ship * other)
 void Ship::SubtractHealth(size_t amount)
 {
 	if (currentHealth != 0) {
-		currentHealth -= amount;
+
+		if (currentHealth < amount)
+			currentHealth = 0;
+		else
+			currentHealth -= amount;
 	}
 
 	if (currentHealth < 0)
