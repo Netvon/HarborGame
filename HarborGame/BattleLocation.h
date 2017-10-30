@@ -6,7 +6,7 @@ class BattleLocation :
 public:
 	BattleLocation() : BattleLocation("battle") { }
 	BattleLocation(const String& name);
-	~BattleLocation();
+	~BattleLocation() { };
 
 	void NavigatedTo(const String& param) override;
 	void PrintWelcomeMessage() const override;

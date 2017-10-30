@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "BattleLocation.h"
 
-BattleLocation::BattleLocation(const String & name)
+BattleLocation::BattleLocation(const String & name) : Location(name)
 {
 }
 

@@ -3,7 +3,7 @@
 #include "RandomWeatherGenerator.h"
 #include "RandomNumber.h"
 
-SeaLocation::SeaLocation(const String & name)
+SeaLocation::SeaLocation(const String & name) : Location(name)
 {
 	AddOption(1, "Set Sail");
 	AddOption(2, "View Ship inventory");
@@ -12,7 +12,7 @@ SeaLocation::SeaLocation(const String & name)
 
 void SeaLocation::NavigatedTo(const String & param) // "destination_harbor_name;distance"
 {
-	if (GetState().GetLastLocation().equals("harbor")) {
+	if (GetState().GetLastLocation().equals("leave")) {
 		if (param.contains(";")) {
 			auto splitted = String::split(param, ";");
 
@@ -53,8 +53,8 @@ void SeaLocation::DoTurn()
 
 	HandleWeather();
 
-	int distanceDiff = currentDistance - oldDistance;
-	size_t healthDiff = GetState().GetPlayer().GetShip().GetCurrentHealth() - oldHealth;
+	int distanceDiff = oldDistance - currentDistance;
+	size_t healthDiff = oldHealth - GetState().GetPlayer().GetShip().GetCurrentHealth();
 
 	printf("| Status report. We moved %i steps and we have taken %llu damage!\n", distanceDiff, healthDiff);
 
@@ -100,7 +100,7 @@ void SeaLocation::HandleWeather()
 
 		int damagePercent = RandomNumber::Instance().Get<int>(1, 100);
 		int max = GetState().GetPlayer().GetShip().GetCurrentHealth();
-		size_t damage = to_sizet(max * damagePercent);
+		size_t damage = to_sizet(static_cast<float>(max) * (static_cast<float>(damagePercent) / 100.f));
 
 		GetState().GetPlayer().GetShip().SubtractHealth(damage);
 
