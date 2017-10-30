@@ -9,7 +9,7 @@ public:
 	Weather Get() const;
 
 private:
-	RandomWeatherGenerator();
+	RandomWeatherGenerator() { };
 
 	bool NumberBetween(int min, int max, int number) const;
 };

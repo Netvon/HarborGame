@@ -2,6 +2,7 @@
 #include "Location.h"
 #include "String.h"
 #include "Distance.h"
+#include "Weather.h"
 
 class SeaLocation :
 	public Location
@@ -16,7 +17,19 @@ public:
 
 private:
 	void HandleOptionSelected(const Option& option) override;
-	Distance distance;
+	void DoTurn();
+
+	void HandleWeather();
+
+	String GetWeatherFlavour(Weather weather) const;
+
+	String destination;
+	int totalDistance;
+	int currentDistance;
 	size_t turn;
+
+	bool shouldHaveEncounter;
+
+	Weather currentWeather;
 };
 
