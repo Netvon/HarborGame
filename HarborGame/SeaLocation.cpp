@@ -46,7 +46,7 @@ void SeaLocation::HandleOptionSelected(const Option& option)
 	}
 }
 
-void SeaLocation::GenerateShipReport()
+void SeaLocation::GenerateShipReport() const
 {
 	auto& ship = GetState().GetPlayer().GetShip();
 

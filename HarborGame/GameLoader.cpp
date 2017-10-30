@@ -4,7 +4,7 @@
 #include "ShipFactory.h"
 #include "HarborFactory.h"
 
-Vector<Ship> GameLoader::LoadShips(const String& filePath) { // "Files/schepen.csv"
+Vector<Ship> GameLoader::LoadShips(const String& filePath) const { // "Files/schepen.csv"
 	FileParser fileParser;
 
 	Vector<String> allShips{ fileParser.ParseFile(filePath) };
@@ -18,7 +18,7 @@ Vector<Ship> GameLoader::LoadShips(const String& filePath) { // "Files/schepen.c
 	return ships;
 }
 
-Vector<Harbor> GameLoader::LoadLocations(const String & goodsPricesFilePath, const String & goodsAmountsFilePath, const String & harborDistancesFilePath)
+Vector<Harbor> GameLoader::LoadLocations(const String & goodsPricesFilePath, const String & goodsAmountsFilePath, const String & harborDistancesFilePath) const
 {
 	FileParser fileParser;
 

@@ -13,7 +13,7 @@ class GameLoop
 public:
 	GameLoop(State* gameState, const String& name);
 
-	void Start();
+	void Start() const;
 private:
 	
 	bool quit = false;

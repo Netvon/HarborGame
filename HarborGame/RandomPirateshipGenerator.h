@@ -6,7 +6,7 @@ class RandomPirateshipGenerator
 public:
 	static RandomPirateshipGenerator & Instance();
 
-	static Ship GeneratePirateship(const Vector<Ship>& ships);
+	Ship GeneratePirateship(const Vector<Ship>& ships) const;
 private:
 	RandomPirateshipGenerator() {};
 };

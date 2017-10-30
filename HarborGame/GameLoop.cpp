@@ -17,7 +17,7 @@ GameLoop::GameLoop(State * gameState, const String& name)
 { }
 
 
-void GameLoop::Start()
+void GameLoop::Start() const
 {
 	int won = -1;
 

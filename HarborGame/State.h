@@ -36,7 +36,7 @@ public:
 
 	const Vector<Ship>& GetShips() const;
 
-	size_t GetShipAmount();
+	size_t GetShipAmount() const;
 	Ship* GetShip(size_t index);
 	Ship* GetShip(const String& name);
 	Harbor* GetHarbor(size_t index);

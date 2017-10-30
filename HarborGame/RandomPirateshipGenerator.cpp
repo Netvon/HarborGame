@@ -9,7 +9,7 @@ RandomPirateshipGenerator & RandomPirateshipGenerator::Instance()
 	return instance;
 }
 
-Ship RandomPirateshipGenerator::GeneratePirateship(const Vector<Ship>& ships)
+Ship RandomPirateshipGenerator::GeneratePirateship(const Vector<Ship>& ships) const 
 {
 	size_t shipIndex = RandomNumber::Instance().Get<size_t>(0, ships.size());
 

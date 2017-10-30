@@ -77,7 +77,7 @@ const Vector<Ship>& State::GetShips() const
 	return ships;
 }
 
-size_t State::GetShipAmount()
+size_t State::GetShipAmount() const
 {
 	return ships.size();
 }

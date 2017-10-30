@@ -12,7 +12,7 @@ using std::cout;
 using std::endl;
 
 
-Harbor HarborFactory::CreateHarbor(String& pricesBlueprint, String& amountBlueprint, String& distancesBlueprint, Vector<String> productNames, Vector<String> harborNames)
+Harbor HarborFactory::CreateHarbor(String& pricesBlueprint, String& amountBlueprint, String& distancesBlueprint, Vector<String>& productNames, Vector<String>& harborNames)
 {
 	// Variables for the products in a city
 	Vector<String> splittedPricesBlueprint{ String::split(pricesBlueprint.c_str(), ";") };

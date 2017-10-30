@@ -85,7 +85,7 @@ const Cannon & Harbor::GetCannon(size_t index) const
 	return cannons.get(index);
 }
 
-Cannon & Harbor::GetCannon(size_t index)
+Cannon & Harbor::GetCannon(size_t index) 
 {
 	return cannons.get(index);
 }

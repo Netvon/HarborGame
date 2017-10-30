@@ -17,7 +17,7 @@ public:
 
 private:
 	void HandleOptionSelected(const Option& option) override;
-	void GenerateShipReport();
+	void GenerateShipReport() const;
 	void DoTurn();
 
 	void HandleWeather();
