@@ -5,21 +5,10 @@
 #include "String.h"
 #include <iostream>
 #include <fstream>
+#include "FileReadException.h"
 
 using std::ifstream;
 using std::cout;
-
-FileParser::FileParser()
-{
-
-}
-
-
-FileParser::~FileParser()
-{
-
-}
-
 
 Vector<String> FileParser::ParseFile(const char* path, size_t ignoreLines, const char comment) const
 {
@@ -72,10 +61,12 @@ Vector<String> FileParser::ParseFile(const char* path, size_t ignoreLines, const
 	}
 	else
 	{
-		cout << "Error opening file";
-	}
+		String error = "Failed to open '";
+		error += path;
+		error += "'";
 
-	//AllLines.pop_index(AllLines.size() - 1);
+		throw FileReadException(error);
+	}
 
 	return AllLines;
 }

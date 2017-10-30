@@ -24,40 +24,40 @@
   <Class Name="FileParser" Collapsed="true">
     <Position X="15.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAgAAAAAADAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>FileParser.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GameException" Collapsed="true">
-    <Position X="17.25" Y="0.5" Width="1.5" />
+    <Position X="19" Y="0.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAgCAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
       <FileName>GameException.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GameLoader" Collapsed="true">
-    <Position X="19" Y="0.5" Width="1.5" />
+    <Position X="12" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAgA=</HashCode>
       <FileName>GameLoader.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="GameLoop" Collapsed="true">
-    <Position X="12" Y="1.5" Width="1.5" />
+    <Position X="13.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAACAAAAAAAQAAAAEAAAAEAAAAAAAhAAAAAAA=</HashCode>
       <FileName>GameLoop.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Harbor" Collapsed="true">
-    <Position X="13.75" Y="1.5" Width="1.5" />
+    <Position X="15.5" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAABBEIAAAAEAQQhACACABEAEAAQAMIUADEAABBA=</HashCode>
       <FileName>Harbor.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="HarborFactory" Collapsed="true">
-    <Position X="15.5" Y="1.5" Width="1.5" />
+    <Position X="17.25" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
       <FileName>HarborFactory.h</FileName>
@@ -71,7 +71,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="InputManager" Collapsed="true">
-    <Position X="17.25" Y="1.5" Width="1.5" />
+    <Position X="19" Y="1.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AQAAAAQAAAAAAAAAAAAQAAAAAAAAAAEAAAAAIAAAAgA=</HashCode>
       <FileName>InputManager.h</FileName>
@@ -92,56 +92,56 @@
     </TypeIdentifier>
   </Class>
   <Class Name="Option" Collapsed="true">
-    <Position X="19" Y="1.5" Width="1.5" />
+    <Position X="12" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAQAAAAAAACAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Option.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Player" Collapsed="true">
-    <Position X="12" Y="2.5" Width="1.5" />
+    <Position X="13.75" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIIAQACAAAKACAABBAAAAAAAAAgAQAAwAABAQAAABA=</HashCode>
       <FileName>Player.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Product" Collapsed="true">
-    <Position X="13.75" Y="2.5" Width="1.5" />
+    <Position X="15.5" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AABDIAQEAAAACAAAEEAAAACgAAAEQAAAAABAAAAAJAQ=</HashCode>
       <FileName>Product.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="RandomNumber" Collapsed="true">
-    <Position X="15.5" Y="2.5" Width="1.5" />
+    <Position X="17.25" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAABAAAAAAAABAAAAAAAAAAAAAAAAAQAAAAAAAAAQ=</HashCode>
       <FileName>RandomNumber.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="RandomWeatherGenerator" Collapsed="true">
-    <Position X="19" Y="2.5" Width="1.5" />
+    <Position X="12" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAABAAAAACACAAAAAAAAAQAAAAAAAAAA=</HashCode>
       <FileName>RandomWeatherGenerator.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="RandomPirateshipGenerator" Collapsed="true">
-    <Position X="17.25" Y="2.5" Width="1.5" />
+    <Position X="19" Y="2.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUAAAAAAACAA=</HashCode>
       <FileName>RandomPirateshipGenerator.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="Ship" Collapsed="true">
-    <Position X="12" Y="3.5" Width="1.5" />
+    <Position X="13.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AEABAAAIIAgAAAIAEAgIRYAAIQGEABAZAEAICKBiBxA=</HashCode>
       <FileName>Ship.h</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="ShipFactory" Collapsed="true">
-    <Position X="13.75" Y="3.5" Width="1.5" />
+    <Position X="15.5" Y="3.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ShipFactory.h</FileName>
@@ -180,6 +180,13 @@
     <TypeIdentifier>
       <HashCode>AFAAAAAAAAAAAAAAiIMYQAQAAAEAAAAAAEEgAAIAAQA=</HashCode>
       <FileName>Vector.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FileReadException" Collapsed="true">
+    <Position X="17.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgCAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAA=</HashCode>
+      <FileName>FileReadException.h</FileName>
     </TypeIdentifier>
   </Class>
   <Enum Name="Weather" Collapsed="true">

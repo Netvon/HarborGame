@@ -9,6 +9,7 @@
 #include "LeaveLocation.h"
 #include "SeaLocation.h"
 #include "BattleLocation.h"
+#include "FileReadException.h"
 
 int main()
 {
@@ -38,6 +39,17 @@ int main()
 
 		delete gameloop;
 		delete gameState;
+	}
+	catch (FileReadException& exception) {
+		if (gameloop != nullptr)
+			delete gameloop;
+
+		if (gameloop != nullptr)
+			delete gameState;
+
+		printf("An Error Occured while reading an asset file.\n");
+		printf("%s\n", exception.what());
+		system("pause");
 	}
 	catch (...) {
 		if (gameloop != nullptr)

@@ -105,6 +105,9 @@
     <ClInclude Include="BattleLocation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FileReadException.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -177,6 +180,9 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="BattleLocation.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileReadException.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
