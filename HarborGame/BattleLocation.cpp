@@ -57,15 +57,16 @@ void BattleLocation::Shoot()
 
 	if (pirateship.GetCurrentHealth() > 0) {
 
-		FirePirateCannons(ship);
+		FirePirateCannons();
 	}
 	else {
 		printf("| Well done captain, we destroyed the pirate vessel.\n");
 	}
 }
 
-void BattleLocation::FirePirateCannons(Ship & ship)
+void BattleLocation::FirePirateCannons()
 {
+	auto& ship = GetState().GetPlayer().GetShip();
 	printf("| Oh no, they're aiming there cannons at us. Prepare for impact!\n");
 
 	int damageToCaptain = GetDamage(pirateship);
@@ -142,16 +143,12 @@ void BattleLocation::Retreat()
 	}
 
 	if (randomnumber <= chance) {
-
-		// TODO: insert some flavour text here
-
 		printf("| We succesfully fled from the Pirates! Let's continue our journey.\n");
-
 		GetState().NavigateToLocation("sea");
 	}
 	else {
 		printf("| We tried to sail away from the pirates, but they followed us!\n");
-		FirePirateCannons(playership);
+		FirePirateCannons();
 	}
 }
 

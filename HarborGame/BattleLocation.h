@@ -17,7 +17,7 @@ private:
 
 	void HandleOptionSelected(const Option& option) override;
 	void Shoot();
-	void FirePirateCannons(Ship & ship);
+	void FirePirateCannons();
 	int GetDamage(Ship & ship);
 	void Retreat();
 	void Surrender();
