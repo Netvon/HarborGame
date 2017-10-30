@@ -75,7 +75,7 @@ Vector<String> FileParser::ParseFile(const char* path, size_t ignoreLines, const
 		cout << "Error opening file";
 	}
 
-	AllLines.pop_index(AllLines.size() - 1);
+	//AllLines.pop_index(AllLines.size() - 1);
 
 	return AllLines;
 }
