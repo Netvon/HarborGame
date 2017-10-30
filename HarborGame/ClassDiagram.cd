@@ -38,7 +38,7 @@
   <Class Name="GameLoader" Collapsed="true">
     <Position X="19" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAABAAAwA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAgA=</HashCode>
       <FileName>GameLoader.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -143,7 +143,7 @@
   <Class Name="ShipFactory" Collapsed="true">
     <Position X="13.75" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>ShipFactory.h</FileName>
     </TypeIdentifier>
   </Class>
@@ -161,17 +161,10 @@
       <FileName>ShopLocation.h</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="SmrtPtr&lt;T&gt;" Collapsed="true">
-    <Position X="15.5" Y="3.5" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAEAACgAAAAgAAAAAAA=</HashCode>
-      <FileName>SmrtPtr.h</FileName>
-    </TypeIdentifier>
-  </Class>
   <Class Name="State" Collapsed="true">
     <Position X="17.25" Y="3.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAABAgECIIARAAABAAEAAAACDAAIEAClAAABBBAEAAA=</HashCode>
+      <HashCode>AAAAAAEAAAAAAAAAAAAAAAAAAAAAEAAAQAABBAAAAAA=</HashCode>
       <FileName>State.h</FileName>
     </TypeIdentifier>
   </Class>
