@@ -94,9 +94,13 @@ void SeaLocation::DoTurn()
 	int battleChance = RandomNumber::Instance().Get<int>(1, 100);
 
 	if (battleChance < 20) {
-		printf("{{ insert battle }}\n");
-		// GetState().NavigateToLocation("battle");
-		// return;
+		//printf("{{ insert battle }}\n");
+		printf("| All hands on deck, there's a ship aproaching!\n");
+		printf("| ... Captain!\n");
+		printf("| They are flying a Pirate Flag, let's prepare for the worst.\n");
+
+		GetState().NavigateToLocation("battle");
+		return;
 	}
 
 	int oldDistance = currentDistance;

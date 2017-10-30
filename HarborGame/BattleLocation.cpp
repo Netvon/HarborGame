@@ -4,8 +4,7 @@
 #include "RandomNumber.h"
 
 BattleLocation::BattleLocation(const String & name) : Location(name)
-{
-}
+{ }
 
 void BattleLocation::NavigatedTo(const String & param)
 {
@@ -20,10 +19,10 @@ void BattleLocation::NavigatedTo(const String & param)
 
 void BattleLocation::PrintWelcomeMessage() const
 {
-	printf("| You've have encounterd an Pirate Ship Captain, prepare for battle!\n");
+	printf("| You've have encounterd a Pirate Ship Captain, prepare for battle!\n\n");
 	printf("| Here's the whats-what on the Pirate Ship, cap'n.\n");
 
-	printf("| - [ Name: %s ] [ %llu/%llu hp ] [ %llu cannons ]\n\n", pirateship.GetName().c_str(), pirateship.GetCurrentHealth(), pirateship.GetMaxHealth(), pirateship.GetCannonsAmount());
+	printf("| - [ Name: %s ] [ %llu/%llu hp ] [ %llu cannons ]\n	", pirateship.GetName().c_str(), pirateship.GetCurrentHealth(), pirateship.GetMaxHealth(), pirateship.GetCannonsAmount());
 }
 
 void BattleLocation::HandleOptionSelected(const Option & option)
@@ -107,7 +106,7 @@ void BattleLocation::Retreat()
 
 		// TODO: insert some flavour text here
 
-		GetState().NavigateToLocation("sea", "");
+		GetState().NavigateToLocation("sea");
 	}
 }
 
@@ -118,7 +117,7 @@ void BattleLocation::Surrender()
 	auto ship = GetState().GetPlayer().GetShip();
 	ship.Clear();
 
-	GetState().NavigateToLocation("sea", "");
+	GetState().NavigateToLocation("sea");
 }
 
 
