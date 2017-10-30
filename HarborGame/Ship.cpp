@@ -157,6 +157,11 @@ void Ship::AddCannon(const Cannon & newCannon, size_t amount)
 	cannonList.push_back({ newCannon, amount });
 }
 
+void Ship::AddCannon(const String & type, size_t amount)
+{
+	cannonList.push_back({ type, amount });
+}
+
 void Ship::AddProduct(const Product & newProduct, size_t amount)
 {
 	if (GetUsedCargospace() + amount  > GetMaxCargospace())

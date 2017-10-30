@@ -12,7 +12,6 @@ public:
 	T Get(T min, T max);
 private:
 	RandomNumber();
-	RandomNumber(int seed);
 
 	std::default_random_engine generator;
 };

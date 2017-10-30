@@ -5,20 +5,20 @@
 class Distance {
 
 public:
-	Distance(const String to, size_t distance)
-		: to(to), distance(distance) { }
+	Distance(const String name, size_t turns)
+		: name(name), turns(turns) { }
 
 	Distance() {};
 
-	const String& getTo() const {
-		return to;
+	const String& GetDestinationName() const {
+		return name;
 	}
 
-	const size_t& GetDistance() const {
-		return distance;
+	const size_t& GetTurns() const {
+		return turns;
 	}
 
 private:
-	String to;
-	size_t distance;
+	String name;
+	size_t turns;
 };
