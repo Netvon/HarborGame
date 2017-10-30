@@ -216,6 +216,12 @@ void Ship::RemoveProduct(Product & productToRemove, size_t amount)
 	}
 }
 
+void Ship::Clear()
+{
+	cannonList.clear();
+	productList.clear();
+}
+
 Cannon & Ship::GetCannon(size_t index)
 {
 	return cannonList.get(index);

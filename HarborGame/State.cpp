@@ -72,6 +72,11 @@ void State::LoadHarborAssets(const String & goodsPricesFilePath, const String & 
 	harbors = loader.LoadLocations(goodsPricesFilePath, goodsAmountsFilePath, harborDistancesFilePath);
 }
 
+const Vector<Ship>& State::GetShips() const
+{
+	return ships;
+}
+
 size_t State::GetShipAmount()
 {
 	return ships.size();

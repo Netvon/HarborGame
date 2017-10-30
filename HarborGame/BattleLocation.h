@@ -1,4 +1,6 @@
 #pragma once
+#include "Ship.h"
+
 #include "Location.h"
 class BattleLocation :
 	public Location
@@ -6,11 +8,16 @@ class BattleLocation :
 public:
 	BattleLocation() : BattleLocation("battle") { }
 	BattleLocation(const String& name);
-	~BattleLocation();
-
+	~BattleLocation() { };
+	 
 	void NavigatedTo(const String& param) override;
 	void PrintWelcomeMessage() const override;
 private:
+	Ship pirateship;
+
 	void HandleOptionSelected(const Option& option) override;
+	void Shoot();
+	void Retreat();
+	void Surrender();
 };
 

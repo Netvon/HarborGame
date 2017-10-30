@@ -59,6 +59,8 @@ public:
 	void RemoveCannon(Cannon& cannon);
 	void RemoveProduct(Product& product, size_t amount);
 
+	void Clear();
+
 	Cannon& GetCannon(size_t index);
 	Product& GetProduct(size_t index);
 

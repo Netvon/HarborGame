@@ -34,6 +34,8 @@ public:
 		const String& harborDistancesFilePath
 	);
 
+	const Vector<Ship>& GetShips() const;
+
 	size_t GetShipAmount();
 	Ship* GetShip(size_t index);
 	Ship* GetShip(const String& name);
