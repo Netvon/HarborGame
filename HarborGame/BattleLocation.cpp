@@ -52,14 +52,68 @@ void BattleLocation::Retreat()
 {
 	auto playership = GetState().GetPlayer().GetShip();
 
+	// If you're ships light and enemy is light
 	if (playership.HasLightTrait() && pirateship.HasLightTrait()) {
 		size_t randomnumber = RandomNumber::Instance().Get<size_t>(1, 100);
-		if(randomnumber >= 50)
+		if(randomnumber <= 50)
 			GetState().NavigateToLocation("sea", "");
 	}
 
+	// If you're ships light and enemy is medium
+	if (playership.HasLightTrait() && !pirateship.HasLightTrait() && !pirateship.HasInertTrait()) {
+		size_t randomnumber = RandomNumber::Instance().Get<size_t>(1, 100);
+		if (randomnumber <= 60)
+			GetState().NavigateToLocation("sea", "");
+	}
 
+	// If you're ships light and enemy is heavy
+	if (playership.HasLightTrait() && pirateship.HasInertTrait()) {
+		size_t randomnumber = RandomNumber::Instance().Get<size_t>(1, 100);
+		if (randomnumber <= 75)
+			GetState().NavigateToLocation("sea", "");
+	}
 
+	// If you're ships medium and enemy is light
+	if (!playership.HasLightTrait() && !playership.HasInertTrait() && pirateship.HasLightTrait()) {
+		size_t randomnumber = RandomNumber::Instance().Get<size_t>(1, 100);
+		if (randomnumber <= 30)
+			GetState().NavigateToLocation("sea", "");
+	}
+
+	// If you're ships medium and enemy is medium
+	if (!playership.HasLightTrait() && !playership.HasInertTrait() && !pirateship.HasLightTrait() && !pirateship.HasInertTrait()) {
+		size_t randomnumber = RandomNumber::Instance().Get<size_t>(1, 100);
+		if (randomnumber <= 40)
+			GetState().NavigateToLocation("sea", "");
+	}
+
+	// If you're ships medium and enemy is heavy
+	if (!playership.HasLightTrait() && !playership.HasInertTrait() && pirateship.HasInertTrait()) {
+		size_t randomnumber = RandomNumber::Instance().Get<size_t>(1, 100);
+		if (randomnumber <= 55)
+			GetState().NavigateToLocation("sea", "");
+	}
+
+	// If you're ships light and enemy is light
+	if (playership.HasInertTrait() && pirateship.HasLightTrait()) {
+		size_t randomnumber = RandomNumber::Instance().Get<size_t>(1, 100);
+		if (randomnumber <= 5)
+			GetState().NavigateToLocation("sea", "");
+	}
+
+	// If you're ships light and enemy is medium
+	if (playership.HasInertTrait() && !pirateship.HasLightTrait() && !pirateship.HasInertTrait()) {
+		size_t randomnumber = RandomNumber::Instance().Get<size_t>(1, 100);
+		if (randomnumber <= 15)
+			GetState().NavigateToLocation("sea", "");
+	}
+
+	// If you're ships light and enemy is heavy
+	if (playership.HasInertTrait() && pirateship.HasInertTrait()) {
+		size_t randomnumber = RandomNumber::Instance().Get<size_t>(1, 100);
+		if (randomnumber <= 30)
+			GetState().NavigateToLocation("sea", "");
+	}
 }
 
 void BattleLocation::Surrender()
