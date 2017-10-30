@@ -21,7 +21,7 @@ void LeaveLocation::NavigatedTo(const String & param)
 
 		name = currentHarbor->GetDistance(i).getTo();
 		name = name + " ";
-		name = name + "[ " + currentHarbor->GetDistance(i).GetDistance() + " Turns ]";
+		name = name + "[ " + to_int(currentHarbor->GetDistance(i).GetDistance()) + " Turns ]";
 
 		AddOption(i + 3, name);
 	}
