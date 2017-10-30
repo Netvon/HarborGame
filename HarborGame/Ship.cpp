@@ -131,9 +131,10 @@ void Ship::SubtractHealth(size_t amount)
 
 void Ship::AddHealth(size_t amount)
 {
-	if (currentHealth + amount <= maxHealth) {
-		currentHealth += amount;
-	}
+	currentHealth += amount;
+
+	if (currentHealth > maxHealth)
+		currentHealth = maxHealth;
 }
 
 void Ship::AddCannon(const Cannon & newCannon, size_t amount)

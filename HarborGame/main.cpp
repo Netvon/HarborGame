@@ -7,6 +7,7 @@
 #include "HarborLocation.h"
 #include "ShopLocation.h"
 #include "LeaveLocation.h"
+#include "SeaLocation.h"
 #include "BattleLocation.h"
 
 int main()
@@ -27,6 +28,7 @@ int main()
 		gameState->AddLocation<HarborLocation>("harbor");
 		gameState->AddLocation<ShopLocation>("shop");
 		gameState->AddLocation<LeaveLocation>("leave");
+		gameState->AddLocation<SeaLocation>("sea");
 		gameState->AddLocation<BattleLocation>("battle");
 		gameState->NavigateToLocation("harbor", gameState->GetHarbor(5)->GetName());
 		//Location* current = gameState->GetCurrentLocation();

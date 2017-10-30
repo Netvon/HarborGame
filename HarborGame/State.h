@@ -25,7 +25,7 @@ public:
 	Location* GetLocation(const String& name) const;
 	Location* GetCurrentLocation() const;
 
-	void NavigateToLocation(const String& locationName, const String& param);
+	void NavigateToLocation(const String& locationName, const String& param = "");
 
 	void LoadShipAssets(const String& filePath);
 	void LoadHarborAssets(
