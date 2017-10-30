@@ -174,7 +174,7 @@ void SeaLocation::HandleWeather()
 		}*/
 
 		int damagePercent = RandomNumber::Instance().Get<int>(1, 100);
-		int max = GetState().GetPlayer().GetShip().GetCurrentHealth();
+		int max = to_int(GetState().GetPlayer().GetShip().GetCurrentHealth());
 		size_t damage = to_sizet(static_cast<float>(max) * (static_cast<float>(damagePercent) / 100.f));
 
 		GetState().GetPlayer().GetShip().SubtractHealth(damage);

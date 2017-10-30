@@ -5,7 +5,6 @@
 #include "Vector.h"
 #include "Ship.h"
 #include "Harbor.h"
-#include "SmrtPtr.h"
 
 #include "State.h"
 

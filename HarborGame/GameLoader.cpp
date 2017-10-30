@@ -4,17 +4,6 @@
 #include "ShipFactory.h"
 #include "HarborFactory.h"
 
-GameLoader::GameLoader()
-{
-	
-}
-
-
-GameLoader::~GameLoader()
-{
-	
-}
-
 Vector<Ship> GameLoader::LoadShips(const String& filePath) { // "Files/schepen.csv"
 	FileParser fileParser;
 

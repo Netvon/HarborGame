@@ -169,7 +169,6 @@
     <ClInclude Include="ShipFactory.h" />
     <ClInclude Include="SeaLocation.h" />
     <ClInclude Include="ShopLocation.h" />
-    <ClInclude Include="SmrtPtr.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="String.h" />

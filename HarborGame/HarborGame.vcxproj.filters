@@ -48,9 +48,6 @@
     <ClInclude Include="String.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SmrtPtr.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SeaLocation.h">
       <Filter>Header Files</Filter>
     </ClInclude>
