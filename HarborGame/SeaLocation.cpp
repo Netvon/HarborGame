@@ -27,7 +27,7 @@ void SeaLocation::NavigatedTo(const String & param) // "destination_harbor_name;
 
 void SeaLocation::PrintWelcomeMessage() const
 {
-	printf("| Welcome to the open seas, captain.\n| We're on our way to %s and we'll arrive in %i turns.\n", destination, currentDistance);
+	printf("| Welcome to the open seas, captain.\n| We're on our way to %s and we'll arrive in %i turns.\n", destination.c_str(), currentDistance);
 	printf("| The navigator reports the following about the weather: %s.\n", GetWeatherFlavour(currentWeather).c_str());
 }
 
