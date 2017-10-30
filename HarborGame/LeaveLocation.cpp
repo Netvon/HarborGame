@@ -46,4 +46,12 @@ void LeaveLocation::HandleOptionSelected(const Option & option)
 	default:
 		break;
 	}
+
+	size_t locationIndex = option.number - 3u;
+	auto& destination = currentHarbor->GetDistance(locationIndex);
+	String param = destination.getTo();
+	param += ";";
+	param += to_int(destination.GetDistance());
+
+	GetState().NavigateToLocation("sea", param);
 }
