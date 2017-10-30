@@ -10,7 +10,8 @@
 #include <stdio.h>
 #include <tchar.h>
 
-
+#define to_int static_cast<int>
+#define to_sizet static_cast<size_t>
 
 // TODO: reference additional headers your program requires here
 

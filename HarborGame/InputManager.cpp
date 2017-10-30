@@ -4,11 +4,9 @@
 #include <cstdio>
 #include <iostream>
 
-using namespace std;
-
-int InputManager::GetInput(unsigned int maxNumber = 1)
+int InputManager::GetInput(unsigned int maxNumber = 1) const
 {
-	int numberInput = 0;
+	unsigned int numberInput = 0;
 	printf("> ");
 	scanf_s("%i", &numberInput);
 
@@ -26,6 +24,11 @@ int InputManager::GetInput(unsigned int maxNumber = 1)
 	}
 
 	return numberInput;
+}
+
+void InputManager::AskForContinue() const
+{
+	system("pause");
 }
 
 void InputManager::PrintInputError(unsigned int maxNumber) const

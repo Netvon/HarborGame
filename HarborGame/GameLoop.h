@@ -3,24 +3,25 @@
 #include "InputManager.h"
 
 #include "Vector.h"
+#include "Ship.h"
+#include "Harbor.h"
 #include "SmrtPtr.h"
+
+#include "State.h"
 
 class GameLoop
 {
 public:
-	GameLoop();
-	~GameLoop();
+	GameLoop(State* gameState, const String& name);
 
 	void Start();
-
 private:
 	
 	bool quit = false;
 
 	void ClearSceen() const;
 
-	InputManager inputManager;
-
-	Vector<Location*> locations;
+	State * gameState;
+	String name;
 };
 

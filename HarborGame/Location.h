@@ -1,57 +1,37 @@
 #pragma once
 #include "Option.h"
 #include "InputManager.h"
-#include <functional>
 #include "Vector.h"
+#include "State.h"
 
-using namespace std;
+class State;
 
 class Location
 {
 public:
-	Location() 
-	{
-		options = Vector<Option>();
-	}
+	Location(const String& name)
+		: name(name), options() { }
 
-	virtual ~Location() 
-	{
-		
-	};
+	Location()
+		: name(""), options() { }
 
+	virtual ~Location() { };
+
+	virtual void NavigatedTo(const String& param) = 0;
 	virtual void PrintWelcomeMessage() const = 0;
-	virtual void PrintOptions() const 
-	{
-		printf("=========\nOptions\n");
-		for (size_t i = 0; i < options.size(); i++)
-		{
-			Option o = options.get(i);
-			printf(" %i. %s\n", o.number, o.name.c_str());
-		}
-		printf("=========\n");
-	}	
+	virtual void PrintOptions() const;
+	void PrintStats() const;
+	void AddOption(size_t number, const char * option);
+	void Print() const;
 
-	void AddOption(unsigned int number, const char * option) 
-	{
-		options.push_back(Option(number, option));
+	void HandleInput();
+
+	void SetGameState(State * newGameState) {
+		gameState = newGameState;
 	}
 
-	void Print() const {
-		PrintWelcomeMessage();
-		PrintOptions();
-	}
-
-	void HandleInput() {
-		int option = manager.GetInput(static_cast<unsigned int>(options.size()));
-
-		for (size_t i = 0; i < options.size(); i++)
-		{
-			Option o = options.get(i);
-			if (o.number == option) {
-				HandleOptionSelected(o);
-				return;
-			}
-		}
+	const String& GetName() const {
+		return name;
 	}
 
 protected:
@@ -59,9 +39,24 @@ protected:
 		return &manager;
 	}
 
+	State& GetState() {
+		return *gameState;
+	}
+
+	const State& GetState() const {
+		return *gameState;
+	}
+
+	void ClearOptions() {
+		options.clear();
+	}
+
 private:
 	Vector<Option> options;
 	InputManager manager;
+	String name;
 
-	virtual void HandleOptionSelected(Option option) = 0;
+	State * gameState;
+
+	virtual void HandleOptionSelected(const Option& option) = 0;
 };

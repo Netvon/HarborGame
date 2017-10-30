@@ -1,6 +1,9 @@
 #pragma once
-#include <cstddef>
-#include <iostream>
+#include <cstring>
+#include <stdexcept>
+
+//#define VECTOR_DEFAULT_SIZE 16;
+const int VECTOR_DEFAULT_SIZE = 16;
 
 template <class T>
 class Vector {
@@ -8,7 +11,7 @@ class Vector {
 	std::size_t _capacity;
 	std::size_t _used;
 public:
-	Vector() : Vector(16) { };
+	Vector() : Vector(VECTOR_DEFAULT_SIZE) { };
 
 	Vector(std::size_t cap) : _array{ new T[cap] },
 		_capacity{ cap },
@@ -92,7 +95,23 @@ public:
 		return _used;
 	}
 
-	T get(std::size_t index) const
+	T& get(std::size_t index)
+	{
+		if (index > _used - 1)
+			throw std::out_of_range("Index out of bounds");
+
+		return _array[index];
+	}
+
+	T& get(std::size_t index) const
+	{
+		if (index > _used - 1)
+			throw std::out_of_range("Index out of bounds");
+
+		return _array[index];
+	}
+
+	T operator[](std::size_t index) const
 	{
 		return _array[index];
 	}
@@ -101,10 +120,19 @@ public:
 		if (_used == 0)
 			return *this;
 
-		size_t newSize = _used - 1;
-		T* temp = new T[newSize];
-		_used = newSize;
-		_capacity = newSize;
+		std::size_t newSize = _used - 1;
+		T* temp = nullptr;
+
+		if (newSize > 0) {
+			temp = new T[newSize];
+			_used = newSize;
+			_capacity = newSize;
+		}
+		else {
+			temp = new T[VECTOR_DEFAULT_SIZE];
+			_used = 0;
+			_capacity = VECTOR_DEFAULT_SIZE;
+		}
 
 		for (std::size_t i = 0; i < newSize; i++)
 		{
@@ -117,17 +145,29 @@ public:
 		return *this;
 	}
 
-	Vector<T>& pop_index(size_t index)
+	Vector<T>& pop_index(std::size_t index)
 	{
 		if (_used == 0)
 			return *this;
 
-		size_t newSize = _used - 1;
-		T* temp = new T[newSize];
-		_used = newSize;
-		_capacity = newSize;
+		std::size_t newSize = _used - 1;
+		T* temp = nullptr;
 
-		size_t y = 0;
+		if (newSize > 0) {
+			temp = new T[newSize];
+			_used = newSize;
+			_capacity = newSize;
+		}
+		else {
+			temp = new T[VECTOR_DEFAULT_SIZE];
+			_used = 0;
+			_capacity = VECTOR_DEFAULT_SIZE;
+		}
+
+		std::size_t y = 0;
+
+		if (index == 0)
+			y++;
 
 		for (std::size_t i = 0; i < newSize; i++)
 		{
@@ -150,7 +190,7 @@ public:
 	}
 
 	bool contains(const T& item) const {
-		;
+		
 		for (std::size_t i = 0; i < _used; i++)
 		{
 			if (_array[i] == item)
@@ -158,6 +198,14 @@ public:
 		}
 
 		return false;
+	}
+
+	void clear() {
+		delete[] _array;
+
+		_array = new T[VECTOR_DEFAULT_SIZE];
+		_used = 0;
+		_capacity = VECTOR_DEFAULT_SIZE;
 	}
 
 private:

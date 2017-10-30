@@ -6,9 +6,9 @@
 class Option {
 public:
 	Option() :number(0), name("") {};
-	Option(unsigned int number, const char* name)
+	Option(size_t number, const char* name)
 		: number(number), name(name) {};
 
-	unsigned int number;
+	size_t number;
 	String name;
 };

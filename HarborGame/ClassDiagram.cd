@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="BattleLocation" Collapsed="true">
+    <Position X="0.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAgiABABAAQAAAAAAAAAAAAAIAAAAAAAAIQA=</HashCode>
+      <FileName>BattleLocation.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Cannon" Collapsed="true">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABBIAQACAIACAAAEEAAAAAgAAABAAGACABAAAAAIAA=</HashCode>
+      <FileName>Cannon.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Distance" Collapsed="true">
+    <Position X="13.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAEAAAAAAABAAAAAEAABAAAAAAABAAAA=</HashCode>
+      <FileName>Distance.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="FileParser" Collapsed="true">
+    <Position X="15.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAADAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>FileParser.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameException" Collapsed="true">
+    <Position X="17.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAgCAAAAAAAAAAAAAAAAAAAAAAAAAAAIAAAA=</HashCode>
+      <FileName>GameException.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLoader" Collapsed="true">
+    <Position X="19" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAABAAAwA=</HashCode>
+      <FileName>GameLoader.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="GameLoop" Collapsed="true">
+    <Position X="12" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAQAAAAEAAAAEAAAAAAAhAAAAAAA=</HashCode>
+      <FileName>GameLoop.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Harbor" Collapsed="true">
+    <Position X="13.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABBEIAAAAEAQQhACACABEAEAAQAMIUADEAABBA=</HashCode>
+      <FileName>Harbor.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HarborFactory" Collapsed="true">
+    <Position X="15.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAABAAAAAAAAAAAAAAAAAAAAAAAAACAAAAAAAAAA=</HashCode>
+      <FileName>HarborFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="HarborLocation" Collapsed="true">
+    <Position X="2.75" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAgAgSAIAAAAAAAACACAAAAAIAAAAAAAACAA=</HashCode>
+      <FileName>HarborLocation.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="InputManager" Collapsed="true">
+    <Position X="17.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AQAAAAQAAAAAAAAAAAAQAAAAAAAAAAEAAAAAIAAAAgA=</HashCode>
+      <FileName>InputManager.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LeaveLocation" Collapsed="true">
+    <Position X="9.5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAAgAgAAAAAAAAAAAAAAAAAAAIAAQAAAAIAAA=</HashCode>
+      <FileName>LeaveLocation.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Location" Collapsed="true">
+    <Position X="5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AlEAAECAAgAAAAAAAAIABAAFAAAEAAAICAAgAAAkDAA=</HashCode>
+      <FileName>Location.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Option" Collapsed="true">
+    <Position X="19" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAACAAAAAAEAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Option.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Player" Collapsed="true">
+    <Position X="12" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIIAQACAAAKACAABBAAAAAAAAAgAQAAwAABAQAAABA=</HashCode>
+      <FileName>Player.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Product" Collapsed="true">
+    <Position X="13.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABDIAQEAAAACAAAEEAAAACgAAAEQAAAAABAAAAAJAQ=</HashCode>
+      <FileName>Product.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RandomNumber" Collapsed="true">
+    <Position X="15.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAABAAAAAAAAAAAAAAAAAQAAAAAAAAAQ=</HashCode>
+      <FileName>RandomNumber.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RandomWeatherGenerator" Collapsed="true">
+    <Position X="19" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAABAAAAACACAAAAAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>RandomWeatherGenerator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="RandomPirateshipGenerator" Collapsed="true">
+    <Position X="17.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAUAAAAAAACAA=</HashCode>
+      <FileName>RandomPirateshipGenerator.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Ship" Collapsed="true">
+    <Position X="12" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AEABAAAIIAgAAAIAEAgIRYAAIQGEABAZAEAICKBiBxA=</HashCode>
+      <FileName>Ship.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShipFactory" Collapsed="true">
+    <Position X="13.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAIAAgAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ShipFactory.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SeaLocation" Collapsed="true">
+    <Position X="5" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAEAAAAAFgAQAAoAAAAAAAAAAAiAgAAoAAAABAAQAAA=</HashCode>
+      <FileName>SeaLocation.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ShopLocation" Collapsed="true">
+    <Position X="7.25" Y="1.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAGAACAAAiAiQADAABAAAAAAAEAAAAAIAAIAAAAAAAA=</HashCode>
+      <FileName>ShopLocation.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SmrtPtr&lt;T&gt;" Collapsed="true">
+    <Position X="15.5" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAACAAAAAAAAAAAAAAEAACgAAAAgAAAAAAA=</HashCode>
+      <FileName>SmrtPtr.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="State" Collapsed="true">
+    <Position X="17.25" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAgECIIARAAABAAEAAAACDAAIEAClAAABBBAEAAA=</HashCode>
+      <FileName>State.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="String" Collapsed="true">
+    <Position X="19" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EBAAAACAAACAAAAEQIAAAQAAABEASAAAAAAgAAAAYAA=</HashCode>
+      <FileName>String.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Vector&lt;T&gt;" Collapsed="true">
+    <Position X="12" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AFAAAAAAAAAAAAAAiIMYQAQAAAEAAAAAAEEgAAIAAQA=</HashCode>
+      <FileName>Vector.h</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Enum Name="Weather" Collapsed="true">
+    <Position X="12" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAACAIAAgIAAAAAAAAAAAAAAAEAAAAAAAAAAAABAAA=</HashCode>
+      <FileName>Weather.h</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
