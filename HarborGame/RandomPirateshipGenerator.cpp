@@ -3,8 +3,10 @@
 #include "RandomNumber.h"
 #include <random>
 
-RandomPirateshipGenerator::RandomPirateshipGenerator()
+RandomPirateshipGenerator & RandomPirateshipGenerator::Instance()
 {
+	static RandomPirateshipGenerator instance;
+	return instance;
 }
 
 Ship RandomPirateshipGenerator::GeneratePirateship(const Vector<Ship>& ships)

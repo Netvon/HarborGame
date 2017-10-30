@@ -8,6 +8,6 @@ public:
 
 	static Ship GeneratePirateship(const Vector<Ship>& ships);
 private:
-	RandomPirateshipGenerator();
+	RandomPirateshipGenerator() {};
 };
 
