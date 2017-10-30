@@ -19,9 +19,9 @@ void LeaveLocation::NavigatedTo(const String & param)
 	{
 		String name;
 
-		name = currentHarbor->GetDistance(i).getTo();
+		name = currentHarbor->GetDistance(i).GetDestinationName();
 		name = name + " ";
-		name = name + "[ " + to_int(currentHarbor->GetDistance(i).GetDistance()) + " Turns ]";
+		name = name + "[ " + to_int(currentHarbor->GetDistance(i).GetTurns()) + " Turns ]";
 
 		AddOption(i + 3, name);
 	}
@@ -49,9 +49,9 @@ void LeaveLocation::HandleOptionSelected(const Option & option)
 
 	size_t locationIndex = option.number - 3u;
 	auto& destination = currentHarbor->GetDistance(locationIndex);
-	String param = destination.getTo();
+	String param = destination.GetDestinationName();
 	param += ";";
-	param += to_int(destination.GetDistance());
+	param += to_int(destination.GetTurns());
 
 	GetState().NavigateToLocation("sea", param);
 }
