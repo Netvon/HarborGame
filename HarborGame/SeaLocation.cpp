@@ -38,11 +38,55 @@ void SeaLocation::HandleOptionSelected(const Option& option)
 		DoTurn();
 		break;
 	case 2:
+		GenerateShipReport();
 		break;
 	case 3:
 		GetState().SetQuitState(true);
 		break;
 	}
+}
+
+void SeaLocation::GenerateShipReport()
+{
+	auto& ship = GetState().GetPlayer().GetShip();
+
+	String report = "|[ Your ship: \n|[ === Name ===\n";
+
+	report += "|[ ";
+	report += ship.GetName();
+	report += "\n|[ === Goods [ ";
+	report += to_int(ship.GetUsedCargospace());
+	report += "/";
+	report += to_int(ship.GetMaxCargospace());
+	report += " ] ===\n";
+
+	for (size_t i = 0; i < ship.GetUniqueProductAmount(); i++)
+	{
+		auto& product = ship.GetProduct(i);
+		report += "|[ - ";
+		report += product.GetName();
+		report += " x ";
+		report += product.GetAvailable();
+		report += "\n";
+	}
+
+	report += "|[ === Cannons [ ";
+	report += to_int(ship.GetCannonsAmount());
+	report += "/";
+	report += to_int(ship.GetMaxCannons());
+	report += " ] ===\n";
+
+	for (size_t i = 0; i < ship.GetUniqueCannonAmount(); i++)
+	{
+		auto& cannon = ship.GetCannon(i);
+		report += "|[ - ";
+		report += cannon.GetType();
+		report += " x ";
+		report += cannon.GetAvailable();
+		report += "\n";
+	}
+
+	printf("%s\n", report.c_str());
 }
 
 void SeaLocation::DoTurn()
