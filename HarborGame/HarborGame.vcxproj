@@ -162,6 +162,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Product.h" />
     <ClInclude Include="RandomNumber.h" />
+    <ClInclude Include="RandomWeatherGenerator.h" />
     <ClInclude Include="Ship.h" />
     <ClInclude Include="ShipFactory.h" />
     <ClInclude Include="SeaLocation.h" />
@@ -172,6 +173,7 @@
     <ClInclude Include="String.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Vector.h" />
+    <ClInclude Include="Weather.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Cannon.cpp" />
@@ -189,6 +191,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Product.cpp" />
     <ClCompile Include="RandomNumber.cpp" />
+    <ClCompile Include="RandomWeatherGenerator.cpp" />
     <ClCompile Include="Ship.cpp" />
     <ClCompile Include="ShipFactory.cpp" />
     <ClCompile Include="SeaLocation.cpp" />

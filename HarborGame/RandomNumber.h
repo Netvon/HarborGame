@@ -7,7 +7,6 @@ class RandomNumber
 {
 public:
 	static RandomNumber & Instance();
-	static RandomNumber & Instance(int seed);
 
 	template<class T = std::size_t>
 	T Get(T min, T max);

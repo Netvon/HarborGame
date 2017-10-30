@@ -1,13 +1,11 @@
 #include "stdafx.h"
 #include "SeaLocation.h"
 
-
-SeaLocation::SeaLocation()
+SeaLocation::SeaLocation(const String & name)
 {
 }
 
-
-SeaLocation::~SeaLocation()
+void SeaLocation::NavigatedTo(const String & param)
 {
 }
 
