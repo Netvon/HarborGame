@@ -61,7 +61,7 @@ void Cannon::IncreaseAmount(int amount)
 		available = maxAmountAvailable;
 }
 
-String Cannon::GetType() const {
+const String& Cannon::GetType() const {
 	return type;
 }
 

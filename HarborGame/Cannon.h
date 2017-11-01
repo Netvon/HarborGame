@@ -33,7 +33,7 @@ public:
 	void DecreaseAmount(int amount);
 	void IncreaseAmount(int amount);
 
-	String GetType() const;
+	const String& GetType() const;
 
 	int GenerateRandomDamage() const;
 private:
