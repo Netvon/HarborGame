@@ -23,7 +23,7 @@ public:
 			delete[] _array;
 	}
 
-	Vector(const Vector &v) : _array{ new T[v._capacity] },
+	Vector(const Vector<T> &v) : _array{ new T[v._capacity] },
 		_capacity{ v._capacity },
 		_used{ v._used }
 	{
